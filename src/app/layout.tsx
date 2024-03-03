@@ -43,8 +43,8 @@ const integralCFFont = localFont({
 });
 
 export const metadata: Metadata = {
-   title: "ECommerce",
-   description: "",
+   title: "XShop",
+   description: "XShop | Code by Ali Shariatian",
 };
 
 const RootLayout: FC<PropsWithChildren> = ({ children }): JSX.Element => {
@@ -56,4 +56,3 @@ const RootLayout: FC<PropsWithChildren> = ({ children }): JSX.Element => {
 };
 
 export default RootLayout;
-
