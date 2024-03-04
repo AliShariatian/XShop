@@ -31,8 +31,8 @@ const Navbar: FC = (): JSX.Element => {
                <Image src={hamburgerMenuIcon} alt="open" width={20} height={20} className="mt-1 size-5 lg:hidden" />
 
                {/* TITLE */}
-               <div className="-ml-9 -mt-1 lg:ml-0">
-                  <h1 className="font-integralCF text-3xl uppercase">shop.co</h1>
+               <div className="-ml-14 -mt-1 lg:ml-0">
+                  <h1 className="font-integralCF text-3xl uppercase">xshop</h1>
                </div>
 
                {/* NAVBAR ITEMS */}
