@@ -4,6 +4,8 @@ import type { Metadata } from "next";
 // FONT and STYLE
 import { integralCFFont, satoshiFont } from "@/utils/fonts";
 import "./globals.css";
+// COMPONENT
+import { Navbar } from "@/components";
 
 export const metadata: Metadata = {
    title: "XShop",
@@ -13,7 +15,10 @@ export const metadata: Metadata = {
 const RootLayout: FC<PropsWithChildren> = ({ children }): JSX.Element => {
    return (
       <html lang="en">
-         <body className={`${satoshiFont.variable} ${integralCFFont.variable} font-satoshi`}>{children}</body>
+         <body className={`${satoshiFont.variable} ${integralCFFont.variable} font-satoshi`}>
+            <Navbar />
+            {children}
+         </body>
       </html>
    );
 };
