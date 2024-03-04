@@ -1,7 +1,7 @@
 //------------------------ MAIN
 // HEADER
-import Navbar from "@/components/main/header/Navbar";
-import TopNavbar from "@/components/main/header/TopNavbar";
+import TopNavbar from "@/components/subComponent/header/TopNavbar";
+import Navbar from "@/components/subComponent/header/Navbar";
 
 // EXPORT
 export { Navbar, TopNavbar };
