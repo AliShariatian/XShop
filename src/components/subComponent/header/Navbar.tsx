@@ -2,7 +2,7 @@
 
 import { FC, useState } from "react";
 // ICON
-import { downArrowIcon, searchIcon, basketIcon, accountIcon, hamburgerMenuIcon } from "@/utils/icons";
+import { downArrowIcon, searchIcon, basketIcon, accountIcon, hamburgerMenuIcon } from "@/utils/img";
 // COMPONENT
 import Image from "next/image";
 import Link from "next/link";
@@ -21,7 +21,7 @@ const Navbar: FC = (): JSX.Element => {
          {/* TOP NAVBAR */}
          <TopNavbar onClick={closeTopNavbarHandler} close={closeTopNavbar} />
 
-         <Section parentClass="flex h-20 items-center justify-between bg-light lg:h-24" sectionClass="flex items-center justify-between">
+         <Section parentClass="z-50 w-full flex h-20 items-center justify-between bg-light lg:h-24" sectionClass="flex items-center justify-between">
             {/* Hamburger Menu Icon */}
             <div className="flex gap-4">
                <Image src={hamburgerMenuIcon} alt="open" width={20} height={20} className="mt-1 size-5 lg:hidden" />
