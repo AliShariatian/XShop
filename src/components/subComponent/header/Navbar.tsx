@@ -28,11 +28,13 @@ const Navbar: FC = (): JSX.Element => {
          <div className="flex h-20 items-center justify-between bg-light lg:h-24">
             <div className="container flex items-center justify-between">
                {/* Hamburger Menu Icon */}
-               <Image src={hamburgerMenuIcon} alt="open" width={20} height={20} className="mt-1 size-5 lg:hidden" />
+               <div className="flex gap-4">
+                  <Image src={hamburgerMenuIcon} alt="open" width={20} height={20} className="mt-1 size-5 lg:hidden" />
 
-               {/* TITLE */}
-               <div className="-ml-16 -mt-1 lg:ml-0">
-                  <h1 className="font-integralCF text-3xl uppercase">xshop</h1>
+                  {/* LOGO */}
+                  <div className="-mt-2">
+                     <h1 className="font-integralCF text-3xl uppercase">xshop</h1>
+                  </div>
                </div>
 
                {/* NAVBAR ITEMS */}
