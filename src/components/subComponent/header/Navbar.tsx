@@ -1,16 +1,12 @@
 "use client";
 
 import { FC, useState } from "react";
+// ICON
+import { downArrowIcon, searchIcon, basketIcon, accountIcon, hamburgerMenuIcon } from "@/utils/icons";
 // COMPONENT
 import Image from "next/image";
 import Link from "next/link";
 import { TopNavbar } from "@/components";
-// ICON
-import downArrowIcon from "../../../../public/img/icon/down-arrow.svg";
-import searchIcon from "../../../../public/img/icon/search.svg";
-import basketIcon from "../../../../public/img/icon/basket.svg";
-import accountIcon from "../../../../public/img/icon/account.svg";
-import hamburgerMenuIcon from "../../../../public/img/icon/hamburgerMenu.svg";
 
 const Navbar: FC = (): JSX.Element => {
    const [closeTopNavbar, setCloseTopNavbar] = useState<boolean>(false);

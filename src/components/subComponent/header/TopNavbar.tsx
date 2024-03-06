@@ -1,9 +1,11 @@
 "use client";
 
 import { FC } from "react";
+// ICON
+import { closeIcon } from "@/utils/icons";
+// COMPONENT
 import Link from "next/link";
 import Image from "next/image";
-import closeIcon from "../../../../public/img/icon/close.svg";
 
 type TopNavbarPropsType = {
    close: boolean;
