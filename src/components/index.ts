@@ -13,6 +13,7 @@ import NewArrivals from "./homePage/NewArrivals";
 
 // PRODUCT
 import ProductCard from "./product/ProductCard";
+import ProductCardSkeleton from "./product/ProductCardSkeleton";
 
 // EXPORT
-export { Section, Navbar, TopNavbar, HeroSection, Button, Brands, NewArrivals, ProductCard };
+export { Section, Navbar, TopNavbar, HeroSection, Button, Brands, NewArrivals, ProductCard, ProductCardSkeleton };
