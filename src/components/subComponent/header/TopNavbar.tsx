@@ -16,8 +16,8 @@ type TopNavbarPropsType = {
 const TopNavbar: FC<TopNavbarPropsType> = ({ onClick, close }): JSX.Element | false => {
    return (
       <Section
-         parentClass={`${!close ? "mt-0" : "-mt-9"} flex h-9 w-full items-center justify-between bg-dark transition-[margin]`}
-         sectionClass="flex items-center justify-center"
+         parentClassName={`${!close ? "mt-0" : "-mt-9"} flex h-9 w-full items-center justify-between bg-dark transition-[margin]`}
+         sectionClassName="flex items-center justify-center"
       >
          {/* WHITE SPACE */}
          <div className="hidden w-1/6 lg:block" />

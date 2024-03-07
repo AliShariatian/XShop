@@ -6,7 +6,7 @@ import { Section, Button } from "@/components";
 
 const HeroSection = () => {
    return (
-      <Section parentClass="bg-grey-50" sectionClass="flex">
+      <Section parentClassName="bg-grey-50" sectionClassName="flex">
          {/* LEFT */}
          <div className="mt-9 flex w-1/2 flex-col items-start gap-6">
             <h2 className="font-integralCF text-7xl">FIND CLOTHES THAT MATCHES YOUR STYLE</h2>

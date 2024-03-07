@@ -23,7 +23,7 @@ const Navbar: FC = (): JSX.Element => {
 
          {/* HEADER */}
          <header className="sticky top-0 z-50 shadow-sm">
-            <Section parentClass="w-full flex h-20 items-center justify-between bg-light lg:h-24" sectionClass="flex items-center justify-between">
+            <Section parentClassName="w-full flex h-20 items-center justify-between bg-light lg:h-24" sectionClassName="flex items-center justify-between">
                {/* Hamburger Menu Icon */}
                <div className="flex gap-4">
                   <Image src={hamburgerMenuIcon} alt="open" width={20} height={20} className="mt-1 size-5 lg:hidden" />

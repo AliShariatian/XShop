@@ -2,14 +2,14 @@ import { FC } from "react";
 
 type PropsType = {
    children: React.ReactNode;
-   parentClass?: string;
-   sectionClass?: string;
+   parentClassName?: string;
+   sectionClassName?: string;
 };
 
-const Section: FC<PropsType> = ({ children, parentClass, sectionClass }): JSX.Element => {
+const Section: FC<PropsType> = ({ children, parentClassName, sectionClassName }): JSX.Element => {
    return (
-      <div className={parentClass}>
-         <section className={`${sectionClass} container`}>{children}</section>
+      <div className={parentClassName}>
+         <section className={`${sectionClassName} container`}>{children}</section>
       </div>
    );
 };
