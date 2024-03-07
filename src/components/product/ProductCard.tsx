@@ -1,29 +1,21 @@
 import { FC } from "react";
+import { ProductsType } from "@/types/products";
 // COMPONENT
 import Image from "next/image";
 import Link from "next/link";
 
-type PropsType = {
-   rate: number;
-   href: string;
-   price: number;
-   title: string;
-   imgSrc: string;
-   discount: number;
-};
-
-const ProductCard: FC<PropsType> = ({ rate, href, price, title, imgSrc, discount }): JSX.Element => {
+const ProductCard: FC<ProductsType> = ({ rate, slug, price, title, img: imgSrc, discount }): JSX.Element => {
    return (
       <div className="productCard">
          {/* IMAGE */}
-         <Link href={href} title={title}>
+         <Link href={slug} title={title}>
             <div className="productImgWrapper">
                <Image src={imgSrc} width={500} height={500} alt={title} className="size-full" />
             </div>
          </Link>
 
          {/* TITLE */}
-         <Link href={href}>
+         <Link href={slug}>
             <h2 className="truncate font-sans text-xl font-bold">{title}</h2>
          </Link>
 
@@ -61,7 +53,7 @@ const ProductCard: FC<PropsType> = ({ rate, href, price, title, imgSrc, discount
                         {/* Price with Discount */}
                         <span className="text-2xl font-bold text-dark/40 line-through">${price}</span>
                         {/* DISCOUNT */}
-                        <span className="bg-discount/10 text-discount rounded-full px-3 py-1 text-base font-semibold">-{discount}%</span>
+                        <span className="rounded-full bg-discount/10 px-3 py-1 text-base font-semibold text-discount">-{discount}%</span>
                      </>
                   ) : null}
                </>

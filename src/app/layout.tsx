@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 import { integralCFFont, satoshiFont } from "@/utils/fonts";
 import "./globals.css";
 // COMPONENT
+import { Toaster } from "react-hot-toast";
 import { Navbar } from "@/components";
 
 export const metadata: Metadata = {
@@ -17,6 +18,7 @@ const RootLayout: FC<PropsWithChildren> = ({ children }): JSX.Element => {
       <html lang="en">
          <body className={`${satoshiFont.variable} ${integralCFFont.variable} font-satoshi`}>
             <Navbar />
+            <Toaster />
             {children}
          </body>
       </html>
