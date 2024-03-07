@@ -69,13 +69,13 @@ const Navbar: FC = (): JSX.Element => {
                {/* RIGHT ICONS */}
                <div className="flex gap-3">
                   <Link href="/" className="lg:hidden">
-                     <Image onClick={() => {}} src={searchIcon} alt="search" width={20} height={20} />
+                     <Image onClick={() => {}} src={searchIcon} alt="search" width={30} height={30} className="size-5 xl:size-6" />
                   </Link>
                   <Link href="/">
-                     <Image src={basketIcon} alt="basket" width={20} height={20} className="size-5" />
+                     <Image src={basketIcon} alt="basket" width={30} height={30} className="size-5 xl:size-6" />
                   </Link>
                   <Link href="/">
-                     <Image src={accountIcon} alt="account" width={20} height={20} className="size-5" />
+                     <Image src={accountIcon} alt="account" width={30} height={30} className="size-5 xl:size-6" />
                   </Link>
                </div>
             </Section>

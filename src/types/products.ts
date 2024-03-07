@@ -6,4 +6,5 @@ export type ProductsType = {
    title: string;
    img: string;
    discount: number;
+   saleCount?: number
 };

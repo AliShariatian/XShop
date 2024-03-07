@@ -38,7 +38,7 @@ const HeroSection = () => {
 
             {/* STAR ICON */}
             <Image src={starIcon} alt="star" width={100} height={100} className="absolute top-24 aspect-square" />
-            <Image src={starIcon} alt="star" width={50} height={50} className="absolute left-9 top-72 aspect-square" />
+            <Image src={starIcon} alt="star" width={50} height={50} className="absolute left-20 top-72 aspect-square" />
          </div>
       </Section>
    );
