@@ -30,6 +30,7 @@ const config: Config = {
                50: "#F2F0F1",
                100: "#F0F0F0",
             },
+            discount: "rgb(255, 51, 51)", // Red
          },
       },
    },

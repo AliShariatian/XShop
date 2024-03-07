@@ -34,7 +34,7 @@ const HeroSection = () => {
          {/* RIGHT */}
          <div className="relative flex w-1/2 justify-end">
             {/* BANNER */}
-            <Image src={bannerImg} alt="Banner" width={650} height={600} quality={100} className="aspect-square" />
+            <Image src={bannerImg} alt="Banner" width={999} height={999} className="size-[37.5rem]" />
 
             {/* STAR ICON */}
             <Image src={starIcon} alt="star" width={100} height={100} className="absolute top-24 aspect-square" />

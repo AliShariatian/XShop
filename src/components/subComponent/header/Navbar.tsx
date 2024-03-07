@@ -22,7 +22,7 @@ const Navbar: FC = (): JSX.Element => {
          <TopNavbar onClick={closeTopNavbarHandler} close={closeTopNavbar} />
 
          {/* HEADER */}
-         <header className="sticky top-0 z-50 shadow-sm">
+         <header className="sticky top-0 z-40 shadow-sm">
             <Section parentClassName="w-full flex h-20 items-center justify-between bg-light lg:h-24" sectionClassName="flex items-center justify-between">
                {/* Hamburger Menu Icon */}
                <div className="flex gap-4">
