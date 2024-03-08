@@ -5,9 +5,9 @@ import { ProductsType } from "@/types/products";
 import { getLimitProducts } from "@/axios/requests/products";
 import { toast } from "react-toastify";
 
-// Splide
-import { Splide, SplideSlide } from "@splidejs/react-splide";
-import "@splidejs/react-splide/css";
+// Swiper
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
 
 // COMPONENT
 import { Section, ProductCard, Button, ProductCardSkeleton } from "@/components";
@@ -41,41 +41,35 @@ const Vitrine: FC<PropsType> = ({ title, sortBy, order, buttonHref }): JSX.Eleme
       <Section parentClassName="py-[5.62rem]" sectionClassName="flex flex-col items-center gap-16">
          <h2 className="font-integralCF text-5xl">{title}</h2>
 
-         <Splide
-            options={{
-               arrows: false,
-               pagination: false,
-               snap: true,
-               gap: "0.75rem",
-               autoWidth: true,
-
-               breakpoints: {
-                  0: {
-                     perPage: 1,
-                     padding: "1rem",
-                  },
-                  1080: {
-                     padding: "0rem",
-                     perPage: 4,
-                  },
+         <Swiper
+            draggable
+            breakpoints={{
+               0: {
+                  slidesPerView: 1,
+                  spaceBetween: -25,
+               },
+               1280: {
+                  slidesPerView: 4,
+                  spaceBetween: 0,
                },
             }}
+            className="!grid grid-cols-4"
          >
             {products.length
                ? products.map((item: ProductsType) => (
-                    <SplideSlide key={item.id}>
+                    <SwiperSlide key={item.id}>
                        <ProductCard {...item} />
-                    </SplideSlide>
+                    </SwiperSlide>
                  ))
                : //  Skeleton loading
                  Array(PRODUCT_SHOW_COUNT)
                     .fill(0)
                     .map((_, index) => (
-                       <SplideSlide key={index}>
+                       <SwiperSlide key={index}>
                           <ProductCardSkeleton />
-                       </SplideSlide>
+                       </SwiperSlide>
                     ))}
-         </Splide>
+         </Swiper>
 
          <Link href={buttonHref}>
             <Button bgColor="white" borderColor="border-grey-100" py="py-3">

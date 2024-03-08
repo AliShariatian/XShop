@@ -32,6 +32,8 @@ const config: Config = {
             },
             discount: "rgb(255, 51, 51)", // Red
          },
+         width: { productCardWidth: "var(--productCardWidth)", productCardWidthMobile: "var(--productCardWidthMobile)" },
+         size: { productCardWidth: "var(--productCardWidth)", productCardWidthMobile: "var(--productCardWidthMobile)" },
       },
    },
    plugins: [],

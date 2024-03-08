@@ -23,7 +23,7 @@ const ProductCard: FC<ProductsType> = ({ rate, slug, price, title, img, discount
 
          {/* TITLE */}
          <Link href={slug} title={title}>
-            <h2 className="truncate font-sans text-xl font-bold capitalize">{title}</h2>
+            <h2 className="truncate text-xl font-bold capitalize">{title}</h2>
          </Link>
 
          {/* STAR */}
