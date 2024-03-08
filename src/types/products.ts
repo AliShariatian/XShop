@@ -1,10 +1,13 @@
-export type ProductsType = {
-   id?: number;
+export interface ProductCardType {
+   id: number;
    rate: number;
    slug: string;
    price: number;
    title: string;
    img: string;
    discount: number;
-   saleCount?: number
-};
+}
+
+export interface ProductsType extends ProductCardType {
+   saleCount: number;
+}

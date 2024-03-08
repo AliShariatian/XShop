@@ -4,18 +4,18 @@ import { ProductsType } from "@/types/products";
 import Image from "next/image";
 import Link from "next/link";
 
-const ProductCard: FC<ProductsType> = ({ rate, slug, price, title, img: imgSrc, discount }): JSX.Element => {
+const ProductCard: FC<ProductsType> = ({ rate, slug, price, title, img, discount }): JSX.Element => {
    return (
-      <div className="productCard">
+      <div className="productCard group/productCard">
          {/* IMAGE */}
          <Link href={slug} title={title}>
             <div className="productImgWrapper">
-               <Image src={imgSrc} width={500} height={500} alt={title} className="size-full" />
+               <Image src={img} width={1000} height={1000} alt={title} className="size-full transition-transform group-hover/productCard:scale-110" />
             </div>
          </Link>
 
          {/* TITLE */}
-         <Link href={slug}>
+         <Link href={slug} title={title}>
             <h2 className="truncate font-sans text-xl font-bold capitalize">{title}</h2>
          </Link>
 

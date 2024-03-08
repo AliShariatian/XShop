@@ -8,7 +8,7 @@
 
 @layer components {
    .productCard {
-      @apply flex w-[var(--productCardWith)] flex-col gap-3;
+      @apply flex w-[var(--productCardWith)] flex-col gap-3 pb-3;
    }
 
    .productImgWrapper {

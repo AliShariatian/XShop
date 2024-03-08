@@ -1,13 +1,15 @@
 import { FC } from "react";
 // COMPONENT
-import { HeroSection, Brands, NewArrivals } from "@/components";
+import { HeroSection, Brands, Vitrine } from "@/components";
 
 const HomePage: FC = (): JSX.Element => {
    return (
       <>
          <HeroSection />
          <Brands />
-         <NewArrivals />
+         <Vitrine title="NEW ARRIVALS" sortBy="createdAt" order="descending" buttonHref="/" />
+         <hr className="container opacity-70" />
+         <Vitrine title="top selling" sortBy="saleCount" order="descending" buttonHref="/" />
       </>
    );
 };
