@@ -10,8 +10,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
 // COMPONENT
-import { Section, ProductCard, Button, ProductCardSkeleton } from "@/components";
 import Link from "next/link";
+import { Section, ProductCard, Button, ProductCardSkeleton } from "@/components";
 
 const PRODUCT_SHOW_COUNT: number = 4;
 
@@ -26,15 +26,20 @@ const Vitrine: FC<PropsType> = ({ title, sortBy, order, buttonHref }): JSX.Eleme
    const [products, setProducts] = useState<ProductsType[]>([]);
 
    useEffect(() => {
+      const abortController = new AbortController();
       // Get products data from server
       (async () => {
          try {
-            const response = await getLimitProducts(PRODUCT_SHOW_COUNT, sortBy, order);
+            const response = await getLimitProducts(PRODUCT_SHOW_COUNT, sortBy, order, abortController.signal);
             setProducts(response.data);
          } catch (err: any) {
             toast.error(err.message);
          }
       })();
+
+      return () => {
+         abortController.abort();
+      };
    }, [sortBy, order]);
 
    return (
