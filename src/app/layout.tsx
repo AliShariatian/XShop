@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 const RootLayout: FC<PropsWithChildren> = ({ children }): JSX.Element => {
    return (
       <html lang="en">
-         <body className={`${satoshiFont.variable} ${integralCFFont.variable} font-satoshi`}>
+         <body className={`${satoshiFont.variable} ${integralCFFont.variable} font-satoshi overflow-x-hidden`}>
             <Navbar />
             <ToastContainer />
             {children}

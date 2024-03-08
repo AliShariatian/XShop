@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 :root {
-   --productCardWith: 18.43rem;
+   --productCardWith: 20rem;
 }
 
 @layer components {
    .productCard {
-      @apply flex w-[var(--productCardWith)] flex-col gap-3 pb-3;
+      @apply flex w-[var(--productCardWith)] flex-col gap-3 pb-3 select-none;
    }
 
    .productImgWrapper {

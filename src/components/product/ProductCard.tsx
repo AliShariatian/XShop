@@ -10,7 +10,14 @@ const ProductCard: FC<ProductsType> = ({ rate, slug, price, title, img, discount
          {/* IMAGE */}
          <Link href={slug} title={title}>
             <div className="productImgWrapper">
-               <Image src={img} width={1000} height={1000} alt={title} className="size-full transition-transform group-hover/productCard:scale-110" />
+               <Image
+                  src={img}
+                  width={1000}
+                  height={1000}
+                  draggable="false"
+                  alt={title}
+                  className="size-full transition-transform group-hover/productCard:scale-110"
+               />
             </div>
          </Link>
 
