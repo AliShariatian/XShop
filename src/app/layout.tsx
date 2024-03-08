@@ -4,8 +4,10 @@ import type { Metadata } from "next";
 // FONT and STYLE
 import { integralCFFont, satoshiFont } from "@/utils/fonts";
 import "./globals.css";
-// COMPONENT
+// Toastify
 import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+// COMPONENT
 import { Navbar } from "@/components";
 
 export const metadata: Metadata = {
@@ -16,9 +18,9 @@ export const metadata: Metadata = {
 const RootLayout: FC<PropsWithChildren> = ({ children }): JSX.Element => {
    return (
       <html lang="en">
-         <body className={`${satoshiFont.variable} ${integralCFFont.variable} font-satoshi overflow-x-hidden`}>
+         <body className={`${satoshiFont.variable} ${integralCFFont.variable} overflow-x-hidden font-satoshi`}>
             <Navbar />
-            <ToastContainer />
+            <ToastContainer position="bottom-right" limit={3} />
             {children}
          </body>
       </html>

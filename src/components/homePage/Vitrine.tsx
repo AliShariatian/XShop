@@ -17,22 +17,22 @@ const PRODUCT_SHOW_COUNT: number = 4;
 
 type PropsType = {
    title: string;
-   sortBy: "createdAt" | "saleCount";
-   order: "descending" | "ascending";
    buttonHref: string;
+   order: "descending" | "ascending";
+   sortBy: "createdAt" | "saleCount";
 };
 
 const Vitrine: FC<PropsType> = ({ title, sortBy, order, buttonHref }): JSX.Element => {
    const [products, setProducts] = useState<ProductsType[]>([]);
 
    useEffect(() => {
+      // Get products data from server
       (async () => {
          try {
             const response = await getLimitProducts(PRODUCT_SHOW_COUNT, sortBy, order);
             setProducts(response.data);
          } catch (err: any) {
             toast.error(err.message);
-            console.log(err.message);
          }
       })();
    }, [sortBy, order]);
@@ -40,7 +40,6 @@ const Vitrine: FC<PropsType> = ({ title, sortBy, order, buttonHref }): JSX.Eleme
    return (
       <Section parentClassName="py-[5.62rem]" sectionClassName="flex flex-col items-center gap-16">
          <h2 className="font-integralCF text-5xl">{title}</h2>
-
          <Swiper
             draggable
             breakpoints={{
