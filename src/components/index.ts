@@ -10,10 +10,11 @@ import Navbar from "@/components/subComponent/header/Navbar";
 import HeroSection from "./homePage/HeroSection";
 import Brands from "./homePage/Brands";
 import Vitrine from "./homePage/Vitrine";
+import Gallery from "./homePage/Gallery";
 
 // PRODUCT
 import ProductCard from "./product/ProductCard";
 import ProductCardSkeleton from "./product/ProductCardSkeleton";
 
 // EXPORT
-export { Section, Navbar, TopNavbar, HeroSection, Button, Brands, Vitrine, ProductCard, ProductCardSkeleton };
+export { Section, Navbar, TopNavbar, HeroSection, Button, Brands, Vitrine, ProductCard, ProductCardSkeleton, Gallery };

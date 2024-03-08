@@ -1,5 +1,10 @@
 // BANNER
 import bannerImg from "../../../public/img/banner/hero.png";
+import gallery1 from "../../../public/img/banner/gallery1.png";
+import gallery2 from "../../../public/img/banner/gallery2.png";
+import gallery3 from "../../../public/img/banner/gallery3.png";
+import gallery4 from "../../../public/img/banner/gallery4.png";
+
 // BRANDS
 import calvinKlein from "../../../public/img/brands/calvinKlein.svg";
 import gucci from "../../../public/img/brands/gucci.svg";
@@ -23,4 +28,18 @@ const brands = [
    { src: calvinKlein, title: "Calvin Klein" },
 ];
 
-export { downArrowIcon, searchIcon, basketIcon, accountIcon, hamburgerMenuIcon, closeIcon, bannerImg, brands, starIcon };
+export {
+   downArrowIcon,
+   searchIcon,
+   basketIcon,
+   accountIcon,
+   hamburgerMenuIcon,
+   closeIcon,
+   bannerImg,
+   brands,
+   starIcon,
+   gallery1,
+   gallery2,
+   gallery3,
+   gallery4,
+};
