@@ -7,6 +7,7 @@ import { getLimitProducts } from "@/axios/requests/products";
 // COMPONENT
 import { Section, ProductCard, Button, ProductCardSkeleton } from "@/components";
 import Link from "next/link";
+import { toast } from "react-toastify";
 
 const PRODUCT_SHOW_COUNT: number = 4;
 
@@ -26,6 +27,7 @@ const Vitrine: FC<PropsType> = ({ title, sortBy, order, buttonHref }): JSX.Eleme
             const response = await getLimitProducts(PRODUCT_SHOW_COUNT, sortBy, order);
             setProducts(response.data);
          } catch (err: any) {
+            toast.error(err.message);
             console.log(err.message);
          }
       })();

@@ -9,7 +9,7 @@ import { ToastContainer } from "react-toastify";
 import { Navbar } from "@/components";
 
 export const metadata: Metadata = {
-   title: "XShop",
+   title: "XShop online store",
    description: "XShop | Coded by Ali Shariatian",
 };
 
