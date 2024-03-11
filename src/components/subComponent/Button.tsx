@@ -10,7 +10,15 @@ type PropsType = {
    py?: "py-4" | "py-3";
 };
 
-const Button: FC<PropsType> = ({ children, className, widthFull, borderColor, type = "button", bgColor = "grey", py = "py-4" }): JSX.Element => {
+const Button: FC<PropsType> = ({
+   children,
+   className,
+   widthFull,
+   borderColor,
+   type = "button",
+   bgColor = "grey",
+   py = "py-4",
+}): JSX.Element => {
    return (
       <button
          type={type}

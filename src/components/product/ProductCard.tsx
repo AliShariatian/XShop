@@ -60,7 +60,9 @@ const ProductCard: FC<ProductsType> = ({ rate, slug, price, title, img, discount
                         {/* Price with Discount */}
                         <span className="text-2xl font-bold text-dark/40 line-through">${price}</span>
                         {/* DISCOUNT */}
-                        <span className="rounded-full bg-discount/10 px-3 py-1 text-base font-semibold text-discount">-{discount}%</span>
+                        <span className="rounded-full bg-discount/10 px-3 py-1 text-base font-semibold text-discount">
+                           -{discount}%
+                        </span>
                      </>
                   ) : null}
                </>

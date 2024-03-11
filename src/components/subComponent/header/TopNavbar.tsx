@@ -2,7 +2,7 @@
 
 import { FC } from "react";
 // ICON
-import { closeIcon } from "@/utils/img";
+import { closeIcon } from "@/public/img";
 // COMPONENT
 import Link from "next/link";
 import Image from "next/image";

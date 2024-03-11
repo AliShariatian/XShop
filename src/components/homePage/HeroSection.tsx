@@ -1,5 +1,5 @@
 // IMAGE
-import { bannerImg, starIcon } from "@/utils/img";
+import { bannerImg, starIcon } from "@/public/img";
 // COMPONENT
 import Image from "next/image";
 import { Section, Button } from "@/components";
@@ -11,7 +11,8 @@ const HeroSection = () => {
          <div className="mt-9 flex w-1/2 flex-col items-start gap-6">
             <h2 className="font-integralCF text-7xl">FIND CLOTHES THAT MATCHES YOUR STYLE</h2>
             <p className="w-11/12">
-               Browse through our diverse range of meticulously crafted garments, designed to bring out your individuality and cater to your sense of style.
+               Browse through our diverse range of meticulously crafted garments, designed to bring out your individuality and
+               cater to your sense of style.
             </p>
             <Button bgColor="dark">Shop New</Button>
 

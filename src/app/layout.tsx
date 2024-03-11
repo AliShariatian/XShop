@@ -2,7 +2,7 @@
 import { FC, PropsWithChildren } from "react";
 import type { Metadata } from "next";
 // FONT and STYLE
-import { integralCFFont, satoshiFont } from "@/utils/fonts";
+import { integralCFFont, satoshiFont } from "@/public/font";
 import "./globals.css";
 // Toastify
 import { ToastContainer } from "react-toastify";

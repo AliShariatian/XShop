@@ -1,6 +1,6 @@
 import { FC } from "react";
 // IMAGE
-import { gallery1, gallery2, gallery3, gallery4 } from "@/utils/img";
+import { gallery1, gallery2, gallery3, gallery4 } from "@/public/img";
 // COMPONENT
 import { Section } from "@/components";
 import Image, { StaticImageData } from "next/image";
@@ -31,7 +31,13 @@ const Gallery: FC = (): JSX.Element => {
                {galleryItems.map((item: GalleryItemsType) => (
                   <Link key={item.title} href={item.href} className={`${item.parentClassName} relative z-20`}>
                      <h3 className="absolute left-9 top-7 z-30 text-4xl font-bold capitalize">{item.title}</h3>
-                     <Image src={item.src} width={500} height={500} alt={item.alt} className="size-full object-cover transition-transform hover:scale-110" />
+                     <Image
+                        src={item.src}
+                        width={500}
+                        height={500}
+                        alt={item.alt}
+                        className="size-full object-cover transition-transform hover:scale-110"
+                     />
                   </Link>
                ))}
             </div>

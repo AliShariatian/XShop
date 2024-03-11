@@ -5,7 +5,12 @@ export const getAllProducts = (signal?: GenericAbortSignal) => {
    return axios.get("/products", { signal: signal });
 };
 
-export const getLimitProducts = (limit: number, sortBy: string, order: "descending" | "ascending" = "ascending", signal?: GenericAbortSignal) => {
+export const getLimitProducts = (
+   limit: number,
+   sortBy: string,
+   order: "descending" | "ascending" = "ascending",
+   signal?: GenericAbortSignal,
+) => {
    // + => Order on Ascending
    // - => Order on Descending
    const orderBy = order === "ascending" ? "+" : "-";

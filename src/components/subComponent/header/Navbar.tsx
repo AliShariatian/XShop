@@ -2,7 +2,7 @@
 
 import { FC, useState } from "react";
 // ICON
-import { downArrowIcon, searchIcon, basketIcon, accountIcon, hamburgerMenuIcon } from "@/utils/img";
+import { downArrowIcon, searchIcon, basketIcon, accountIcon, hamburgerMenuIcon } from "@/public/img";
 // COMPONENT
 import Image from "next/image";
 import Link from "next/link";
@@ -23,7 +23,10 @@ const Navbar: FC = (): JSX.Element => {
 
          {/* HEADER */}
          <header className="sticky top-0 z-40 shadow-sm">
-            <Section parentClassName="w-full flex h-20 items-center justify-between bg-light lg:h-24" sectionClassName="flex items-center justify-between">
+            <Section
+               parentClassName="w-full flex h-20 items-center justify-between bg-light lg:h-24"
+               sectionClassName="flex items-center justify-between"
+            >
                {/* Hamburger Menu Icon */}
                <div className="flex gap-4">
                   <Image src={hamburgerMenuIcon} alt="open" width={20} height={20} className="mt-1 size-5 lg:hidden" />
@@ -55,7 +58,14 @@ const Navbar: FC = (): JSX.Element => {
 
                {/* SEARCH BAR */}
                <div className="hidden w-2/5 rounded-full bg-grey-100 p-3 lg:flex">
-                  <Image onClick={() => {}} src={searchIcon} alt="search" width={20} height={20} className="ml-2 size-5 cursor-pointer opacity-40" />
+                  <Image
+                     onClick={() => {}}
+                     src={searchIcon}
+                     alt="search"
+                     width={20}
+                     height={20}
+                     className="ml-2 size-5 cursor-pointer opacity-40"
+                  />
                   <input
                      type="search"
                      value={searchInput}
@@ -69,7 +79,14 @@ const Navbar: FC = (): JSX.Element => {
                {/* RIGHT ICONS */}
                <div className="flex gap-3">
                   <Link href="/" className="lg:hidden">
-                     <Image onClick={() => {}} src={searchIcon} alt="search" width={30} height={30} className="size-5 xl:size-6" />
+                     <Image
+                        onClick={() => {}}
+                        src={searchIcon}
+                        alt="search"
+                        width={30}
+                        height={30}
+                        className="size-5 xl:size-6"
+                     />
                   </Link>
                   <Link href="/">
                      <Image src={basketIcon} alt="basket" width={30} height={30} className="size-5 xl:size-6" />

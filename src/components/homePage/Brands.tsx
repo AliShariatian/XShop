@@ -1,6 +1,6 @@
 import { FC } from "react";
 // IMAGE
-import { brands } from "@/utils/img";
+import { brands } from "@/public/img";
 // COMPONENT
 import Image from "next/image";
 import { Section } from "@/components";
