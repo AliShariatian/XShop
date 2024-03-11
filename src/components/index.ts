@@ -1,10 +1,10 @@
 // MAIN
-import Section from "./subComponent/Section";
-import Button from "./subComponent/Button";
+import Section from "./layout/Section";
+import Button from "./layout/Button";
 
 // HEADER
-import TopNavbar from "@/components/subComponent/header/TopNavbar";
-import Navbar from "@/components/subComponent/header/Navbar";
+import TopNavbar from "./layout/header/TopNavbar";
+import Navbar from "./layout/header/Navbar";
 
 // HOME PAGE
 import HeroSection from "./homePage/HeroSection";

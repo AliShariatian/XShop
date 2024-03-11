@@ -19,7 +19,8 @@
       ],
       "paths": {
          "@/*": ["./src/*"],
-         "@/public/*": ["./public/*"]
+         "@/public/*": ["./public/*"],
+         "@/axios/*": ["./src/services/axios/requests/*"]
       }
    },
    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/axios/interceptors/request.ts"],

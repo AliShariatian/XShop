@@ -2,7 +2,7 @@
 
 import { FC, useEffect, useState } from "react";
 import { ProductsType } from "@/types/products";
-import { getLimitProducts } from "@/axios/requests/products";
+import { getLimitProducts } from "@/axios/products";
 import { toast } from "react-toastify";
 
 // Swiper
