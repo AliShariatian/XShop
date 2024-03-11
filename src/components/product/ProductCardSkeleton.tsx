@@ -9,14 +9,14 @@ const ProductCardSkeleton: FC = (): JSX.Element => {
             width={320}
             height={320}
             animation="wave"
-            className={`rounded-[1.25rem] max-xl:!size-productCardWidthMobile`}
+            className={`rounded-[1.25rem] max-xl:!size-productCard`}
          />
          <Skeleton
             variant="text"
             width={320}
             height={40}
             animation="wave"
-            className="rounded-[.7rem] max-xl:!w-productCardWidthMobile"
+            className="rounded-[.7rem] max-xl:!w-productCard"
          />
          <Skeleton variant="text" width={130} height={40} animation="wave" className="rounded-[.7rem]" />
          <Skeleton variant="text" width={150} height={40} animation="wave" className="rounded-[.7rem]" />

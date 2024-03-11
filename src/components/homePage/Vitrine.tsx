@@ -52,9 +52,18 @@ const Vitrine: FC<PropsType> = ({ title, sortBy, order, buttonHref }): JSX.Eleme
             breakpoints={{
                0: {
                   slidesPerView: 1,
-                  spaceBetween: -25,
+                  spaceBetween: -15,
                },
+               500: {
+                  slidesPerView: 2,
+                  spaceBetween: -15,
+               },
+
                1280: {
+                  slidesPerView: 3,
+                  spaceBetween: -115,
+               },
+               1600: {
                   slidesPerView: 4,
                   spaceBetween: 0,
                },

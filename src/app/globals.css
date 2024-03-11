@@ -3,16 +3,15 @@
 @tailwind utilities;
 
 :root {
-   --productCardWidthMobile: 18rem;
-   --productCardWidth: 20rem;
+   --productCard: 20rem;
 }
 
 @layer components {
    .productCard {
-      @apply w-productCardWidthMobile xl:w-productCardWidth flex select-none flex-col gap-3 pb-3;
+      @apply xl:w-productCard flex w-11/12 select-none flex-col gap-3 pb-3;
    }
 
    .productImgWrapper {
-      @apply size-productCardWidthMobile xl:size-productCardWidth flex items-center justify-center overflow-hidden rounded-[1.25rem] bg-grey-100;
+      @apply w-full h-productCard flex items-center justify-center overflow-hidden rounded-[1.25rem] bg-grey-100;
    }
 }
