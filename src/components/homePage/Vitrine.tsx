@@ -38,7 +38,9 @@ const Vitrine: FC<PropsType> = ({ title, sortBy, order, buttonHref }): JSX.Eleme
       })();
 
       return () => {
-         abortController.abort();
+         setTimeout(() => {
+            abortController.abort();
+         }, 500);
       };
    }, [sortBy, order]);
 
