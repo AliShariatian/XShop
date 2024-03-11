@@ -1,11 +1,13 @@
-const responseInterceptor = (instance) => {
+import { AxiosError, AxiosInstance, AxiosResponse } from "axios";
+
+const responseInterceptor = (instance: AxiosInstance) => {
    instance.interceptors.response.use(
-      (response) => {
+      (response: AxiosResponse) => {
          return response;
       },
 
-      (err) => {
-         const status = err.response ? err.response.status : 500;
+      (err: AxiosError) => {
+         const status: number = err.response ? err.response.status : 500;
 
          switch (status) {
             case 403:

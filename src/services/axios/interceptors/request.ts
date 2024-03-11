@@ -1,6 +1,8 @@
-const requestInterceptor = (instance) => {
+import { AxiosError, AxiosInstance, InternalAxiosRequestConfig } from "axios";
+
+const requestInterceptor = (instance: AxiosInstance) => {
    instance.interceptors.request.use(
-      (config) => {
+      (config: InternalAxiosRequestConfig) => {
          if (config.data instanceof FormData) {
             config.headers["Content-Type"] = "multipart/form-data";
          }
@@ -8,7 +10,7 @@ const requestInterceptor = (instance) => {
          return config;
       },
 
-      (err) => {
+      (err: AxiosError) => {
          return Promise.reject(err);
       },
    );
