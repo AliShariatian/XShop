@@ -65,7 +65,7 @@ const Vitrine: FC<PropsType> = ({ title, sortBy, order, buttonHref }): JSX.Eleme
                      slidesPerView: 3,
                      spaceBetween: -115,
                   },
-                  1600: {
+                  1500: {
                      slidesPerView: 4,
                      spaceBetween: 0,
                   },
@@ -80,7 +80,7 @@ const Vitrine: FC<PropsType> = ({ title, sortBy, order, buttonHref }): JSX.Eleme
             </Swiper>
          ) : (
             //  Skeleton loading
-            <div className="flex gap-4 max-md:[&>*:nth-child(1)]:hidden max-lg:[&>*:nth-child(2)]:hidden max-xl:[&>*:nth-child(3)]:hidden">
+            <div className="flex gap-4 max-md:[&>*:nth-child(1)]:hidden max-xl:[&>*:nth-child(2)]:hidden max-2xl:[&>*:nth-child(3)]:hidden">
                {Array(PRODUCT_SHOW_COUNT)
                   .fill(0)
                   .map((_, index) => (

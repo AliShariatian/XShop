@@ -6,7 +6,7 @@ import { Section, Button } from "@/components";
 
 const HeroSection = () => {
    return (
-      <Section parentClassName="bg-grey-50" sectionClassName="flex">
+      <Section parentClassName="bg-grey-50 relative" sectionClassName="flex">
          {/* LEFT */}
          <div className="mt-9 flex w-1/2 flex-col items-start gap-6">
             <h2 className="font-integralCF text-7xl">FIND CLOTHES THAT MATCHES YOUR STYLE</h2>
@@ -16,7 +16,7 @@ const HeroSection = () => {
             </p>
             <Button bgColor="dark">Shop New</Button>
 
-            <div className="mt-9 flex *:flex *:flex-col *:gap-1 *:px-5">
+            <div className="mb-16 mt-9 flex *:flex *:flex-col *:gap-1 *:px-5">
                <div>
                   <span className="text-4xl font-bold">200+</span>
                   <span>International Brands</span>
@@ -35,7 +35,7 @@ const HeroSection = () => {
          {/* RIGHT */}
          <div className="relative flex w-1/2 justify-end">
             {/* BANNER */}
-            <Image src={bannerImg} alt="Banner" width={999} height={999} className="size-[37.5rem]" />
+            <Image src={bannerImg} alt="Banner" width={999} height={999} className="absolute bottom-0 size-[37.5rem]" />
 
             {/* STAR ICON */}
             <Image src={starIcon} alt="star" width={100} height={100} className="absolute top-24 aspect-square" />
