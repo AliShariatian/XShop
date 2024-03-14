@@ -9,7 +9,7 @@ import "./globals.css";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 // COMPONENT
-import { Navbar } from "@/components";
+import { Header, Footer } from "@/components";
 
 export const metadata: Metadata = {
    title: "XShop online store",
@@ -20,9 +20,10 @@ const RootLayout: FC<PropsWithChildren> = ({ children }): JSX.Element => {
    return (
       <html lang="en">
          <body className={`${satoshiFont.variable} ${integralCFFont.variable} overflow-x-hidden font-satoshi`}>
-            <Navbar />
+            <Header />
             <ToastContainer position="bottom-right" limit={3} />
             {children}
+            <Footer />
          </body>
       </html>
    );

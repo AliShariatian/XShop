@@ -3,9 +3,9 @@ import Section from "./layout/Section";
 import Button from "./layout/Button";
 import Input from "./layout/Input";
 
-// HEADER
-import TopNavbar from "./layout/header/TopNavbar";
-import Navbar from "./layout/header/Navbar";
+// HEADER and FOOTER
+import Header from "./layout/header";
+import Footer from "./layout/footer";
 
 // HOME PAGE
 import HeroSection from "./homePage/HeroSection";
@@ -26,8 +26,8 @@ export {
    Section,
    Button,
    Input,
-   TopNavbar,
-   Navbar,
+   Header,
+   Footer,
    HeroSection,
    Brands,
    Vitrine,

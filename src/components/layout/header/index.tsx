@@ -6,9 +6,10 @@ import { downArrowIcon, searchIcon, basketIcon, accountIcon, hamburgerMenuIcon }
 // COMPONENT
 import Image from "next/image";
 import Link from "next/link";
-import { TopNavbar, Section } from "@/components";
+import TopNavbar from "./TopNavbar";
+import { Section } from "@/components";
 
-const Navbar: FC = (): JSX.Element => {
+const Header: FC = (): JSX.Element => {
    const [closeTopNavbar, setCloseTopNavbar] = useState<boolean>(false);
    const [searchInput, setSearchInput] = useState<string>("");
 
@@ -101,4 +102,4 @@ const Navbar: FC = (): JSX.Element => {
    );
 };
 
-export default Navbar;
+export default Header;
