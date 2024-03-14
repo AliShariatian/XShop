@@ -21,7 +21,8 @@
       "react-dom": "^18",
       "react-toastify": "^10.0.4",
       "swiper": "^11.0.7",
-      "tailwind-merge": "^2.2.1"
+      "tailwind-merge": "^2.2.1",
+      "yup": "^1.4.0"
    },
    "devDependencies": {
       "@types/node": "^20",

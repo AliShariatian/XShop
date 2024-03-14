@@ -35,6 +35,10 @@ const config: Config = {
          width: { productCard: "var(--productCard)" },
          height: { productCard: "var(--productCard)" },
          size: { productCard: "var(--productCard)" },
+
+         borderRadius: {
+            20: "20px",
+         },
       },
    },
    plugins: [],

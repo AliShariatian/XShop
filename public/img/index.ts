@@ -23,6 +23,7 @@ import starIcon from "./icon/star.svg";
 import starFullRate from "./icon/starFullRate.svg";
 import starEmptyRate from "./icon/starEmptyRate.svg";
 import verified from "./icon/verified.svg";
+import main from "./icon/mail.svg";
 
 const brands = [
    { src: versace, title: "Versace" },
@@ -38,6 +39,7 @@ export {
    starFullRate,
    starEmptyRate,
    verified,
+   main,
    basketIcon,
    accountIcon,
    hamburgerMenuIcon,

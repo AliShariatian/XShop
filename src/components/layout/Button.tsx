@@ -1,4 +1,7 @@
+"use client";
+
 import { FC } from "react";
+import { cn } from "@/utils";
 
 type PropsType = {
    children: React.ReactNode;
@@ -8,6 +11,8 @@ type PropsType = {
    bgColor?: "dark" | "white" | "grey";
    type?: "button" | "submit" | "reset";
    py?: "py-4" | "py-3";
+   disable?: boolean;
+   onClick?: (ev: React.MouseEvent<HTMLElement>) => void;
 };
 
 const Button: FC<PropsType> = ({
@@ -15,21 +20,26 @@ const Button: FC<PropsType> = ({
    className,
    widthFull,
    borderColor,
+   disable = false,
+   onClick,
    type = "button",
    bgColor = "grey",
    py = "py-4",
 }): JSX.Element => {
    return (
       <button
+         onClick={onClick}
          type={type}
-         className={`${className} 
+         disabled={disable}
+         className={` 
             ${widthFull && "w-full"} 
             ${bgColor === "dark" && "bg-dark text-light hover:bg-gray-900"} 
             ${bgColor === "white" && "bg-light text-dark hover:bg-gray-100"} 
             ${bgColor === "grey" && "bg-grey-50 text-dark hover:bg-gray-100"} 
             ${borderColor && `border ${borderColor}`} 
             ${py && py} 
-            rounded-full px-16 text-lg font-medium`}
+            ${disable ? "cursor-not-allowed opacity-80" : ""}
+            ${cn("rounded-full px-16 text-lg font-medium", className)}`}
       >
          {children}
       </button>

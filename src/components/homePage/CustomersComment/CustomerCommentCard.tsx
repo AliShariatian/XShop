@@ -7,7 +7,7 @@ import { StarRate } from "@/components";
 
 const CustomerCommentCard: FC<dataType> = ({ name, content, rate }): JSX.Element => {
    return (
-      <div className="flex h-full flex-col gap-2 rounded-[20px] border p-9">
+      <div className="rounded-20 flex h-full flex-col gap-2 border p-9">
          <StarRate rate={rate} showEmptyStar={false} showRateNumber={false} className="gap-2" />
 
          <div className="flex gap-2">
