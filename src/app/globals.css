@@ -8,10 +8,19 @@
 
 @layer components {
    .productCard {
-      @apply xl:w-productCard flex w-11/12 select-none flex-col gap-3 pb-3;
+      @apply flex w-11/12 select-none flex-col gap-3 pb-3 xl:w-productCard;
    }
 
    .productImgWrapper {
-      @apply w-full h-productCard flex items-center justify-center overflow-hidden rounded-[1.25rem] bg-grey-100;
+      @apply flex h-productCard w-full items-center justify-center overflow-hidden rounded-[1.25rem] bg-grey-100;
    }
+}
+
+/* For Customers Comment */
+.mask-to-l {
+   mask-image: linear-gradient(to left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+}
+
+.mask-to-r {
+   mask-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
 }

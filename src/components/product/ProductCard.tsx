@@ -3,6 +3,7 @@ import { ProductsType } from "@/types/products";
 // COMPONENT
 import Image from "next/image";
 import Link from "next/link";
+import { StarRate } from "@/components";
 
 const ProductCard: FC<ProductsType> = ({ rate, slug, price, title, img, discount }): JSX.Element => {
    return (
@@ -27,26 +28,7 @@ const ProductCard: FC<ProductsType> = ({ rate, slug, price, title, img, discount
          </Link>
 
          {/* STAR */}
-         <div className="flex gap-3">
-            <div className="flex gap-[2px]">
-               {/* Fill star */}
-               {Array(Math.ceil(rate))
-                  .fill(0)
-                  .map((_, index) => (
-                     <Image key={index} src="/img/icon/starFullRate.svg" width={50} height={50} alt="star" className="size-5" />
-                  ))}
-               {/* Empty star */}
-               {Array(5 - Math.ceil(rate))
-                  .fill(0)
-                  .map((_, index) => (
-                     <Image key={index} src="/img/icon/starEmptyRate.svg" width={50} height={50} alt="star" className="size-5" />
-                  ))}
-            </div>
-            <div>
-               <span>{Math.ceil(rate)}/</span>
-               <span className="text-gray-400">5</span>
-            </div>
-         </div>
+         <StarRate rate={rate} />
 
          <div className="flex items-center gap-3">
             {/* Price */}

@@ -11,6 +11,7 @@ import gucci from "./brands/gucci.svg";
 import prada from "./brands/prada.svg";
 import versace from "./brands/versace.svg";
 import zara from "./brands/zara.svg";
+
 // ICON
 import downArrowIcon from "./icon/down-arrow.svg";
 import searchIcon from "./icon/search.svg";
@@ -19,6 +20,9 @@ import accountIcon from "./icon/account.svg";
 import hamburgerMenuIcon from "./icon/hamburgerMenu.svg";
 import closeIcon from "./icon/close.svg";
 import starIcon from "./icon/star.svg";
+import starFullRate from "./icon/starFullRate.svg";
+import starEmptyRate from "./icon/starEmptyRate.svg";
+import verified from "./icon/verified.svg";
 
 const brands = [
    { src: versace, title: "Versace" },
@@ -31,6 +35,9 @@ const brands = [
 export {
    downArrowIcon,
    searchIcon,
+   starFullRate,
+   starEmptyRate,
+   verified,
    basketIcon,
    accountIcon,
    hamburgerMenuIcon,

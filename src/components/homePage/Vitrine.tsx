@@ -7,7 +7,6 @@ import { toast } from "react-toastify";
 
 // Swiper
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
 
 // COMPONENT
 import Link from "next/link";
