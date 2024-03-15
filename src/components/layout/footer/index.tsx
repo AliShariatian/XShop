@@ -23,7 +23,7 @@ const Footer: FC = (): JSX.Element => {
                      </p>
 
                      {/* Socials */}
-                     <div className="mt-5 flex gap-2">
+                     <div className="mt-4 flex gap-2">
                         {social.map((item) => (
                            <Link
                               href={item.href}
@@ -90,7 +90,7 @@ const Footer: FC = (): JSX.Element => {
                </div>
             </section>
 
-            <hr className="mb-6 mt-10 border border-dark/10" />
+            <hr className="mb-6 mt-16 border border-dark/10" />
 
             <BelowFooter />
          </Section>

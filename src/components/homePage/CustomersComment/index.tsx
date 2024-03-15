@@ -49,6 +49,9 @@ const CustomersComment: FC = (): JSX.Element => {
                1280: {
                   slidesPerView: 3,
                },
+               2280: {
+                  slidesPerView: 4,
+               },
             }}
             modules={[Navigation]}
             className="!grid grid-cols-3 px-5 xl:px-36"

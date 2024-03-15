@@ -12,8 +12,8 @@ import "react-toastify/dist/ReactToastify.css";
 import { Header, Footer } from "@/components";
 
 export const metadata: Metadata = {
-   title: "XShop online store",
-   description: "XShop | Coded by Ali Shariatian",
+   title: "XShop | Online store",
+   description: "XShop - Coded by Ali Shariatian",
 };
 
 const RootLayout: FC<PropsWithChildren> = ({ children }): JSX.Element => {

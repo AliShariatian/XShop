@@ -3,6 +3,8 @@
 @tailwind utilities;
 
 :root {
+   scroll-behavior: smooth;
+   color-scheme: light;
    --productCard: 20rem;
 }
 
