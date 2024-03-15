@@ -11,9 +11,7 @@ export const getLimitProducts = (
    order: "descending" | "ascending" = "ascending",
    signal?: GenericAbortSignal,
 ) => {
-   // + => Order on Ascending
-   // - => Order on Descending
-   const orderBy = order === "ascending" ? "+" : "-";
+   const orderBy = order === "ascending" ? "asc" : "desc";
 
-   return axios.get(`/products?_limit=${limit}&_sort=${orderBy}${sortBy}`, { signal: signal });
+   return axios.get(`/products?_limit=${limit}&_sort=${sortBy}&_order=${orderBy}`, { signal: signal });
 };
