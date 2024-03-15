@@ -7,7 +7,7 @@ import { downArrowIcon, searchIcon, basketIcon, accountIcon, hamburgerMenuIcon }
 import Image from "next/image";
 import Link from "next/link";
 import TopNavbar from "./TopNavbar";
-import { Section } from "@/components";
+import { Logo, Section } from "@/components";
 
 const Header: FC = (): JSX.Element => {
    const [closeTopNavbar, setCloseTopNavbar] = useState<boolean>(false);
@@ -33,9 +33,7 @@ const Header: FC = (): JSX.Element => {
                   <Image src={hamburgerMenuIcon} alt="open" width={20} height={20} className="mt-1 size-5 lg:hidden" />
 
                   {/* LOGO */}
-                  <div className="-mt-2">
-                     <h1 className="font-integralCF text-3xl uppercase">xshop</h1>
-                  </div>
+                  <Logo />
                </div>
 
                {/* NAVBAR ITEMS */}

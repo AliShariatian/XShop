@@ -1,6 +1,6 @@
 import { FC } from "react";
 // COMPONENT
-import { HeroSection, Brands, Vitrine, Gallery, CustomersComment, Subscribe } from "@/components";
+import { HeroSection, Brands, Vitrine, Gallery, CustomersComment } from "@/components";
 
 const HomePage: FC = (): JSX.Element => {
    return (
@@ -12,7 +12,6 @@ const HomePage: FC = (): JSX.Element => {
          <Vitrine title="top selling" sortBy="saleCount" order="descending" buttonHref="/" />
          <Gallery />
          <CustomersComment />
-         <Subscribe />
       </>
    );
 };

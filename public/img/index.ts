@@ -24,8 +24,16 @@ import starFullRate from "./icon/starFullRate.svg";
 import starEmptyRate from "./icon/starEmptyRate.svg";
 import verified from "./icon/verified.svg";
 import main from "./icon/mail.svg";
-import arrowRight from "./icon/arrow-right.svg";
-import arrowLeft from "./icon/arrow-left.svg";
+import arrow from "./icon/arrow.svg";
+import twitter from "./icon/twitter.svg";
+import facebook from "./icon/facebook.svg";
+import instagram from "./icon/instagram.svg";
+import github from "./icon/github.svg";
+import visa from "./icon/visa.svg";
+import mastercard from "./icon/mastercard.svg";
+import paypal from "./icon/paypal.svg";
+import applePay from "./icon/applePay.svg";
+import googlePay from "./icon/googlePay.svg";
 
 const brands = [
    { src: versace, title: "Versace" },
@@ -42,8 +50,16 @@ export {
    starEmptyRate,
    verified,
    main,
-   arrowRight,
-   arrowLeft,
+   arrow,
+   twitter,
+   facebook,
+   instagram,
+   github,
+   visa,
+   mastercard,
+   paypal,
+   applePay,
+   googlePay,
    basketIcon,
    accountIcon,
    hamburgerMenuIcon,

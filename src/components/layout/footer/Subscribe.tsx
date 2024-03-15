@@ -6,7 +6,11 @@ import { toast } from "react-toastify";
 // COMPONENT
 import { Section, Button, Input } from "@/components";
 
-const Subscribe: FC = (): JSX.Element => {
+type PropsType = {
+   className?: string;
+};
+
+const Subscribe: FC<PropsType> = ({ className }): JSX.Element => {
    const [inputValue, setInputValue] = useState<string>("");
    const [isButtonDisable, setIsButtonDisable] = useState<boolean>(true);
 
@@ -38,7 +42,7 @@ const Subscribe: FC = (): JSX.Element => {
    };
 
    return (
-      <Section parentClassName="my-32">
+      <Section parentClassName={className}>
          <div className="flex items-center justify-between rounded-20 bg-dark px-6 py-9 max-xl:flex-col max-xl:gap-8 xl:p-16">
             <div className="items-left flex w-full flex-col justify-center xl:w-2/3">
                <p className="text-left font-integralCF text-3xl leading-tight text-light xl:-mt-6 xl:w-5/6 xl:text-5xl">

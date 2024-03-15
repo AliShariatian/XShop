@@ -2,10 +2,10 @@
 
 import { FC } from "react";
 import { data, dataType } from "./data";
-import { arrowLeft, arrowRight } from "@/public/img";
+import { arrow } from "@/public/img";
 // Swiper
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules"; // Don't forget to import Navigation
+import { Navigation } from "swiper/modules";
 // COMPONENT
 import Image from "next/image";
 import { CustomerCommentCard } from "@/components";
@@ -18,8 +18,8 @@ const CustomersComment: FC = (): JSX.Element => {
             <h3 className="font-integralCF text-3xl xl:text-5xl">OUR HAPPY CUSTOMERS</h3>
             {/* Arrow controllers */}
             <div className="flex justify-end gap-3 *:size-6 *:cursor-pointer">
-               <Image src={arrowLeft} alt="prev" width={20} height={20} id="customer-tweet-button-prev" />
-               <Image src={arrowRight} alt="next" width={20} height={20} id="customer-tweet-button-next" />
+               <Image src={arrow} alt="prev" width={20} height={20} id="customer-tweet-button-prev" />
+               <Image src={arrow} alt="next" width={20} height={20} id="customer-tweet-button-next" className="rotate-180" />
             </div>
          </div>
 
