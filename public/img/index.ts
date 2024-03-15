@@ -23,7 +23,7 @@ import starIcon from "./icon/star.svg";
 import starFullRate from "./icon/starFullRate.svg";
 import starEmptyRate from "./icon/starEmptyRate.svg";
 import verified from "./icon/verified.svg";
-import main from "./icon/mail.svg";
+import mail from "./icon/mail.svg";
 import arrow from "./icon/arrow.svg";
 import twitter from "./icon/twitter.svg";
 import facebook from "./icon/facebook.svg";
@@ -49,7 +49,7 @@ export {
    starFullRate,
    starEmptyRate,
    verified,
-   main,
+   mail,
    arrow,
    twitter,
    facebook,

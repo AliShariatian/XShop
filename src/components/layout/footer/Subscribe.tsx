@@ -14,6 +14,7 @@ const Subscribe: FC<PropsType> = ({ className }): JSX.Element => {
    const [inputValue, setInputValue] = useState<string>("");
    const [isButtonDisable, setIsButtonDisable] = useState<boolean>(true);
 
+   // onClick for button
    const buttonClickHandler = (ev: React.MouseEvent<HTMLElement>) => {
       ev.preventDefault();
 
@@ -22,6 +23,7 @@ const Subscribe: FC<PropsType> = ({ className }): JSX.Element => {
       toast.success("Subscribe Successfully");
    };
 
+   // onChange for input
    const inputOnChangeHandler = async (ev: React.ChangeEvent<HTMLInputElement>) => {
       setInputValue(ev.target.value);
 
