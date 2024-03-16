@@ -2,3 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+   scroll-behavior: smooth;
+   color-scheme: light;
+   --productCard: 20rem;
+}
+
+@layer components {
+   .productCard {
+      @apply flex select-none flex-col gap-3 pb-3;
+   }
+
+   .productImgWrapper {
+      @apply flex aspect-square h-productCard items-center justify-center overflow-hidden rounded-[1.25rem] bg-grey-100;
+   }
+}
+
+/* For Customers Comment section */
+.mask-to-l {
+   mask-image: linear-gradient(to left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+}
+
+.mask-to-r {
+   mask-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+}

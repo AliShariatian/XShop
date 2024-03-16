@@ -1,22 +1,19 @@
 import { FC } from "react";
+// COMPONENT
+import { HeroSection, Brands, Vitrine, Gallery, CustomersComment } from "@/components";
 
 const HomePage: FC = (): JSX.Element => {
    return (
       <>
-         <h1 className="font-satoshi">Hello World 0</h1>
-         <h1 className="font-integralCF">Hello World 1</h1>
-         <h1 className="font-integralCF font-thin">Hello World 2</h1>
-         <h1 className="font-integralCF font-extralight">Hello World 3</h1>
-         <h1 className="font-integralCF font-light">Hello World 4</h1>
-         <h1 className="font-integralCF font-normal">Hello World 5</h1>
-         <h1 className="font-integralCF font-medium">Hello World 6</h1>
-         <h1 className="font-integralCF font-semibold">Hello World 7</h1>
-         <h1 className="font-integralCF font-bold">Hello World 8</h1>
-         <h1 className="font-integralCF font-extrabold">Hello World 9</h1>
-         <h1 className="font-integralCF font-black">Hello World 10</h1>
+         <HeroSection />
+         <Brands />
+         <Vitrine title="new arrivals" productShowCount={4} sortBy="createdAt" order="descending" buttonHref="/" />
+         <hr className="container opacity-70" />
+         <Vitrine title="top selling" productShowCount={4} sortBy="saleCount" order="descending" buttonHref="/" />
+         <Gallery />
+         <CustomersComment />
       </>
    );
 };
 
 export default HomePage;
-
