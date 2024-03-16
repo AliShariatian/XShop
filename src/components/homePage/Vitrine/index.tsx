@@ -1,22 +1,16 @@
 "use client";
 
 import { FC, useEffect, useState } from "react";
-import { ProductsType } from "@/types/components/products";
-import { getLimitProducts } from "@/axios/products";
+import { getLimitProducts } from "@/services/axios/requests/products";
 import { toast } from "react-toastify";
-// Swiper
-import { Swiper, SwiperSlide } from "swiper/react";
+// TYPE
+import { VitrinePropsType } from "./type";
+import { ProductsType } from "@/components/product/type";
 // COMPONENT
 import Link from "next/link";
 import { Section, ProductCard, Button, ProductCardSkeleton } from "@/components";
-
-type VitrinePropsType = {
-   title: string;
-   buttonHref: string;
-   order: "descending" | "ascending";
-   sortBy: "createdAt" | "saleCount";
-   productShowCount: number;
-};
+// Swiper
+import { Swiper, SwiperSlide } from "swiper/react";
 
 const Vitrine: FC<VitrinePropsType> = ({ title, sortBy, order, buttonHref, productShowCount }): JSX.Element => {
    const [products, setProducts] = useState<ProductsType[]>([]);
@@ -26,7 +20,12 @@ const Vitrine: FC<VitrinePropsType> = ({ title, sortBy, order, buttonHref, produ
       // Get products data from server
       (async () => {
          try {
-            const response = await getLimitProducts({ limit: productShowCount, sortBy, order, signal: abortController.signal });
+            const response = await getLimitProducts({
+               limit: productShowCount,
+               sortBy,
+               order,
+               signal: abortController.signal,
+            });
             setProducts(response.data);
          } catch (err: any) {
             toast.error(err.message);
@@ -44,7 +43,7 @@ const Vitrine: FC<VitrinePropsType> = ({ title, sortBy, order, buttonHref, produ
       <Section parentClassName="py-[5.62rem]" sectionClassName="flex flex-col items-center gap-16">
          <h2 className="font-integralCF text-5xl">{title}</h2>
 
-         <Swiper spaceBetween={20} slidesPerView={"auto"} className="!w-full">
+         <Swiper spaceBetween={15} slidesPerView={"auto"} className="w-full">
             {products.length
                ? products.map((item: ProductsType) => (
                     <SwiperSlide key={item.id} className="w-fit">

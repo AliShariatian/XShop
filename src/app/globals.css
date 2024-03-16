@@ -10,7 +10,7 @@
 
 @layer components {
    .productCard {
-      @apply flex select-none flex-col gap-3 pb-3 xl:w-productCard;
+      @apply flex select-none flex-col gap-3 pb-3;
    }
 
    .productImgWrapper {
@@ -18,7 +18,7 @@
    }
 }
 
-/* For Customers Comment */
+/* For Customers Comment section */
 .mask-to-l {
    mask-image: linear-gradient(to left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
 }

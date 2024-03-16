@@ -11,3 +11,5 @@ export interface ProductCardType {
 export interface ProductsType extends ProductCardType {
    saleCount: number;
 }
+
+export interface ProductsPropsType extends ProductsType {}

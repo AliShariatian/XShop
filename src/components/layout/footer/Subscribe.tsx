@@ -1,7 +1,7 @@
 "use client";
 
 import { FC, useState } from "react";
-import { email } from "@/utils/validation/email";
+import { email } from "@/utils/yup/email";
 import { toast } from "react-toastify";
 // COMPONENT
 import { Section, Button, Input } from "@/components";

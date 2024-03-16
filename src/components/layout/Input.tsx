@@ -2,7 +2,7 @@
 
 import { FC, useRef } from "react";
 import { mail } from "@/public/img";
-import { cn } from "@/utils";
+import cn from "@/utils/cn";
 import Image from "next/image";
 
 type PropsType = {

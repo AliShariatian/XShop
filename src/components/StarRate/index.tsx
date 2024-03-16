@@ -1,16 +1,10 @@
 import { FC } from "react";
+import { StarRatePropsType } from "./type";
+import cn from "@/utils/cn";
 import Image from "next/image";
-import { cn } from "@/utils";
 import { starFullRate, starEmptyRate } from "@/public/img";
 
-type PropsType = {
-   rate: number;
-   showRateNumber?: boolean;
-   showEmptyStar?: boolean;
-   className?: string;
-};
-
-const StarRate: FC<PropsType> = ({ rate, showEmptyStar = true, showRateNumber = true, className }): JSX.Element => {
+const StarRate: FC<StarRatePropsType> = ({ rate, showEmptyStar = true, showRateNumber = true, className }): JSX.Element => {
    return (
       <div className="flex gap-3">
          <div className={cn("flex gap-[2px]", className)}>

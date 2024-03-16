@@ -19,7 +19,7 @@ import CustomerCommentCard from "./homePage/CustomersComment/CustomerCommentCard
 // PRODUCT
 import ProductCard from "./product/ProductCard";
 import ProductCardSkeleton from "./product/ProductCardSkeleton";
-import StarRate from "./product/StarRate";
+import StarRate from "./StarRate";
 
 // EXPORT
 export {

@@ -1,5 +1,5 @@
-import axios from "../configs/config";
-import { getAllProductsType, getLimitProductsType } from "@/types/services/axios/products";
+import axios from "../../configs/config";
+import { getAllProductsType, getLimitProductsType } from "./type";
 
 export const getAllProducts = ({ signal }: getAllProductsType) => {
    return axios.get("/products", { signal });
