@@ -10,11 +10,11 @@
 
 @layer components {
    .productCard {
-      @apply flex w-11/12 select-none flex-col gap-3 pb-3 xl:w-productCard;
+      @apply flex select-none flex-col gap-3 pb-3 xl:w-productCard;
    }
 
    .productImgWrapper {
-      @apply flex h-productCard w-full items-center justify-center overflow-hidden rounded-[1.25rem] bg-grey-100;
+      @apply flex aspect-square h-productCard items-center justify-center overflow-hidden rounded-[1.25rem] bg-grey-100;
    }
 }
 

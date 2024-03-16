@@ -7,9 +7,9 @@ const HomePage: FC = (): JSX.Element => {
       <>
          <HeroSection />
          <Brands />
-         <Vitrine title="new arrivals" sortBy="createdAt" order="descending" buttonHref="/" />
+         <Vitrine title="new arrivals" productShowCount={4} sortBy="createdAt" order="descending" buttonHref="/" />
          <hr className="container opacity-70" />
-         <Vitrine title="top selling" sortBy="saleCount" order="descending" buttonHref="/" />
+         <Vitrine title="top selling" productShowCount={4} sortBy="saleCount" order="descending" buttonHref="/" />
          <Gallery />
          <CustomersComment />
       </>

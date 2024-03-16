@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { ProductsType } from "@/types/products";
+import { ProductsType } from "@/types/components/products";
 // COMPONENT
 import Image from "next/image";
 import Link from "next/link";
@@ -7,7 +7,7 @@ import { StarRate } from "@/components";
 
 const ProductCard: FC<ProductsType> = ({ rate, slug, price, title, img, discount }): JSX.Element => {
    return (
-      <div className="productCard group/productCard">
+      <div className="productCard group/productCard ">
          {/* IMAGE */}
          <Link href={slug} title={title}>
             <div className="productImgWrapper">
