@@ -43,22 +43,24 @@ const Vitrine: FC<VitrinePropsType> = ({ title, sortBy, order, buttonHref, produ
       <Section parentClassName="py-[5.62rem]" sectionClassName="flex flex-col items-center gap-16">
          <h2 className="font-integralCF text-5xl">{title}</h2>
 
-         <Swiper spaceBetween={15} slidesPerView={"auto"} className="w-full">
-            {products.length
-               ? products.map((item: ProductsType) => (
-                    <SwiperSlide key={item.id} className="w-fit">
-                       <ProductCard {...item} />
-                    </SwiperSlide>
-                 ))
-               : //  Skeleton loading
-                 Array(productShowCount)
-                    .fill(0)
-                    .map((_, index) => (
-                       <SwiperSlide key={index} className="w-fit">
-                          <ProductCardSkeleton />
-                       </SwiperSlide>
-                    ))}
-         </Swiper>
+         {products.length ? (
+            <Swiper spaceBetween={15} slidesPerView={"auto"} className="w-full">
+               {products.map((item: ProductsType) => (
+                  <SwiperSlide key={item.id} className="w-fit">
+                     <ProductCard {...item} />
+                  </SwiperSlide>
+               ))}
+            </Swiper>
+         ) : (
+            //  Skeleton loading
+            <div className="flex gap-3 max-md:[&>*:nth-child(1)]:hidden max-xl:[&>*:nth-child(2)]:hidden max-2xl:[&>*:nth-child(3)]:hidden">
+               {Array(productShowCount)
+                  .fill(0)
+                  .map((_, index) => (
+                     <ProductCardSkeleton key={index} />
+                  ))}
+            </div>
+         )}
 
          <Link href={buttonHref}>
             <Button bgColor="white" borderColor="border-grey-100" py="py-3">
