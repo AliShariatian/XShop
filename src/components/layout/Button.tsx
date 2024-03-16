@@ -6,7 +6,6 @@ import cn from "@/utils/cn";
 type PropsType = {
    children: React.ReactNode;
    className?: string;
-   widthFull?: boolean;
    borderColor?: "border-grey-50" | "border-grey-100";
    bgColor?: "dark" | "white" | "grey";
    type?: "button" | "submit" | "reset";
@@ -18,7 +17,6 @@ type PropsType = {
 const Button: FC<PropsType> = ({
    children,
    className,
-   widthFull,
    borderColor,
    disable = false,
    onClick,
@@ -32,14 +30,13 @@ const Button: FC<PropsType> = ({
          type={type}
          disabled={disable}
          className={` 
-            ${widthFull && "w-full"} 
             ${bgColor === "dark" && "bg-dark text-light hover:bg-gray-900"} 
             ${bgColor === "white" && "bg-light text-dark hover:bg-gray-100"} 
             ${bgColor === "grey" && "bg-grey-50 text-dark hover:bg-gray-100"} 
             ${borderColor && `border ${borderColor}`} 
             ${py && py} 
             ${disable ? "cursor-not-allowed opacity-80" : ""}
-            ${cn("rounded-full px-16 text-lg font-medium", className)}`}
+            ${cn("rounded-full px-16 text-lg font-medium transition-all", className)}`}
       >
          {children}
       </button>

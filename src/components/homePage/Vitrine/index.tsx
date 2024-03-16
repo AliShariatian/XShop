@@ -40,8 +40,8 @@ const Vitrine: FC<VitrinePropsType> = ({ title, sortBy, order, buttonHref, produ
    }, [sortBy, order, productShowCount]);
 
    return (
-      <Section parentClassName="py-[5.62rem]" sectionClassName="flex flex-col items-center gap-16">
-         <h2 className="font-integralCF text-5xl">{title}</h2>
+      <Section parentClassName="my-16" sectionClassName="flex flex-col items-center gap-14">
+         <h2 className="font-integralCF text-3xl xl:text-5xl">{title}</h2>
 
          {products.length ? (
             <Swiper spaceBetween={15} slidesPerView={"auto"} className="w-full">
@@ -62,8 +62,8 @@ const Vitrine: FC<VitrinePropsType> = ({ title, sortBy, order, buttonHref, produ
             </div>
          )}
 
-         <Link href={buttonHref}>
-            <Button bgColor="white" borderColor="border-grey-100" py="py-3">
+         <Link href={buttonHref} className="max-xl:w-full">
+            <Button bgColor="white" borderColor="border-grey-100" py="py-3" className="max-xl:w-full">
                View All
             </Button>
          </Link>

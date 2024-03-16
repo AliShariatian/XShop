@@ -24,13 +24,19 @@ const galleryItems: GalleryItemsType[] = [
 const Gallery: FC = (): JSX.Element => {
    return (
       <Section>
-         <div className="flex flex-col items-center gap-20 rounded-[2.5rem] bg-grey-100 p-20">
-            <h3 className="font-integralCF text-5xl">BROWSE BY dress STYLE</h3>
+         <div className="flex flex-col items-center gap-9 rounded-2xl bg-grey-100 px-4 py-6 xl:gap-20 xl:rounded-[2.5rem] xl:p-20">
+            <h3 className="text-center font-integralCF text-3xl max-xl:leading-8 xl:text-5xl">BROWSE BY DRESS STYLE</h3>
             <div className="grid w-full grid-cols-1 gap-4 *:h-full *:w-full *:overflow-hidden *:rounded-[1.25rem] xl:grid-cols-3">
                {/* Items */}
                {galleryItems.map((item: GalleryItemsType) => (
-                  <Link key={item.title} href={item.href} className={`${item.parentClassName} relative z-20`}>
-                     <h3 className="absolute left-9 top-7 z-30 text-4xl font-bold capitalize">{item.title}</h3>
+                  <Link
+                     key={item.title}
+                     href={item.href}
+                     className={`${item.parentClassName} relative z-20 max-xl:col-span-1 max-xl:aspect-video`}
+                  >
+                     <h3 className="absolute left-5 top-5 z-30 text-2xl font-bold capitalize xl:left-9 xl:top-7 xl:text-4xl">
+                        {item.title}
+                     </h3>
                      <Image
                         src={item.src}
                         width={500}

@@ -13,17 +13,17 @@ const Footer: FC = (): JSX.Element => {
       <footer className="relative mt-56">
          <Subscribe className="absolute -top-40 left-1/2 w-full -translate-x-1/2 xl:-top-32" />
          <Section parentClassName="bg-grey-100 pt-52">
-            <section className="flex">
+            <section className="flex max-xl:flex-col">
                {/* Info */}
-               <div className="w-1/3">
-                  <div className="flex w-2/3 flex-col gap-5">
+               <div className="xl:w-1/3">
+                  <div className="flex flex-col gap-5 xl:w-2/3">
                      <Logo />
                      <p className="cursor-default text-base text-dark/60 transition-[color] hover:text-dark">
                         We have clothes that suits your style and which you’re proud to wear. From women to men.
                      </p>
 
                      {/* Socials */}
-                     <div className="mt-4 flex gap-2">
+                     <div className="flex gap-2 xl:mt-4">
                         {social.map((item) => (
                            <Link
                               href={item.href}
@@ -46,7 +46,7 @@ const Footer: FC = (): JSX.Element => {
                </div>
 
                {/* Links */}
-               <div className="grid w-2/3 grid-cols-2 gap-20 *:flex *:flex-col *:gap-6 xl:grid-cols-4">
+               <div className="grid grid-cols-2 gap-y-9 *:flex *:flex-col *:gap-6 max-xl:mt-9 max-xl:*:gap-4 xl:w-2/3 xl:grid-cols-4 xl:gap-20">
                   <div>
                      <span className="font-bold uppercase tracking-widest">company</span>
                      <ul className="flex flex-col gap-4 text-dark/60 *:w-fit *:transition-[color] hover:*:text-dark">
