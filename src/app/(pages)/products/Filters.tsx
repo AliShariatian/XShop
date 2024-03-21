@@ -12,6 +12,8 @@ const Filters: FC = (): JSX.Element => {
          </div>
 
          <hr className="my-5" />
+
+         {/* TODO: add filtering options */}
       </div>
    );
 };
