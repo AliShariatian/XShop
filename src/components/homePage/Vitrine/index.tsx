@@ -8,11 +8,11 @@ import { VitrinePropsType } from "./type";
 import { ProductsType } from "@/components/product/type";
 // COMPONENT
 import Link from "next/link";
-import { Section, ProductCard, Button, ProductCardSkeleton } from "@/components";
+import { Section, ProductCard, Button, ProductCardSkeleton, ScrollById } from "@/components";
 // Swiper
 import { Swiper, SwiperSlide } from "swiper/react";
 
-const Vitrine: FC<VitrinePropsType> = ({ title, sortBy, order, buttonHref, productShowCount }): JSX.Element => {
+const Vitrine: FC<VitrinePropsType> = ({ title, sortBy, order, buttonHref, productShowCount, id }): JSX.Element => {
    const [products, setProducts] = useState<ProductsType[]>([]);
 
    useEffect(() => {
@@ -41,6 +41,8 @@ const Vitrine: FC<VitrinePropsType> = ({ title, sortBy, order, buttonHref, produ
 
    return (
       <Section parentClassName="my-16" sectionClassName="flex flex-col items-center gap-14">
+         <ScrollById id={id} />
+         
          <h2 className="font-integralCF text-3xl xl:text-5xl">{title}</h2>
 
          {products.length ? (

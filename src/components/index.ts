@@ -3,6 +3,7 @@ import Logo from "./layout/Logo";
 import Section from "./layout/Section";
 import Button from "./layout/Button";
 import Input from "./layout/Input";
+import ScrollById from "./layout/ScrollById";
 
 // HEADER and FOOTER
 import Header from "./layout/header";
@@ -26,6 +27,7 @@ export {
    Logo,
    Section,
    Button,
+   ScrollById,
    Input,
    Header,
    Footer,
