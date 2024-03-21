@@ -32,7 +32,7 @@ const Vitrine: FC<VitrinePropsType> = ({ title, sortBy, order, buttonHref, produ
 
          {isLoading || isError ? (
             //  Skeleton loading
-            <div className="flex gap-3 max-md:[&>*:nth-child(1)]:hidden max-xl:[&>*:nth-child(2)]:hidden max-2xl:[&>*:nth-child(3)]:hidden">
+            <div className="vitrineProductsSkeleton">
                {Array(productShowCount)
                   .fill(0)
                   .map((_, index) => (

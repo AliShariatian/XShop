@@ -16,6 +16,10 @@
    .productImgWrapper {
       @apply flex aspect-square h-productCard items-center justify-center overflow-hidden rounded-[1.25rem] bg-grey-100;
    }
+
+   .vitrineProductsSkeleton {
+      @apply flex gap-3 max-md:[&>*:nth-child(1)]:hidden max-xl:[&>*:nth-child(2)]:hidden max-2xl:[&>*:nth-child(3)]:hidden;
+   }
 }
 
 /* For Customers Comment section */
