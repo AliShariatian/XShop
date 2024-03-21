@@ -6,6 +6,7 @@ import Input from "./layout/Input";
 import ScrollById from "./layout/ScrollById";
 import Breadcrumb from "./layout/Breadcrumb";
 import BigHeading from "./layout/BigHeading";
+import PageLoadingProgressBar from "./layout/PageLoadingProgressBar";
 
 // HEADER and FOOTER
 import Header from "./layout/header";
@@ -36,6 +37,7 @@ export {
    ScrollById,
    Breadcrumb,
    BigHeading,
+   PageLoadingProgressBar,
    Input,
    Header,
    Footer,

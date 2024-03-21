@@ -11,7 +11,7 @@ import "react-toastify/dist/ReactToastify.css";
 // HOC
 import ReactQueryProvider from "@/components/HOC/ReactQueryProvider";
 // COMPONENT
-import { Header, Footer } from "@/components";
+import { Header, Footer, PageLoadingProgressBar } from "@/components";
 
 export const metadata: Metadata = {
    title: "XShop | Online store",
@@ -22,6 +22,8 @@ const RootLayout: FC<PropsWithChildren> = ({ children }): JSX.Element => {
    return (
       <html lang="en">
          <body className={`${satoshiFont.variable} ${integralCFFont.variable} overflow-x-hidden font-satoshi`}>
+            {" "}
+            <PageLoadingProgressBar />
             <ReactQueryProvider>
                <Header />
                <ToastContainer position="bottom-right" limit={3} />
