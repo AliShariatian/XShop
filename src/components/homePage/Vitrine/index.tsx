@@ -11,7 +11,7 @@ import { Section, ProductCard, Button, ProductCardSkeleton, ScrollById } from "@
 // Swiper
 import { Swiper, SwiperSlide } from "swiper/react";
 // GET DATA FROM SERVER
-import { GetVitrineCreatedAtProducts, GetVitrineNewArrivalsProducts } from "@/services/reactQuery/vitrineProducts";
+import GetVitrineProducts from "@/services/reactQuery/vitrineProducts";
 
 const Vitrine: FC<VitrinePropsType> = ({ title, sortBy, order, buttonHref, productShowCount, id }): JSX.Element => {
    const {
@@ -19,9 +19,7 @@ const Vitrine: FC<VitrinePropsType> = ({ title, sortBy, order, buttonHref, produ
       isLoading,
       isError,
       error,
-   } = sortBy === "createdAt"
-      ? GetVitrineNewArrivalsProducts({ limit: productShowCount, sortBy, order })
-      : GetVitrineCreatedAtProducts({ limit: productShowCount, sortBy, order });
+   } = GetVitrineProducts({ limit: productShowCount, sortBy: sortBy === "createdAt" ? "createdAt" : "saleCount", order });
 
    // Show toast message when error to fetch data from server
    isError && toast.error(error.message);
