@@ -1,11 +1,5 @@
-import { GenericAbortSignal } from "axios";
-
-export interface getAllProductsType {
-   signal?: GenericAbortSignal;
-}
-
-export interface getLimitProductsType extends getAllProductsType {
+export type fetchLimitProductsType = {
    limit: number;
-   sortBy: string;
+   sortBy: 'createdAt' | 'saleCount';
    order: "descending" | "ascending";
-}
+};
