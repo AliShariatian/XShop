@@ -7,7 +7,7 @@ import { VitrinePropsType } from "./type";
 import { ProductsType } from "@/components/product/type";
 // COMPONENT
 import Link from "next/link";
-import { Section, ProductCard, Button, ProductCardSkeleton, ScrollById } from "@/components";
+import { Section, ProductCard, Button, ProductCardSkeleton, ScrollById, BigHeading } from "@/components";
 // Swiper
 import { Swiper, SwiperSlide } from "swiper/react";
 // GET DATA FROM SERVER
@@ -28,7 +28,7 @@ const Vitrine: FC<VitrinePropsType> = ({ title, sortBy, order, buttonHref, produ
       <Section parentClassName="my-16" sectionClassName="flex flex-col items-center gap-14">
          <ScrollById id={id} />
 
-         <h2 className="font-integralCF text-3xl xl:text-5xl">{title}</h2>
+         <BigHeading tag="h2" title={title} />
 
          {isLoading || isError ? (
             //  Skeleton loading

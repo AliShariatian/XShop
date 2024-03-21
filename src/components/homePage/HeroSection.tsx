@@ -2,14 +2,15 @@
 import { bannerImg, starIcon } from "@/public/img";
 // COMPONENT
 import Image from "next/image";
-import { Section, Button } from "@/components";
+import { Section, Button, BigHeading } from "@/components";
 
 const HeroSection = () => {
    return (
       <Section parentClassName="bg-grey-50 relative" sectionClassName="flex h-auto flex-col xl:flex-row">
          {/* LEFT */}
          <div className="mt-9 flex flex-col items-start gap-6 xl:w-1/2">
-            <h2 className="font-integralCF text-4xl max-xl:leading-8 xl:text-7xl">FIND CLOTHES THAT MATCHES YOUR STYLE</h2>
+            <BigHeading tag="h2" title="FIND CLOTHES THAT MATCHES YOUR STYLE" className="text-left text-4xl xl:text-7xl" />
+
             <p className="max-xl:leading-5 xl:w-11/12">
                Browse through our diverse range of meticulously crafted garments, designed to bring out your individuality and
                cater to your sense of style.

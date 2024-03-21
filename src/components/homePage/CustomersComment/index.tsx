@@ -8,14 +8,15 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 // COMPONENT
 import Image from "next/image";
-import { CustomerCommentCard } from "@/components";
+import { BigHeading, CustomerCommentCard } from "@/components";
 
 const CustomersComment: FC = (): JSX.Element => {
    return (
       <section className="relative my-20 flex flex-col gap-6">
-         {/* TITLE */}
          <div className="container flex items-center justify-between">
-            <h3 className="font-integralCF text-3xl xl:text-5xl">OUR HAPPY CUSTOMERS</h3>
+            {/* TITLE */}
+            <BigHeading tag="h3" title="OUR HAPPY CUSTOMERS" />
+
             {/* Arrow controllers */}
             <div className="flex justify-end gap-3 *:size-6 *:cursor-pointer">
                <Image src={arrow} alt="prev" width={20} height={20} id="customer-tweet-button-prev" />

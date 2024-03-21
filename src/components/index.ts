@@ -4,6 +4,8 @@ import Section from "./layout/Section";
 import Button from "./layout/Button";
 import Input from "./layout/Input";
 import ScrollById from "./layout/ScrollById";
+import Breadcrumb from "./layout/Breadcrumb";
+import BigHeading from "./layout/BigHeading";
 
 // HEADER and FOOTER
 import Header from "./layout/header";
@@ -22,12 +24,18 @@ import ProductCard from "./product/ProductCard";
 import ProductCardSkeleton from "./product/ProductCardSkeleton";
 import StarRate from "./StarRate";
 
+// PRODUCT PAGE
+import AllProductsList from "@/app/(pages)/products/AllProductsList";
+import Filters from "@/app/(pages)/products/Filters";
+
 // EXPORT
 export {
    Logo,
    Section,
    Button,
    ScrollById,
+   Breadcrumb,
+   BigHeading,
    Input,
    Header,
    Footer,
@@ -40,4 +48,6 @@ export {
    ProductCard,
    ProductCardSkeleton,
    StarRate,
+   AllProductsList,
+   Filters,
 };

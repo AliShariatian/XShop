@@ -2,7 +2,7 @@ import { FC } from "react";
 // IMAGE
 import { gallery1, gallery2, gallery3, gallery4 } from "@/public/img";
 // COMPONENT
-import { Section } from "@/components";
+import { Section, BigHeading } from "@/components";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 
@@ -25,7 +25,8 @@ const Gallery: FC = (): JSX.Element => {
    return (
       <Section>
          <div className="flex flex-col items-center gap-9 rounded-2xl bg-grey-100 px-4 py-6 xl:gap-20 xl:rounded-[2.5rem] xl:p-20">
-            <h3 className="text-center font-integralCF text-3xl max-xl:leading-8 xl:text-5xl">BROWSE BY DRESS STYLE</h3>
+            <BigHeading tag="h3" title="BROWSE BY DRESS STYLE" />
+            
             <div className="grid w-full grid-cols-1 gap-4 *:h-full *:w-full *:overflow-hidden *:rounded-[1.25rem] xl:grid-cols-3">
                {/* Items */}
                {galleryItems.map((item: GalleryItemsType) => (
