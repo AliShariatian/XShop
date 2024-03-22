@@ -7,6 +7,7 @@ import ScrollById from "./layout/ScrollById";
 import Breadcrumb from "./layout/Breadcrumb";
 import BigHeading from "./layout/BigHeading";
 import PageLoadingProgressBar from "./layout/PageLoadingProgressBar";
+import HorizontalLine from "./layout/HorizontalLine";
 
 // HEADER and FOOTER
 import Header from "./layout/header";
@@ -24,10 +25,11 @@ import CustomerCommentCard from "./homePage/CustomersComment/CustomerCommentCard
 import ProductCard from "./product/ProductCard";
 import ProductCardSkeleton from "./product/ProductCardSkeleton";
 import StarRate from "./StarRate";
+import Price from "./Price";
 
 // PRODUCT PAGE
-import AllProductsList from "@/app/(pages)/products/AllProductsList";
-import Filters from "@/app/(pages)/products/Filters";
+import AllProductsList from "@/app/(pages)/products/(AllProductsPage)";
+import Filters from "@/app/(pages)/products/(AllProductsPage)/Filters";
 
 // EXPORT
 export {
@@ -38,6 +40,7 @@ export {
    Breadcrumb,
    BigHeading,
    PageLoadingProgressBar,
+   HorizontalLine,
    Input,
    Header,
    Footer,
@@ -50,6 +53,7 @@ export {
    ProductCard,
    ProductCardSkeleton,
    StarRate,
+   Price,
    AllProductsList,
    Filters,
 };

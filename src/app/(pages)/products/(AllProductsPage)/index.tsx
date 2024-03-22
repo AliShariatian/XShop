@@ -10,6 +10,8 @@ const ShowProductsPerPage = 9;
 const AllProductsList: FC = (): JSX.Element => {
    const { data: products, isLoading, isError, error } = GetAllProducts();
 
+   console.log(products);
+
    // Show toast message when error to fetch data from server
    isError && toast.error(error.message);
 
@@ -31,7 +33,6 @@ const AllProductsList: FC = (): JSX.Element => {
 
          {/* List */}
          <main className="mt-9 grid grid-cols-1 justify-items-center gap-x-3 gap-y-12 md:grid-cols-2 2xl:grid-cols-3">
-            {products?.map((item) => <ProductCard key={item.id} {...item} />)}
             {isLoading || isError
                ? //  Skeleton loading
                  Array(ShowProductsPerPage)

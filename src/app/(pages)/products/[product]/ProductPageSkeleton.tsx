@@ -36,6 +36,8 @@ const ProductCardSkeleton: FC = (): JSX.Element => {
                      />
                   </div>
                </div>
+
+               {/* Big Image */}
                <div className="aspect-square">
                   <Skeleton
                      variant="rectangular"

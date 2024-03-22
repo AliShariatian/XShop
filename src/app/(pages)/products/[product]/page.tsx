@@ -30,7 +30,7 @@ const ProductSinglePage: FC = (): JSX.Element => {
                <ProductPageSkeleton />
             ) : (
                <>
-                  <ProductImageGallery />
+                  <ProductImageGallery images={product.otherImg} alt={product.title} />
                   <ProductDetail {...product} />
                </>
             )}
