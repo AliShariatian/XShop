@@ -11,7 +11,7 @@ const Colors: FC<PropsType> = ({ colors }): JSX.Element => {
       <div>
          <span>Select Colors</span>
 
-         <div className="mt-2 flex gap-3">
+         <div className="mt-2 flex flex-wrap gap-3">
             {colors.map((item) => (
                <button
                   key={item}

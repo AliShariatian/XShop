@@ -9,7 +9,7 @@ const Size: FC<PropsType> = ({ size }): JSX.Element => {
       <div>
          <span>Choose Size</span>
 
-         <div className="mt-2 flex gap-3">
+         <div className="mt-2 flex flex-wrap gap-3">
             {size.map((item) => (
                <button
                   key={item}

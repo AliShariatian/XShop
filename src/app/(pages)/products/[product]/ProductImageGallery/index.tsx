@@ -21,7 +21,7 @@ const ProductImageGallery: FC<PropsType> = ({ images, alt }): JSX.Element => {
             className="aspect-square w-full overflow-hidden rounded-20"
          >
             {images.map((item) => (
-               <SwiperSlide key={item} className="size-full bg-red-300">
+               <SwiperSlide key={item} className="size-full">
                   <Image src={item} width={2000} alt={alt} height={2000} className="transition hover:scale-110" />
                </SwiperSlide>
             ))}
