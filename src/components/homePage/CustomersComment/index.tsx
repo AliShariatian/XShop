@@ -55,10 +55,10 @@ const CustomersComment: FC = (): JSX.Element => {
                },
             }}
             modules={[Navigation]}
-            className="!grid grid-cols-3 px-5 xl:px-36"
+            className="w-full px-5 xl:px-36"
          >
             {data.map((item: dataType) => (
-               <SwiperSlide key={item.name}>
+               <SwiperSlide key={item.name} className="w-fit">
                   <CustomerCommentCard {...item} />
                </SwiperSlide>
             ))}
