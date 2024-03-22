@@ -13,29 +13,24 @@ const ProductImageGallery: FC<PropsType> = ({ images, alt }): JSX.Element => {
    const [thumbsSwiper, setThumbsSwiper] = useState<SwiperType | null>(null);
 
    return (
-      <section className="flex w-1/2 gap-3">
+      <section className="flex flex-col gap-3 xl:w-1/3">
          <Swiper
-            onSwiper={setThumbsSwiper}
-            slidesPerView={3}
-            direction="horizontal"
-            breakpoints={{
-               720: {
-                  direction: "vertical",
-               },
-            }}
-            className="w-1/4"
+            thumbs={{ swiper: thumbsSwiper }}
+            modules={[Thumbs, Navigation]}
+            spaceBetween={9}
+            className="aspect-square w-full overflow-hidden rounded-20"
          >
             {images.map((item) => (
-               <SwiperSlide key={item} className="aspect-square w-full overflow-hidden rounded-2xl">
-                  <Image src={item} width={300} alt={alt} height={300} className="size-full " />
+               <SwiperSlide key={item} className="size-full bg-red-300">
+                  <Image src={item} width={2000} alt={alt} height={2000} className="transition hover:scale-110" />
                </SwiperSlide>
             ))}
          </Swiper>
 
-         <Swiper thumbs={{ swiper: thumbsSwiper }} modules={[Thumbs, Navigation]} spaceBetween={9} className="w-3/4">
+         <Swiper onSwiper={setThumbsSwiper} spaceBetween={9} slidesPerView={3} className="grid w-full grid-cols-3">
             {images.map((item) => (
-               <SwiperSlide key={item} className="aspect-square w-full overflow-hidden rounded-3xl bg-grey-100">
-                  <Image src={item} width={2000} alt={alt} height={2000} className="size-full" />
+               <SwiperSlide key={item} className="overflow-hidden rounded-20">
+                  <Image src={item} width={300} alt={alt} height={300} className="aspect-square size-full" />
                </SwiperSlide>
             ))}
          </Swiper>

@@ -25,7 +25,7 @@ const ProductSinglePage: FC = (): JSX.Element => {
             <Breadcrumb />
          </div>
 
-         <div className="flex gap-5">
+         <div className="flex flex-col gap-20 xl:flex-row">
             {isLoading || isError ? (
                <ProductPageSkeleton />
             ) : (

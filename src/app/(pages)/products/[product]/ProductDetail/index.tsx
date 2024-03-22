@@ -7,7 +7,7 @@ import AddToCart from "./AddToCart";
 
 const ProductDetail: FC<ProductsPropsType> = ({ title, rate, discount, price, description, colors, size }): JSX.Element => {
    return (
-      <section className="w-1/2">
+      <section className="xl:w-1/2">
          <div className="flex flex-col gap-3">
             <h1 className="font-integralCF text-[40px]">{title}</h1>
             <StarRate rate={rate} className="gap-1" />
