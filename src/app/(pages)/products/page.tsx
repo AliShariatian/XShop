@@ -5,7 +5,7 @@ const AllProductsPage: FC = (): JSX.Element => {
    return (
       <Section>
          <div>
-            <Breadcrumb pages={["Products"]} />
+            <Breadcrumb />
          </div>
 
          <div className="flex gap-5">

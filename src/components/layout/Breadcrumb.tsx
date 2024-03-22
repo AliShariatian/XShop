@@ -1,14 +1,19 @@
+"use client";
+
+import { FC } from "react";
+import { usePathname } from "next/navigation";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
 import Link from "@mui/material/Link";
 import Image from "next/image";
 import { downArrowIcon } from "@/public/img";
-import { FC } from "react";
 
-type PropsType = {
-   pages: string[];
-};
+const Breadcrumb: FC = (): JSX.Element => {
+   const currentPath = usePathname();
+   const pages = currentPath
+      .split("/")
+      .slice(1) // Remove first item
+      .map((item) => item.replaceAll("-", " "));
 
-const Breadcrumb: FC<PropsType> = ({ pages }): JSX.Element => {
    const separator = <Image src={downArrowIcon} height={9} width={9} alt="arrow" className="mx-2 size-[0.7rem] -rotate-90" />;
 
    return (
@@ -18,12 +23,13 @@ const Breadcrumb: FC<PropsType> = ({ pages }): JSX.Element => {
          </Link>
 
          {pages.map((item) =>
+         // If item is last element, remove link
             item === pages.at(-1) ? (
-               <span key={item} className="cursor-default !text-dark">
+               <span key={item} className="cursor-default capitalize !text-dark">
                   {item}
                </span>
             ) : (
-               <Link key={item} title={item} underline="hover" href="/" className="!text-dark">
+               <Link key={item} title={item} underline="hover" href={`/${item}`} className="capitalize !text-dark">
                   {item}
                </Link>
             ),

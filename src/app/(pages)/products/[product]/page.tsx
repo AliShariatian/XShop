@@ -1,7 +1,13 @@
-import React, { FC } from "react";
+import { FC } from "react";
+import { Breadcrumb } from "@/components";
 
 const ProductSinglePage: FC = (): JSX.Element => {
-   return <div>ProductSinglePage</div>;
+   return (
+      <div>
+         <Breadcrumb />
+         ProductSinglePage
+      </div>
+   );
 };
 
 export default ProductSinglePage;
