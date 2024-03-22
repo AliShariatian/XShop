@@ -10,6 +10,6 @@ export const fetchLimitProducts = ({ limit, sortBy, order = "ascending" }: fetch
    return axios.get(`/products?_limit=${limit}&_sort=${sortBy}&_order=${orderBy}`);
 };
 
-export const fetchSingleProduct = (id: string) => {
-   return axios.get(`/products/${id}`);
+export const fetchSingleProduct = (slug: string) => {
+   return axios.get(`/products?slug=${slug}`);
 };

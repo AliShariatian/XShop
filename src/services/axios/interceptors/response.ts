@@ -4,13 +4,15 @@ const responseInterceptor = (instance: AxiosInstance) => {
    instance.interceptors.response.use(
       (response: AxiosResponse) => {
          // Add "products/" to slug for every items
-         const editedResponse = response.data.map((item: any) => {
-            return { ...item, slug: `products/${item.slug}` };
-         });
+         if (Array.isArray(response.data)) {
+            const editedResponse = response.data.map((item: any) => {
+               return { ...item, slug: `products/${item.slug}` };
+            });
 
-         const newResponse = { ...response, data: editedResponse };
-
-         return newResponse;
+            return { ...response, data: editedResponse };
+         } else {
+            return response;
+         }
       },
 
       (err: AxiosError) => {
