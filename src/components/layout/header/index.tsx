@@ -2,7 +2,7 @@
 
 import { FC, useState } from "react";
 // ICON
-import { downArrowIcon, searchIcon, basketIcon, accountIcon, hamburgerMenuIcon } from "@/public/img";
+import { searchIcon, basketIcon, accountIcon, hamburgerMenuIcon } from "@/public/img";
 // COMPONENT
 import Image from "next/image";
 import Link from "next/link";
@@ -40,17 +40,16 @@ const Header: FC = (): JSX.Element => {
                <nav className="hidden lg:block">
                   <ul className="flex gap-5">
                      <li className="flex items-center gap-2">
-                        <Link href="/">Shop</Link>
-                        <Image src={downArrowIcon} alt="open" width={10} height={10} className="size-[10px]" />
+                        <Link href="/products">Products</Link>
                      </li>
                      <li>
-                        <Link href="/">On Sale</Link>
+                        <Link href="/#top-selling">Top Sale</Link>
                      </li>
                      <li>
-                        <Link href="/">New Arrivals</Link>
+                        <Link href="/#new-arrivals">New Arrivals</Link>
                      </li>
                      <li>
-                        <Link href="/">Brands</Link>
+                        <Link href="/#brands">Brands</Link>
                      </li>
                   </ul>
                </nav>

@@ -3,11 +3,16 @@ import { FC } from "react";
 import { brands } from "@/public/img";
 // COMPONENT
 import Image from "next/image";
-import { Section } from "@/components";
+import { Section, ScrollById } from "@/components";
 
 const Brands: FC = (): JSX.Element => {
    return (
-      <Section parentClassName="h-20 xl:h-32 bg-dark w-full" sectionClassName="flex w-full h-full items-center justify-between">
+      <Section
+         parentClassName="h-20 xl:h-32 bg-dark w-full"
+         sectionClassName="flex w-full h-full items-center justify-between relative"
+      >
+         <ScrollById id="brands" className="-mt-96" />
+
          {brands.map((item) => (
             <div key={item.title}>
                <Image

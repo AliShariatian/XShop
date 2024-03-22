@@ -34,6 +34,7 @@ import mastercard from "./icon/mastercard.svg";
 import paypal from "./icon/paypal.svg";
 import applePay from "./icon/applePay.svg";
 import googlePay from "./icon/googlePay.svg";
+import filter from "./icon/filter.svg";
 
 const brands = [
    { src: versace, title: "Versace" },
@@ -60,6 +61,7 @@ export {
    paypal,
    applePay,
    googlePay,
+   filter,
    basketIcon,
    accountIcon,
    hamburgerMenuIcon,

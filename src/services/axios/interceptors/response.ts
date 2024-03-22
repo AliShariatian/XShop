@@ -3,7 +3,16 @@ import { AxiosError, AxiosInstance, AxiosResponse } from "axios";
 const responseInterceptor = (instance: AxiosInstance) => {
    instance.interceptors.response.use(
       (response: AxiosResponse) => {
-         return response;
+         // Add "products/" to slug for every items
+         if (Array.isArray(response.data)) {
+            const editedResponse = response.data.map((item: any) => {
+               return { ...item, slug: `products/${item.slug}` };
+            });
+
+            return { ...response, data: editedResponse };
+         } else {
+            return response;
+         }
       },
 
       (err: AxiosError) => {

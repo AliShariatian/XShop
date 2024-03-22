@@ -7,9 +7,23 @@ const HomePage: FC = (): JSX.Element => {
       <>
          <HeroSection />
          <Brands />
-         <Vitrine title="new arrivals" productShowCount={4} sortBy="createdAt" order="descending" buttonHref="/" />
+         <Vitrine
+            id="new-arrivals"
+            title="new arrivals"
+            productShowCount={4}
+            sortBy="createdAt"
+            order="descending"
+            buttonHref="/"
+         />
          <hr className="container opacity-70" />
-         <Vitrine title="top selling" productShowCount={4} sortBy="saleCount" order="descending" buttonHref="/" />
+         <Vitrine
+            id="top-selling"
+            title="top selling"
+            productShowCount={4}
+            sortBy="saleCount"
+            order="descending"
+            buttonHref="/"
+         />
          <Gallery />
          <CustomersComment />
       </>
