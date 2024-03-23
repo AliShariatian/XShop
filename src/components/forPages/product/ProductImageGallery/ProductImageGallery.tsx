@@ -1,10 +1,11 @@
 "use client";
 
-import { FC, useState } from "react";
+import { CSSProperties, FC, useState } from "react";
 import type { Swiper as SwiperType } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Thumbs } from "swiper/modules";
 import Image from "next/image";
+import "swiper/css/navigation";
 
 type PropsType = {
    images: string[];
@@ -31,7 +32,20 @@ const ProductImageGallery: FC<PropsType> = ({ images, alt }): JSX.Element => {
          </Swiper>
 
          {/* Small images */}
-         <Swiper onSwiper={setThumbsSwiper} spaceBetween={9} slidesPerView={3} className="grid w-full grid-cols-3">
+         <Swiper
+            onSwiper={setThumbsSwiper}
+            navigation={true}
+            modules={[Thumbs, Navigation]}
+            style={
+               {
+                  "--swiper-navigation-color": "#000",
+                  "--swiper-navigation-size": "25px",
+               } as CSSProperties
+            }
+            spaceBetween={9}
+            slidesPerView={3}
+            className="grid w-full grid-cols-3"
+         >
             {images.map((item) => (
                <SwiperSlide key={item} className="overflow-hidden rounded-20">
                   <Image src={item} width={300} alt={alt} height={300} className="aspect-square size-full" />
