@@ -1,9 +1,9 @@
 "use client";
 
-import { ProductCard, ProductCardSkeleton } from "@/components";
-import GetAllProducts from "@/services/reactQuery/allProducts";
 import { FC } from "react";
 import { toast } from "react-toastify";
+import GetAllProducts from "@/services/reactQuery/allProducts";
+import { ProductCard, ProductCardSkeleton } from "@/components";
 
 const ShowProductsPerPage = 9;
 
@@ -31,7 +31,6 @@ const AllProductsList: FC = (): JSX.Element => {
 
          {/* List */}
          <main className="mt-9 grid grid-cols-1 justify-items-center gap-x-3 gap-y-12 md:grid-cols-2 2xl:grid-cols-3">
-            {products?.map((item) => <ProductCard key={item.id} {...item} />)}
             {isLoading || isError
                ? //  Skeleton loading
                  Array(ShowProductsPerPage)

@@ -1,12 +1,12 @@
 import { FC } from "react";
+import { company, faq, help, resources, social } from "./items";
 
 // COMPONENT
-import { Logo, Section } from "@/components";
-import Subscribe from "./Subscribe";
-import Link from "next/link";
+import { HorizontalLine, Logo, Section } from "@/components";
 import BelowFooter from "./BelowFooter";
-import { company, faq, help, resources, social } from "./items";
+import Subscribe from "./Subscribe";
 import Image from "next/image";
+import Link from "next/link";
 
 const Footer: FC = (): JSX.Element => {
    return (
@@ -90,7 +90,7 @@ const Footer: FC = (): JSX.Element => {
                </div>
             </section>
 
-            <hr className="mb-6 mt-16 border border-dark/10" />
+            <HorizontalLine />
 
             <BelowFooter />
          </Section>

@@ -21,8 +21,10 @@ import hamburgerMenuIcon from "./icon/hamburgerMenu.svg";
 import closeIcon from "./icon/close.svg";
 import starIcon from "./icon/star.svg";
 import starFullRate from "./icon/starFullRate.svg";
+import starHalfRate from "./icon/starHalfRate.svg";
 import starEmptyRate from "./icon/starEmptyRate.svg";
 import verified from "./icon/verified.svg";
+import singleVerified from "./icon/singleVerified.svg";
 import mail from "./icon/mail.svg";
 import arrow from "./icon/arrow.svg";
 import twitter from "./icon/twitter.svg";
@@ -35,6 +37,8 @@ import paypal from "./icon/paypal.svg";
 import applePay from "./icon/applePay.svg";
 import googlePay from "./icon/googlePay.svg";
 import filter from "./icon/filter.svg";
+import minus from "./icon/minus.svg";
+import plus from "./icon/plus.svg";
 
 const brands = [
    { src: versace, title: "Versace" },
@@ -48,8 +52,10 @@ export {
    downArrowIcon,
    searchIcon,
    starFullRate,
+   starHalfRate,
    starEmptyRate,
    verified,
+   singleVerified,
    mail,
    arrow,
    twitter,
@@ -62,6 +68,8 @@ export {
    applePay,
    googlePay,
    filter,
+   minus,
+   plus,
    basketIcon,
    accountIcon,
    hamburgerMenuIcon,

@@ -1,18 +1,18 @@
 import { FC } from "react";
-import { ProductsPropsType } from "./type";
+import { ProductCardType } from "./type";
 // COMPONENT
 import Image from "next/image";
 import Link from "next/link";
-import { StarRate } from "@/components";
+import { Price, StarRate } from "@/components";
 
-const ProductCard: FC<ProductsPropsType> = ({ rate, slug, price, title, img, discount }): JSX.Element => {
+const ProductCard: FC<ProductCardType> = ({ rate, slug, price, title, imgs, discount }): JSX.Element => {
    return (
       <div className="productCard group/productCard ">
          {/* IMAGE */}
          <Link href={slug} title={title}>
             <div className="productImgWrapper">
                <Image
-                  src={img}
+                  src={imgs[0]}
                   width={1000}
                   height={1000}
                   draggable="false"
@@ -30,26 +30,8 @@ const ProductCard: FC<ProductsPropsType> = ({ rate, slug, price, title, img, dis
          {/* STAR */}
          <StarRate rate={rate} />
 
-         <div className="flex items-center gap-3">
-            {/* Price */}
-            {discount === 100 ? (
-               <span className="text-2xl font-bold">Free</span>
-            ) : (
-               <>
-                  <span className="text-2xl font-bold">${discount ? price - (discount / 100) * price : price}</span>
-                  {discount ? (
-                     <>
-                        {/* Price with Discount */}
-                        <span className="text-2xl font-bold text-dark/40 line-through">${price}</span>
-                        {/* DISCOUNT */}
-                        <span className="rounded-full bg-discount/10 px-3 py-1 text-base font-semibold text-discount">
-                           -{discount}%
-                        </span>
-                     </>
-                  ) : null}
-               </>
-            )}
-         </div>
+         {/* Price */}
+         <Price price={price} discount={discount} />
       </div>
    );
 };
