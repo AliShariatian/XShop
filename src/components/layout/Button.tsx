@@ -9,7 +9,7 @@ type PropsType = {
    borderColor?: "border-grey-50" | "border-grey-100";
    bgColor?: "dark" | "white" | "grey";
    type?: "button" | "submit" | "reset";
-   py?: "py-4" | "py-3";
+   py?: "py-4" | "py-3" | "py-2";
    disable?: boolean;
    onClick?: (ev: React.MouseEvent<HTMLElement>) => void;
 };

@@ -1,6 +1,7 @@
 import { FC } from "react";
 import Image from "next/image";
 import { minus, plus } from "@/public/img";
+import { Button } from "@/components";
 
 const AddToCart: FC = (): JSX.Element => {
    return (
@@ -15,7 +16,9 @@ const AddToCart: FC = (): JSX.Element => {
             </button>
          </div>
 
-         <button className="w-2/3 rounded-full bg-dark py-2 text-light">Add to Cart</button>
+         <Button bgColor="dark" py="py-2" className="w-2/3">
+            Add to Cart
+         </Button>
       </div>
    );
 };
