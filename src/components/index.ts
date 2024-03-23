@@ -13,23 +13,35 @@ import HorizontalLine from "./layout/HorizontalLine";
 import Header from "./layout/header";
 import Footer from "./layout/footer";
 
-// HOME PAGE
-import HeroSection from "./homePage/HeroSection";
-import Brands from "./homePage/Brands";
-import Vitrine from "./homePage/Vitrine";
-import Gallery from "./homePage/Gallery";
-import CustomersComment from "./homePage/CustomersComment";
-import CustomerCommentCard from "./homePage/CustomersComment/CustomerCommentCard";
-
 // PRODUCT
 import ProductCard from "./product/ProductCard";
 import ProductCardSkeleton from "./product/ProductCardSkeleton";
 import StarRate from "./StarRate";
 import Price from "./Price";
 
-// PRODUCT PAGE
-import AllProductsList from "@/app/(pages)/products/(AllProductsPage)";
-import Filters from "@/app/(pages)/products/(AllProductsPage)/Filters";
+// -------------------------------- FOR PAGES ------------------------------------
+
+// HOME PAGE
+import HeroSection from "./forPages/home/HeroSection";
+import Brands from "./forPages/home/Brands";
+import Vitrine from "./forPages/home/Vitrine";
+import Gallery from "./forPages/home/Gallery";
+import CustomersComment from "./forPages/home/CustomersComment";
+import CustomerCommentCard from "./forPages/home/CustomersComment/CustomerCommentCard";
+
+// PRODUCTS PAGE
+import AllProductsList from "./forPages/products/AllProductsList";
+import Filters from "./forPages/products/Filters";
+
+// SINGLE PRODUCTS PAGE
+import ProductPageSkeleton from "./forPages/product/ProductPageSkeleton";
+import AddToCart from "./forPages/product/ProductDetail/AddToCart";
+import Colors from "./forPages/product/ProductDetail/Colors";
+import Size from "./forPages/product/ProductDetail/Size";
+import ProductDetail from "./forPages/product/ProductDetail/ProductDetail";
+import ProductImageGallery from "./forPages/product/ProductImageGallery/ProductImageGallery";
+
+// -------------------------------- END FOR PAGES ------------------------------------
 
 // EXPORT
 export {
@@ -56,4 +68,10 @@ export {
    Price,
    AllProductsList,
    Filters,
+   ProductPageSkeleton,
+   AddToCart,
+   Colors,
+   Size,
+   ProductDetail,
+   ProductImageGallery,
 };

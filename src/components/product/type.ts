@@ -4,7 +4,7 @@ export interface ProductCardType {
    slug: string;
    price: number;
    title: string;
-   img: string;
+   imgs: string[];
    discount: number;
 }
 
@@ -14,8 +14,6 @@ export interface ProductsType extends ProductCardType {
 
 export interface ProductsPropsType extends ProductsType {
    createdAt: string;
-   img: string;
-   otherImg: string[];
    count: string;
    colors: string[];
    size: string[];

@@ -1,3 +1,5 @@
+"use client";
+
 import { FC, useState } from "react";
 import type { Swiper as SwiperType } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -14,6 +16,7 @@ const ProductImageGallery: FC<PropsType> = ({ images, alt }): JSX.Element => {
 
    return (
       <section className="flex flex-col gap-3 xl:w-1/3">
+         {/* Main image */}
          <Swiper
             thumbs={{ swiper: thumbsSwiper }}
             modules={[Thumbs, Navigation]}
@@ -21,12 +24,13 @@ const ProductImageGallery: FC<PropsType> = ({ images, alt }): JSX.Element => {
             className="aspect-square w-full overflow-hidden rounded-20"
          >
             {images.map((item) => (
-               <SwiperSlide key={item} className="size-full">
+               <SwiperSlide key={item} className="flex size-full items-center justify-center">
                   <Image src={item} width={2000} alt={alt} height={2000} className="transition hover:scale-110" />
                </SwiperSlide>
             ))}
          </Swiper>
 
+         {/* Small images */}
          <Swiper onSwiper={setThumbsSwiper} spaceBetween={9} slidesPerView={3} className="grid w-full grid-cols-3">
             {images.map((item) => (
                <SwiperSlide key={item} className="overflow-hidden rounded-20">

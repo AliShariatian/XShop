@@ -4,53 +4,48 @@ import { Skeleton } from "@mui/material";
 const ProductCardSkeleton: FC = (): JSX.Element => {
    return (
       <div className="flex w-full flex-col gap-32">
-         <section className="flex gap-5 max-xl:flex-col">
+         <section className="flex w-full flex-col gap-9 xl:flex-row xl:gap-20">
             {/* Images */}
-            <div className="flex gap-3 max-xl:flex-col-reverse">
-               <div className="grid grid-cols-3 justify-between gap-1 xl:flex xl:flex-col xl:gap-3">
-                  <div className="max-xl:aspect-square">
-                     <Skeleton
-                        variant="rectangular"
-                        width={150}
-                        height={150}
-                        animation="wave"
-                        className="rounded-[1rem] max-xl:!size-full"
-                     />
-                  </div>
-                  <div className="aspect-square">
-                     <Skeleton
-                        variant="rectangular"
-                        width={150}
-                        height={150}
-                        animation="wave"
-                        className="rounded-[1rem] max-xl:!size-full"
-                     />
-                  </div>
-                  <div className="aspect-square">
-                     <Skeleton
-                        variant="rectangular"
-                        width={150}
-                        height={150}
-                        animation="wave"
-                        className="rounded-[1rem] max-xl:!size-full"
-                     />
-                  </div>
-               </div>
-
+            <div className="flex flex-col gap-3 xl:w-1/3">
                {/* Big Image */}
                <div className="aspect-square">
                   <Skeleton
                      variant="rectangular"
-                     width={475}
-                     height={475}
+                     width={400}
+                     height={400}
                      animation="wave"
-                     className="rounded-[1.25rem] max-xl:!size-full"
+                     className="!size-full rounded-[1.25rem]"
+                  />
+               </div>
+
+               {/* Small images */}
+               <div className="flex justify-between gap-3">
+                  <Skeleton
+                     variant="rectangular"
+                     width={150}
+                     height={150}
+                     animation="wave"
+                     className="aspect-square !h-fit rounded-[1rem]"
+                  />
+                  <Skeleton
+                     variant="rectangular"
+                     width={150}
+                     height={150}
+                     animation="wave"
+                     className="aspect-square !h-fit rounded-[1rem]"
+                  />
+                  <Skeleton
+                     variant="rectangular"
+                     width={150}
+                     height={150}
+                     animation="wave"
+                     className="aspect-square !h-fit rounded-[1rem]"
                   />
                </div>
             </div>
 
             {/* Texts */}
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-4 xl:w-1/2">
                <Skeleton
                   variant="rectangular"
                   width={500}

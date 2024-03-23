@@ -1,16 +1,14 @@
 "use client";
 
-import { ProductCard, ProductCardSkeleton } from "@/components";
-import GetAllProducts from "@/services/reactQuery/allProducts";
 import { FC } from "react";
 import { toast } from "react-toastify";
+import GetAllProducts from "@/services/reactQuery/allProducts";
+import { ProductCard, ProductCardSkeleton } from "@/components";
 
 const ShowProductsPerPage = 9;
 
 const AllProductsList: FC = (): JSX.Element => {
    const { data: products, isLoading, isError, error } = GetAllProducts();
-
-   console.log(products);
 
    // Show toast message when error to fetch data from server
    isError && toast.error(error.message);

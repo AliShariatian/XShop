@@ -1,15 +1,12 @@
 "use client";
 
 import { FC } from "react";
-import { Breadcrumb, Section } from "@/components";
-import GetSingleProducts from "@/services/reactQuery/singleProducts";
 import { usePathname } from "next/navigation";
-import ProductDetail from "./ProductDetail";
-import ProductImageGallery from "./ProductImageGallery";
-import ProductPageSkeleton from "./ProductPageSkeleton";
 import { toast } from "react-toastify";
+import GetSingleProducts from "@/services/reactQuery/singleProducts";
+import { Breadcrumb, Section, ProductDetail, ProductImageGallery, ProductPageSkeleton } from "@/components";
 
-const ProductSinglePage: FC = (): JSX.Element => {
+const SingleProductPage: FC = (): JSX.Element => {
    const currentProduct = usePathname().split("/").at(-1) as string;
 
    const { data, isLoading, isError, error } = GetSingleProducts(currentProduct);
@@ -25,12 +22,12 @@ const ProductSinglePage: FC = (): JSX.Element => {
             <Breadcrumb />
          </div>
 
-         <div className="flex flex-col gap-9 xl:gap-20 xl:flex-row">
+         <div className="flex flex-col gap-9 xl:flex-row xl:gap-20">
             {isLoading || isError ? (
                <ProductPageSkeleton />
             ) : (
                <>
-                  <ProductImageGallery images={product.otherImg} alt={product.title} />
+                  <ProductImageGallery images={product.imgs} alt={product.title} />
                   <ProductDetail {...product} />
                </>
             )}
@@ -39,4 +36,4 @@ const ProductSinglePage: FC = (): JSX.Element => {
    );
 };
 
-export default ProductSinglePage;
+export default SingleProductPage;
