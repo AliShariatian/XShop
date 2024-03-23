@@ -21,6 +21,7 @@ import hamburgerMenuIcon from "./icon/hamburgerMenu.svg";
 import closeIcon from "./icon/close.svg";
 import starIcon from "./icon/star.svg";
 import starFullRate from "./icon/starFullRate.svg";
+import starHalfRate from "./icon/starHalfRate.svg";
 import starEmptyRate from "./icon/starEmptyRate.svg";
 import verified from "./icon/verified.svg";
 import singleVerified from "./icon/singleVerified.svg";
@@ -51,6 +52,7 @@ export {
    downArrowIcon,
    searchIcon,
    starFullRate,
+   starHalfRate,
    starEmptyRate,
    verified,
    singleVerified,

@@ -9,11 +9,11 @@ const ProductDetail: FC<ProductsPropsType> = ({ title, rate, discount, price, de
    return (
       <section className="xl:w-1/2">
          <div className="flex flex-col gap-3">
-            <h1 className="font-integralCF text-2xl xl:text-[40px]">{title}</h1>
+            <h1 className="mb-3 font-integralCF text-2xl xl:text-[40px]">{title}</h1>
             <StarRate rate={rate} className="gap-1" />
             <Price discount={discount} price={price} textSize="text-3xl" />
 
-            <p className="mt-5 text-dark/70 hover:text-dark transition-colors">{description}</p>
+            <p className="mt-5 text-dark/70 transition-colors hover:text-dark">{description}</p>
          </div>
 
          <div>
