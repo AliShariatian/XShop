@@ -41,6 +41,9 @@ import Size from "./forPages/product/ProductDetail/Size";
 import ProductDetail from "./forPages/product/ProductDetail/ProductDetail";
 import ProductImageGallery from "./forPages/product/ProductImageGallery/ProductImageGallery";
 
+// CART PAGE
+import CartItems from "./forPages/cart/cartItems";
+import OrderSummery from "./forPages/cart/orderSummery/OrderSummery";
 // -------------------------------- END FOR PAGES ------------------------------------
 
 // EXPORT
@@ -74,4 +77,6 @@ export {
    Size,
    ProductDetail,
    ProductImageGallery,
+   CartItems,
+   OrderSummery,
 };

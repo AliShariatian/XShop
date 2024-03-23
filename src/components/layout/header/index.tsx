@@ -86,7 +86,7 @@ const Header: FC = (): JSX.Element => {
                         className="size-5 xl:size-6"
                      />
                   </Link>
-                  <Link href="/">
+                  <Link href="/cart" title="Your Cart">
                      <Image src={basketIcon} alt="basket" width={30} height={30} className="size-5 xl:size-6" />
                   </Link>
                   <Link href="/">
