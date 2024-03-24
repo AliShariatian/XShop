@@ -1,12 +1,15 @@
-import { FC } from "react";
+"use client";
+
+import { FC, useState } from "react";
 import { singleVerified } from "@/public/img";
 import { ProductsPropsType } from "@/components/product/type";
 // COMPONENT
 import Image from "next/image";
-import { StarRate, Price, HorizontalLine, Button, ProductSelectCount } from "@/components";
+import { StarRate, Price, HorizontalLine, Button } from "@/components";
 // Redux
 import { useDispatch } from "react-redux";
 import { addToCartAction } from "@/services/redux/slice/cart";
+import { cartItemType } from "@/types/cart";
 
 const ProductDetail: FC<ProductsPropsType> = ({
    id,
@@ -22,16 +25,19 @@ const ProductDetail: FC<ProductsPropsType> = ({
 }): JSX.Element => {
    const dispatch = useDispatch();
 
+   const [selectedColor, setSelectedColor] = useState<string>("");
+   const [selectedSize, setSelectedSize] = useState<string>("");
+
    const addToCartHandler = () => {
       const mainImage: string = imgs[0];
 
-      const item = {
+      const item: Omit<cartItemType, "quantity"> = {
          id,
          title,
          mainImage,
          price,
-         colors,
-         size,
+         selectedColor,
+         selectedSize,
          discount,
          slug,
       };
@@ -59,10 +65,13 @@ const ProductDetail: FC<ProductsPropsType> = ({
                   {colors.map((item) => (
                      <button
                         key={item}
+                        onClick={() => setSelectedColor(item)}
                         style={{ backgroundColor: item }}
                         className="flex size-10 items-center justify-center rounded-full border border-dark/50"
                      >
-                        <Image src={singleVerified} alt="Selected" width={10} height={10} className="size-4" />
+                        {selectedColor === item && (
+                           <Image src={singleVerified} alt="Selected" width={10} height={10} className="size-4" />
+                        )}
                      </button>
                   ))}
                </div>
@@ -77,7 +86,8 @@ const ProductDetail: FC<ProductsPropsType> = ({
                   {size.map((item) => (
                      <button
                         key={item}
-                        className="rounded-full bg-grey-100 px-4 py-2 capitalize text-dark/70 transition hover:bg-dark hover:text-light"
+                        onClick={() => setSelectedSize(item)}
+                        className={`${selectedSize === item ? "bg-dark text-light" : "bg-grey-100 text-dark/70"} rounded-full  px-4 py-2 capitalize transition hover:bg-dark hover:text-light`}
                      >
                         {item}
                      </button>

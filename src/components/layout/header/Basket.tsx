@@ -6,14 +6,14 @@ import { basketIcon } from "@/public/img";
 import Link from "next/link";
 import Image from "next/image";
 import Badge from "@mui/material/Badge";
+import { cartItemType } from "@/types/cart";
 
 const Basket: FC = (): JSX.Element => {
-   // TODO: set valid type
-   const cart = useSelector((state: any) => state.cart);
+   const cart = useSelector((state: { cart: cartItemType[] }) => state.cart);
    const totalQuantity = (): number => {
       let total: number = 0;
 
-      cart.forEach((item: any) => {
+      cart.forEach((item: cartItemType) => {
          total += item.quantity;
       });
 
