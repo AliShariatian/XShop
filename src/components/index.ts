@@ -8,6 +8,7 @@ import Breadcrumb from "./layout/Breadcrumb";
 import BigHeading from "./layout/BigHeading";
 import PageLoadingProgressBar from "./layout/PageLoadingProgressBar";
 import HorizontalLine from "./layout/HorizontalLine";
+import PageLoaderWhiteScreen from "./layout/PageLoaderWhiteScreen";
 
 // HEADER and FOOTER
 import Header from "./layout/header";
@@ -55,6 +56,7 @@ export {
    BigHeading,
    PageLoadingProgressBar,
    HorizontalLine,
+   PageLoaderWhiteScreen,
    Input,
    Header,
    Footer,

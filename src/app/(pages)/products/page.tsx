@@ -1,6 +1,9 @@
 import { FC } from "react";
 import dynamic from "next/dynamic";
-const AllProductComponents = dynamic(() => import("@/components/forPages/products"));
+import { PageLoaderWhiteScreen } from "@/components";
+const AllProductComponents = dynamic(() => import("@/components/forPages/products"), {
+   loading: () => <PageLoaderWhiteScreen />,
+});
 
 const AllProductsPage: FC = (): JSX.Element => {
    return <AllProductComponents />;

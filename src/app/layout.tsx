@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 const RootLayout: FC<PropsWithChildren> = ({ children }): JSX.Element => {
    return (
       <html lang="en">
-         <body className={`${satoshiFont.variable} ${integralCFFont.variable} overflow-x-hidden font-satoshi`}>
+         <body className={`${satoshiFont.variable} ${integralCFFont.variable} relative overflow-x-hidden font-satoshi`}>
             <PageLoadingProgressBar />
             <ReduxProvider>
                <ReactQueryProvider>
