@@ -18,6 +18,7 @@ import ProductCard from "./product/ProductCard";
 import ProductCardSkeleton from "./product/ProductCardSkeleton";
 import StarRate from "./StarRate";
 import Price from "./Price";
+import ProductSelectCount from "./product/ProductSelectCount";
 
 // -------------------------------- FOR PAGES ------------------------------------
 
@@ -42,8 +43,9 @@ import ProductDetail from "./forPages/product/ProductDetail/ProductDetail";
 import ProductImageGallery from "./forPages/product/ProductImageGallery/ProductImageGallery";
 
 // CART PAGE
-import CartItems from "./forPages/cart/cartItems";
+import CartItem from "./forPages/cart/cartItems";
 import OrderSummery from "./forPages/cart/orderSummery/OrderSummery";
+import CartIsEmpty from "./forPages/cart/CartIsEmpty";
 // -------------------------------- END FOR PAGES ------------------------------------
 
 // EXPORT
@@ -69,6 +71,7 @@ export {
    ProductCardSkeleton,
    StarRate,
    Price,
+   ProductSelectCount,
    AllProductsList,
    Filters,
    ProductPageSkeleton,
@@ -77,6 +80,7 @@ export {
    Size,
    ProductDetail,
    ProductImageGallery,
-   CartItems,
+   CartItem,
    OrderSummery,
+   CartIsEmpty,
 };

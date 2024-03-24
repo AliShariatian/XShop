@@ -14,7 +14,7 @@ export interface ProductsType extends ProductCardType {
 
 export interface ProductsPropsType extends ProductsType {
    createdAt: string;
-   count: string;
+   count: number;
    colors: string[];
    size: string[];
    description: string;

@@ -39,6 +39,7 @@ import googlePay from "./icon/googlePay.svg";
 import filter from "./icon/filter.svg";
 import minus from "./icon/minus.svg";
 import plus from "./icon/plus.svg";
+import trash from "./icon/trash.svg";
 
 const brands = [
    { src: versace, title: "Versace" },
@@ -70,6 +71,7 @@ export {
    filter,
    minus,
    plus,
+   trash,
    basketIcon,
    accountIcon,
    hamburgerMenuIcon,

@@ -8,6 +8,7 @@ import Image from "next/image";
 import Link from "next/link";
 import TopNavbar from "./TopNavbar";
 import { Logo, Section } from "@/components";
+import { useSelector } from "react-redux";
 
 const Header: FC = (): JSX.Element => {
    const [closeTopNavbar, setCloseTopNavbar] = useState<boolean>(false);
@@ -15,6 +16,18 @@ const Header: FC = (): JSX.Element => {
 
    const closeTopNavbarHandler = () => {
       setCloseTopNavbar(true);
+   };
+
+   // TODO: set valid type
+   const cart = useSelector((state: any) => state.cart);
+   const totalQuantity = (): number => {
+      let total: number = 0;
+
+      cart.forEach((item: any) => {
+         total += item.quantity;
+      });
+
+      return total;
    };
 
    return (
@@ -86,9 +99,16 @@ const Header: FC = (): JSX.Element => {
                         className="size-5 xl:size-6"
                      />
                   </Link>
-                  <Link href="/cart" title="Your Cart">
-                     <Image src={basketIcon} alt="basket" width={30} height={30} className="size-5 xl:size-6" />
+
+                  <Link href="/cart" title="Your Cart" className="relative">
+                     {totalQuantity() > 0 && (
+                        <span className="absolute -right-3 -top-3 z-40 flex size-6 items-center justify-center rounded-full bg-grey-100 font-bold shadow-md">
+                           {totalQuantity()}
+                        </span>
+                     )}
+                     <Image src={basketIcon} alt="basket" width={30} height={30} className="z-30 size-5 xl:size-6" />
                   </Link>
+
                   <Link href="/">
                      <Image src={accountIcon} alt="account" width={30} height={30} className="size-5 xl:size-6" />
                   </Link>

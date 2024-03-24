@@ -4,8 +4,41 @@ import { StarRate, Price, HorizontalLine } from "@/components";
 import Colors from "./Colors";
 import Size from "./Size";
 import AddToCart from "./AddToCart";
+// Redux
+import { useDispatch } from "react-redux";
+import { addToCartAction } from "@/services/redux/slice/cart";
 
-const ProductDetail: FC<ProductsPropsType> = ({ title, rate, discount, price, description, colors, size }): JSX.Element => {
+const ProductDetail: FC<ProductsPropsType> = ({
+   id,
+   imgs,
+   title,
+   rate,
+   discount,
+   price,
+   description,
+   colors,
+   size,
+   slug,
+}): JSX.Element => {
+   const dispatch = useDispatch();
+
+   const addToCartHandler = () => {
+      const mainImage: string = imgs[0];
+
+      dispatch(
+         addToCartAction({
+            id,
+            title,
+            mainImage,
+            price,
+            colors,
+            size,
+            discount,
+            slug,
+         }),
+      );
+   };
+
    return (
       <section className="xl:w-1/2">
          <div className="flex flex-col gap-3">
@@ -24,7 +57,7 @@ const ProductDetail: FC<ProductsPropsType> = ({ title, rate, discount, price, de
             <Size size={size} />
 
             <HorizontalLine className="my-5" />
-            <AddToCart />
+            <AddToCart onClick={addToCartHandler} />
          </div>
       </section>
    );
