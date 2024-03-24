@@ -1,9 +1,9 @@
 import { FC } from "react";
+import { singleVerified } from "@/public/img";
 import { ProductsPropsType } from "@/components/product/type";
-import { StarRate, Price, HorizontalLine } from "@/components";
-import Colors from "./Colors";
-import Size from "./Size";
-import AddToCart from "./AddToCart";
+// COMPONENT
+import Image from "next/image";
+import { StarRate, Price, HorizontalLine, Button, ProductSelectCount } from "@/components";
 // Redux
 import { useDispatch } from "react-redux";
 import { addToCartAction } from "@/services/redux/slice/cart";
@@ -25,18 +25,18 @@ const ProductDetail: FC<ProductsPropsType> = ({
    const addToCartHandler = () => {
       const mainImage: string = imgs[0];
 
-      dispatch(
-         addToCartAction({
-            id,
-            title,
-            mainImage,
-            price,
-            colors,
-            size,
-            discount,
-            slug,
-         }),
-      );
+      const item = {
+         id,
+         title,
+         mainImage,
+         price,
+         colors,
+         size,
+         discount,
+         slug,
+      };
+
+      dispatch(addToCartAction(item));
    };
 
    return (
@@ -50,14 +50,48 @@ const ProductDetail: FC<ProductsPropsType> = ({
          </div>
 
          <div>
+            {/* Colors */}
             <HorizontalLine className="my-5" />
-            <Colors colors={colors} />
+            <div>
+               <span>Select Colors</span>
 
-            <HorizontalLine className="my-5" />
-            <Size size={size} />
+               <div className="mt-2 flex flex-wrap gap-3">
+                  {colors.map((item) => (
+                     <button
+                        key={item}
+                        style={{ backgroundColor: item }}
+                        className="flex size-10 items-center justify-center rounded-full border border-dark/50"
+                     >
+                        <Image src={singleVerified} alt="Selected" width={10} height={10} className="size-4" />
+                     </button>
+                  ))}
+               </div>
+            </div>
 
+            {/* Size */}
             <HorizontalLine className="my-5" />
-            <AddToCart onClick={addToCartHandler} />
+            <div>
+               <span>Choose Size</span>
+
+               <div className="mt-2 flex flex-wrap gap-3">
+                  {size.map((item) => (
+                     <button
+                        key={item}
+                        className="rounded-full bg-grey-100 px-4 py-2 capitalize text-dark/70 transition hover:bg-dark hover:text-light"
+                     >
+                        {item}
+                     </button>
+                  ))}
+               </div>
+            </div>
+
+            {/* Add to cart */}
+            <HorizontalLine className="my-5" />
+            <div className="flex gap-3">
+               <Button onClick={addToCartHandler} bgColor="dark" py="py-2" className="w-2/3">
+                  Add to Cart
+               </Button>
+            </div>
          </div>
       </section>
    );

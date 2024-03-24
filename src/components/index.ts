@@ -36,9 +36,6 @@ import Filters from "./forPages/products/Filters";
 
 // SINGLE PRODUCTS PAGE
 import ProductPageSkeleton from "./forPages/product/ProductPageSkeleton";
-import AddToCart from "./forPages/product/ProductDetail/AddToCart";
-import Colors from "./forPages/product/ProductDetail/Colors";
-import Size from "./forPages/product/ProductDetail/Size";
 import ProductDetail from "./forPages/product/ProductDetail/ProductDetail";
 import ProductImageGallery from "./forPages/product/ProductImageGallery/ProductImageGallery";
 
@@ -75,9 +72,6 @@ export {
    AllProductsList,
    Filters,
    ProductPageSkeleton,
-   AddToCart,
-   Colors,
-   Size,
    ProductDetail,
    ProductImageGallery,
    CartItem,

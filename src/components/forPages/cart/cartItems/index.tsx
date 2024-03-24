@@ -1,5 +1,7 @@
 import { FC } from "react";
 import { trash } from "@/public/img";
+import { useDispatch } from "react-redux";
+import { removeFromCartAction } from "@/services/redux/slice/cart";
 // COMPONENT
 import Image from "next/image";
 import Link from "next/link";
@@ -16,7 +18,9 @@ type PropsType = {
    slug: string;
 };
 
-const CartItem: FC<PropsType> = ({ id, title, quantity, price, mainImage, slug }): JSX.Element => {
+const CartItem: FC<PropsType> = ({ id, title, price, mainImage, slug }): JSX.Element => {
+   const dispatch = useDispatch();
+
    return (
       <div>
          <div className="group/img flex justify-between">
@@ -53,10 +57,10 @@ const CartItem: FC<PropsType> = ({ id, title, quantity, price, mainImage, slug }
 
             {/* Left Items */}
             <div className="flex w-1/5 flex-col items-end justify-between">
-               <button title="Remove From Cart">
+               <button onClick={() => dispatch(removeFromCartAction(id))} title="Remove From Cart">
                   <Image src={trash} width={20} height={20} alt="Remove From Cart" className="size-5" />
                </button>
-               <ProductSelectCount id={id} className="w-full" quantity={quantity} />
+               <ProductSelectCount id={id} className="w-full" />
             </div>
          </div>
       </div>
