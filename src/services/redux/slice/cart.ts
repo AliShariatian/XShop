@@ -1,25 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { cartItemType } from "@/types/cart";
 
-const initialState: cartItemType[] = [
-   {
-      id: 0,
-      title: "",
-      mainImage: "",
-      price: 0,
-      selectedColor: "",
-      selectedSize: "",
-      discount: 0,
-      slug: "",
-      quantity: 0,
-   },
-];
+const cartInitialState: cartItemType[] | null = [];
 
 // Todo Slice
 const slice = createSlice({
    name: "Cart",
    initialState: {
-      cart: initialState,
+      cart: cartInitialState,
    },
    reducers: {
       addToCartAction: (state, action) => {

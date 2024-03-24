@@ -1,15 +1,16 @@
 "use client";
 
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { singleVerified } from "@/public/img";
 import { ProductsPropsType } from "@/components/product/type";
 // COMPONENT
 import Image from "next/image";
 import { StarRate, Price, HorizontalLine, Button } from "@/components";
 // Redux
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addToCartAction } from "@/services/redux/slice/cart";
 import { cartItemType } from "@/types/cart";
+import { toast } from "react-toastify";
 
 const ProductDetail: FC<ProductsPropsType> = ({
    id,
@@ -24,11 +25,14 @@ const ProductDetail: FC<ProductsPropsType> = ({
    slug,
 }): JSX.Element => {
    const dispatch = useDispatch();
+   const cart = useSelector((state: { cart: cartItemType[] }) => state.cart);
+   const currentProduct = cart.find((item: cartItemType) => item.id === id);
 
-   const [selectedColor, setSelectedColor] = useState<string>("");
-   const [selectedSize, setSelectedSize] = useState<string>("");
+   const [selectedColor, setSelectedColor] = useState<string>(currentProduct?.selectedColor || "");
+   const [selectedSize, setSelectedSize] = useState<string>(currentProduct?.selectedSize || "");
+   const [disableAddToCartButton, setDisableAddToCartButton] = useState<boolean>(true);
 
-   const addToCartHandler = () => {
+   const addToCartButtonHandler = () => {
       const mainImage: string = imgs[0];
 
       const item: Omit<cartItemType, "quantity"> = {
@@ -42,8 +46,21 @@ const ProductDetail: FC<ProductsPropsType> = ({
          slug,
       };
 
-      dispatch(addToCartAction(item));
+      if (selectedColor && selectedSize) {
+         dispatch(addToCartAction(item));
+         toast.success("Product Added To Cart Successfully");
+      } else {
+         toast.warning("First Select Product Options");
+      }
    };
+
+   useEffect(() => {
+      if (selectedColor && selectedSize) {
+         setDisableAddToCartButton(false);
+      } else {
+         setDisableAddToCartButton(true);
+      }
+   }, [selectedColor, selectedSize]);
 
    return (
       <section className="xl:w-1/2">
@@ -70,7 +87,13 @@ const ProductDetail: FC<ProductsPropsType> = ({
                         className="flex size-10 items-center justify-center rounded-full border border-dark/50"
                      >
                         {selectedColor === item && (
-                           <Image src={singleVerified} alt="Selected" width={10} height={10} className="size-4" />
+                           <Image
+                              src={singleVerified}
+                              alt="Selected"
+                              width={10}
+                              height={10}
+                              className="size-5 drop-shadow-[0px_0px_2px_rgba(0,0,0,0.7)]"
+                           />
                         )}
                      </button>
                   ))}
@@ -97,8 +120,8 @@ const ProductDetail: FC<ProductsPropsType> = ({
 
             {/* Add to cart */}
             <HorizontalLine className="my-5" />
-            <div className="flex gap-3">
-               <Button onClick={addToCartHandler} bgColor="dark" py="py-2" className="w-2/3">
+            <div className="flex gap-3" onClick={addToCartButtonHandler}>
+               <Button disable={disableAddToCartButton} bgColor="dark" py="py-2" className="w-2/3">
                   Add to Cart
                </Button>
             </div>

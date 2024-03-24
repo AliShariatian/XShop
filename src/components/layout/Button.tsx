@@ -28,7 +28,6 @@ const Button: FC<PropsType> = ({
       <button
          onClick={onClick}
          type={type}
-         disabled={disable}
          className={` 
             ${bgColor === "dark" && "bg-dark text-light hover:bg-gray-900"} 
             ${bgColor === "white" && "bg-light text-dark hover:bg-gray-100"} 

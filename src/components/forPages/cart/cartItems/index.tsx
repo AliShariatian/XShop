@@ -6,20 +6,13 @@ import { removeFromCartAction } from "@/services/redux/slice/cart";
 import Image from "next/image";
 import Link from "next/link";
 import { ProductSelectCount } from "@/components";
+import { cartItemType } from "@/types/cart";
 
-type PropsType = {
-   id: number;
-   title: string;
-   price: number;
-   // size: string;
-   // color: string;
-   mainImage: string;
-   quantity: number;
-   slug: string;
-};
-
-const CartItem: FC<PropsType> = ({ id, title, price, mainImage, slug }): JSX.Element => {
+const CartItem: FC<cartItemType> = ({ id, title, price, mainImage, slug, selectedColor, selectedSize }): JSX.Element => {
    const dispatch = useDispatch();
+
+   console.log(selectedColor);
+   
 
    return (
       <div>
@@ -44,11 +37,16 @@ const CartItem: FC<PropsType> = ({ id, title, price, mainImage, slug }): JSX.Ele
 
                      <div className="font-medium">
                         <span>Size: </span>
-                        <span className="text-dark/70">Large</span>
+                        <span className="capitalize text-dark/70">{selectedSize}</span>
                      </div>
                      <div className="font-medium">
-                        <span>Color: </span>
-                        <span className="text-dark/70">White</span>
+                        <div className="flex items-center gap-2">
+                           Color:
+                           <span
+                              style={{ backgroundColor: selectedColor }}
+                              className="size-4 rounded-full border border-dark/50"
+                           />
+                        </div>
                      </div>
                   </div>
                   <span className="text-2xl font-bold">${price}</span>
