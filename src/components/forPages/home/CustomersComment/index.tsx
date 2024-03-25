@@ -15,7 +15,7 @@ const CustomersComment: FC = (): JSX.Element => {
       <section className="relative my-20 flex flex-col gap-6">
          <div className="container flex items-center justify-between">
             {/* TITLE */}
-            <BigHeading tag="h3" title="OUR HAPPY CUSTOMERS" />
+            <BigHeading tag="h3" title="OUR HAPPY CUSTOMERS" className="text-left" />
 
             {/* Arrow controllers */}
             <div className="flex justify-end gap-3 *:size-6 *:cursor-pointer">
@@ -55,7 +55,7 @@ const CustomersComment: FC = (): JSX.Element => {
                },
             }}
             modules={[Navigation]}
-            className="w-full px-5 xl:px-36"
+            className="grid w-full px-5 xl:px-36"
          >
             {data.map((item: dataType) => (
                <SwiperSlide key={item.name} className="w-fit">
