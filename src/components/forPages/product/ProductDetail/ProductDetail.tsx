@@ -35,16 +35,7 @@ const ProductDetail: FC<ProductsPropsType> = ({
    const addToCartButtonHandler = () => {
       const mainImage: string = imgs[0];
 
-      const item: Omit<cartItemType, "quantity"> = {
-         id,
-         title,
-         mainImage,
-         price,
-         selectedColor,
-         selectedSize,
-         discount,
-         slug,
-      };
+      const item: Omit<cartItemType, "quantity"> = { id, title, mainImage, price, selectedColor, selectedSize, discount, slug };
 
       if (selectedColor && selectedSize) {
          dispatch(addToCartAction(item));

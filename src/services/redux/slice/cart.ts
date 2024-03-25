@@ -12,6 +12,7 @@ const slice = createSlice({
    reducers: {
       addToCartAction: (state, action) => {
          const itemInCart = state.cart.find((item) => item.id === action.payload.id);
+         // BUG: fix separate color or size added to cart.
          if (itemInCart) {
             itemInCart.quantity++;
          } else {

@@ -5,14 +5,22 @@ import { removeFromCartAction } from "@/services/redux/slice/cart";
 // COMPONENT
 import Image from "next/image";
 import Link from "next/link";
-import { ProductSelectCount } from "@/components";
+import { Price, ProductSelectCount } from "@/components";
 import { cartItemType } from "@/types/cart";
+import calculatePriceAfterDiscount from "@/utils/calculatePriceAfterDiscount";
 
-const CartItem: FC<cartItemType> = ({ id, title, price, mainImage, slug, selectedColor, selectedSize }): JSX.Element => {
+const CartItem: FC<cartItemType> = ({
+   id,
+   title,
+   price,
+   discount,
+   mainImage,
+   slug,
+   selectedColor,
+   selectedSize,
+}): JSX.Element => {
    const dispatch = useDispatch();
-
-   console.log(selectedColor);
-   
+   const { finalPrice } = calculatePriceAfterDiscount(price, discount);
 
    return (
       <div>
@@ -49,7 +57,7 @@ const CartItem: FC<cartItemType> = ({ id, title, price, mainImage, slug, selecte
                         </div>
                      </div>
                   </div>
-                  <span className="text-2xl font-bold">${price}</span>
+                  <Price price={price} discount={discount} smallSize />
                </div>
             </div>
 

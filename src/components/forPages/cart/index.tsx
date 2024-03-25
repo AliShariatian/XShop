@@ -23,7 +23,7 @@ const CartComponents: FC = (): JSX.Element => {
                </main>
 
                {/* Summery */}
-               <OrderSummery />
+               <OrderSummery {...cart} />
             </div>
          ) : (
             <CartIsEmpty />
