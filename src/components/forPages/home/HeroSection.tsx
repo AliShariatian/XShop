@@ -38,7 +38,14 @@ const HeroSection = () => {
          {/* RIGHT */}
          <div className="relative flex justify-end max-xl:-mt-10 xl:w-1/2">
             {/* BANNER */}
-            <Image src={bannerImg} alt="Banner" width={999} height={999} className="bottom-0 xl:absolute xl:size-[37.5rem]" />
+            <Image
+               src={bannerImg}
+               alt="Banner"
+               width={999}
+               height={999}
+               draggable={false}
+               className="bottom-0 xl:absolute xl:size-[37.5rem]"
+            />
 
             {/* STAR ICON */}
             <Image
@@ -46,6 +53,7 @@ const HeroSection = () => {
                alt="star"
                width={100}
                height={100}
+               draggable={false}
                className="absolute top-7 aspect-square max-xl:right-4 max-xl:size-16 xl:top-24"
             />
             <Image
@@ -53,6 +61,7 @@ const HeroSection = () => {
                alt="star"
                width={50}
                height={50}
+               draggable={false}
                className="absolute left-6 top-28 aspect-square max-xl:size-9 xl:left-20 xl:top-72"
             />
          </div>

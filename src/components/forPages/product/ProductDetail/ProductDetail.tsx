@@ -67,7 +67,7 @@ const ProductDetail: FC<ProductsPropsType> = ({
             {/* Colors */}
             <HorizontalLine className="my-5" />
             <div>
-               <span>Select Colors</span>
+               <span>Select Color</span>
 
                <div className="mt-2 flex flex-wrap gap-3">
                   {colors.map((item) => (
