@@ -8,7 +8,7 @@ const AllProductComponents: FC = (): JSX.Element => {
             <Breadcrumb />
          </div>
 
-         <div className="flex gap-9">
+         <div className="flex gap-12">
             <Filters />
             <AllProductsList />
          </div>
