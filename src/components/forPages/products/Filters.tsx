@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const Filters: FC = (): JSX.Element => {
    return (
-      <div className="h-full w-1/4 rounded-20 border p-5 max-xl:hidden">
+      <div className="top-32 h-full w-1/4 rounded-20 border p-5 max-xl:hidden xl:sticky">
          {/* Title */}
          <div className="flex items-center justify-between">
             <h4 className="text-xl font-bold">Filters</h4>

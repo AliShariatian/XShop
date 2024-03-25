@@ -4,10 +4,10 @@ import { cartItemType } from "@/types/cart";
 import calculateCartSummary from "@/utils/calculateCartSummary";
 
 const OrderSummery: FC<cartItemType[]> = (prop): JSX.Element => {
-   const { totalPrice, totalDiscount, total } = calculateCartSummary(prop);
+   const { subtotal: totalPrice, totalDiscount, total } = calculateCartSummary(prop);
 
    return (
-      <section className="flex h-fit w-1/3 flex-col gap-5 rounded-20 border p-6 text-2xl">
+      <section className="top-32 flex h-fit w-1/3 flex-col gap-5 rounded-20 border p-6 text-2xl xl:sticky">
          <h3 className="font-bold">OrderSummery</h3>
          <div className="flex flex-col gap-3 text-xl">
             <div className="flex items-center justify-between">
