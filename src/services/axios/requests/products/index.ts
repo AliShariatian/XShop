@@ -11,5 +11,9 @@ export const fetchLimitProducts = ({ limit, sortBy, order = "ascending" }: fetch
 };
 
 export const fetchSingleProduct = (slug: string) => {
-   return axios.get(`/products?slug=${slug}`);
+   return axios.get(`/products?slug=/${slug}`);
+};
+
+export const fetchSearchProduct = (query: string) => {
+   return axios.get(`/products?title_like=${query}`);
 };

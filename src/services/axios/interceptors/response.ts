@@ -6,7 +6,7 @@ const responseInterceptor = (instance: AxiosInstance) => {
          // Add "products/" to slug for every items
          if (Array.isArray(response.data)) {
             const editedResponse = response.data.map((item: any) => {
-               return { ...item, slug: `products/${item.slug}` };
+               return { ...item, slug: `products${item.slug}` };
             });
 
             return { ...response, data: editedResponse };
