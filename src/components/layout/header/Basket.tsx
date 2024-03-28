@@ -1,6 +1,6 @@
 "use client";
 
-import { FC } from "react";
+import { FC, memo } from "react";
 import { useSelector } from "react-redux";
 import { basketIcon } from "@/public/img";
 import Link from "next/link";
@@ -28,4 +28,4 @@ const Basket: FC = (): JSX.Element => {
    );
 };
 
-export default Basket;
+export default memo(Basket);

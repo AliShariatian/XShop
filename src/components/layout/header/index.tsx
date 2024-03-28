@@ -1,6 +1,6 @@
 "use client";
 
-import { FC, useRef, useState } from "react";
+import { FC, memo, useRef, useState } from "react";
 // ICON
 import { searchIcon, hamburgerMenuIcon } from "@/public/img";
 // COMPONENT
@@ -91,4 +91,4 @@ const Header: FC = (): JSX.Element => {
    );
 };
 
-export default Header;
+export default memo(Header);

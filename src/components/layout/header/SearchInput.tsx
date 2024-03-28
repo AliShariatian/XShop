@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { forwardRef, memo, useState } from "react";
+import { forwardRef, memo, useCallback, useState } from "react";
 import { searchIcon, closeIcon } from "@/public/img";
 // FETCH DATA
 import GetSearchProduct from "@/services/reactQuery/searchProduct";
@@ -16,10 +16,10 @@ const SearchInput = forwardRef<HTMLInputElement>((props, ref): JSX.Element => {
    const { data, isLoading, isError } = GetSearchProduct(debouncedSearch);
 
    // onChange
-   const searchInputChangeHandler = (ev: React.ChangeEvent<HTMLInputElement>) => {
+   const searchInputChangeHandler = useCallback((ev: React.ChangeEvent<HTMLInputElement>) => {
       setIsOpenSearch(true);
       setSearchInputValue(ev.target.value);
-   };
+   }, []);
 
    // onBlur
    const searchBlurHandler = () => {

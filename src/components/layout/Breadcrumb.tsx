@@ -1,6 +1,6 @@
 "use client";
 
-import { FC } from "react";
+import { FC, memo } from "react";
 import { usePathname } from "next/navigation";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
 import Link from "@mui/material/Link";
@@ -19,7 +19,7 @@ const Breadcrumb: FC = (): JSX.Element => {
    );
 
    return (
-      <Breadcrumbs separator={separator} className="my-7 *:max-xl:text-base">
+      <Breadcrumbs separator={separator} className="!my-7 *:max-xl:text-base">
          <Link underline="hover" href="/" title={"Home"} className="!text-dark">
             Home
          </Link>
@@ -40,4 +40,4 @@ const Breadcrumb: FC = (): JSX.Element => {
    );
 };
 
-export default Breadcrumb;
+export default memo(Breadcrumb);

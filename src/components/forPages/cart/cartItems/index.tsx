@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 import { trash } from "@/public/img";
 import { useDispatch } from "react-redux";
 import { removeFromCartAction } from "@/services/redux/slice/cart";
@@ -7,7 +7,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { Price, ProductSelectCount } from "@/components";
 import { cartItemType } from "@/types/cart";
-import calculatePriceAfterDiscount from "@/utils/calculatePriceAfterDiscount";
 
 const CartItem: FC<cartItemType> = ({
    id,
@@ -72,4 +71,4 @@ const CartItem: FC<cartItemType> = ({
    );
 };
 
-export default CartItem;
+export default memo(CartItem);

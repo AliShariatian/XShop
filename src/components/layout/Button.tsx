@@ -1,6 +1,6 @@
 "use client";
 
-import { FC } from "react";
+import { FC, memo } from "react";
 import cn from "@/utils/cn";
 
 type PropsType = {
@@ -42,4 +42,4 @@ const Button: FC<PropsType> = ({
    );
 };
 
-export default Button;
+export default memo(Button);

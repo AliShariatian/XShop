@@ -1,6 +1,6 @@
 "use client";
 
-import { FC, useEffect, useState } from "react";
+import { FC, memo, useEffect, useState } from "react";
 import { singleVerified } from "@/public/img";
 import { ProductsPropsType } from "@/components/product/type";
 // COMPONENT
@@ -121,4 +121,4 @@ const ProductDetail: FC<ProductsPropsType> = ({
    );
 };
 
-export default ProductDetail;
+export default memo(ProductDetail);

@@ -1,6 +1,6 @@
 "use client";
 
-import { CSSProperties, FC, useState } from "react";
+import { CSSProperties, FC, memo, useState } from "react";
 import type { Swiper as SwiperType } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Thumbs } from "swiper/modules";
@@ -65,4 +65,4 @@ const ProductImageGallery: FC<PropsType> = ({ images, alt }): JSX.Element => {
    );
 };
 
-export default ProductImageGallery;
+export default memo(ProductImageGallery);

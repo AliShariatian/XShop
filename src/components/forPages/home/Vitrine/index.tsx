@@ -1,6 +1,6 @@
 "use client";
 
-import { FC } from "react";
+import { FC, memo } from "react";
 import { toast } from "react-toastify";
 // TYPE
 import { VitrinePropsType } from "./type";
@@ -58,4 +58,4 @@ const Vitrine: FC<VitrinePropsType> = ({ title, sortBy, order, buttonHref, produ
    );
 };
 
-export default Vitrine;
+export default memo(Vitrine);

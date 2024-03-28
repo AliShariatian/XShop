@@ -1,6 +1,6 @@
 "use client";
 
-import { FC, useRef } from "react";
+import { FC, memo, useRef } from "react";
 import { mail } from "@/public/img";
 import cn from "@/utils/cn";
 import Image from "next/image";
@@ -38,4 +38,4 @@ const Input: FC<PropsType> = ({ icon, placeholder, onChange, value, type, maxLen
    );
 };
 
-export default Input;
+export default memo(Input);
