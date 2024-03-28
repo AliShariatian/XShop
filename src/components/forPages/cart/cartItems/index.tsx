@@ -20,7 +20,6 @@ const CartItem: FC<cartItemType> = ({
    selectedSize,
 }): JSX.Element => {
    const dispatch = useDispatch();
-   const { finalPrice } = calculatePriceAfterDiscount(price, discount);
 
    return (
       <div>
