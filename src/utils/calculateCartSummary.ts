@@ -1,34 +1,28 @@
-// @ts-nochec
-
+import { cartItemType } from "@/types/cart";
 import { roundNumber } from "./roundNumber";
 
 const deliveryFee: number = 15;
 
-const calculateCartSummary = (cart: object) => {
-   const array: { price: number; discount: number; quantity: number }[] = [];
+const calculateCartSummary = (cart: cartItemType[]) => {
+   let subtotal: number = 0;
+   let totalDiscount: number = 0;
+   let totalQuantity: number = 0;
+   let total: number = 0;
 
-   let subtotal: number | string = 0;
-   let totalDiscount: number | string = 0;
-   let totalQuantity: number | string = 0;
-   let total: number | string = 0;
-
-   for (const item in cart) {
-      let price: number = [cart[item].price];
-      let quantity: number = [cart[item].quantity];
-      let discount: number = [cart[item].discount];
-
-      array.push({ price, discount: price * (discount / 100), quantity });
-   }
-
-   subtotal = +array.reduce((prev, curr) => prev + curr.price * curr.quantity, 0);
-   totalDiscount = +array.reduce((prev, curr) => prev + curr.discount * curr.quantity, 0);
-   totalQuantity = +array.reduce((prev, curr) => prev + +curr.quantity, 0);
+   Object.values(cart).forEach((value: cartItemType) => {
+      subtotal += value.price * value.quantity;
+      totalDiscount += value.price * (value.discount / 100) * value.quantity;
+      totalQuantity += value.quantity;
+   });
 
    total = subtotal - totalDiscount + deliveryFee;
 
-   // Add comma separator
+   // Change to user friendly numbers
+   // @ts-ignore
    subtotal = roundNumber(subtotal).toLocaleString();
+   // @ts-ignore
    totalDiscount = roundNumber(totalDiscount).toLocaleString();
+   // @ts-ignore
    total = roundNumber(total).toLocaleString();
 
    return { subtotal, totalDiscount, totalQuantity, total };

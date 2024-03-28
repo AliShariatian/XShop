@@ -1,3 +1,3 @@
-export const roundNumber = (number: number): number => {
+export const roundNumber = (number: number) => {
    return Number(number.toFixed(2));
 };
