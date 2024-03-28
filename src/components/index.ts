@@ -17,9 +17,11 @@ import Footer from "./layout/footer";
 // PRODUCT
 import ProductCard from "./product/ProductCard";
 import ProductCardSkeleton from "./product/ProductCardSkeleton";
-import StarRate from "./StarRate";
-import Price from "./Price";
+import StarRate from "./product/StarRate";
+import Price from "./product/Price";
 import ProductSelectCount from "./product/ProductSelectCount";
+import Colors from "./product/colors";
+import ProductSize from "./product/ProductSize";
 
 // -------------------------------- FOR PAGES ------------------------------------
 
@@ -58,6 +60,8 @@ export {
    HorizontalLine,
    PageLoaderWhiteScreen,
    Input,
+   Colors,
+   ProductSize,
    Header,
    Footer,
    HeroSection,
