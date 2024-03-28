@@ -10,6 +10,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 // HOC
 import ReactQueryProvider from "@/components/HOC/ReactQueryProvider";
+import ReduxProvider from "@/components/HOC/ReduxProvider";
 // COMPONENT
 import { Header, Footer, PageLoadingProgressBar } from "@/components";
 
@@ -21,15 +22,18 @@ export const metadata: Metadata = {
 const RootLayout: FC<PropsWithChildren> = ({ children }): JSX.Element => {
    return (
       <html lang="en">
-         <body className={`${satoshiFont.variable} ${integralCFFont.variable} overflow-x-hidden font-satoshi`}>
-            {" "}
+         <body className={`${satoshiFont.variable} ${integralCFFont.variable} relative overflow-x-hidden font-satoshi`}>
             <PageLoadingProgressBar />
-            <ReactQueryProvider>
-               <Header />
-               <ToastContainer position="bottom-right" limit={3} />
-               {children}
-               <Footer />
-            </ReactQueryProvider>
+            <ReduxProvider>
+               <ReactQueryProvider>
+                  {/* --- START CONTENT */}
+                  <Header />
+                  <ToastContainer position="bottom-right" limit={3} />
+                  {children}
+                  <Footer />
+                  {/* --- END CONTENT */}
+               </ReactQueryProvider>
+            </ReduxProvider>
          </body>
       </html>
    );

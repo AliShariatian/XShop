@@ -8,6 +8,7 @@ import Breadcrumb from "./layout/Breadcrumb";
 import BigHeading from "./layout/BigHeading";
 import PageLoadingProgressBar from "./layout/PageLoadingProgressBar";
 import HorizontalLine from "./layout/HorizontalLine";
+import PageLoaderWhiteScreen from "./layout/PageLoaderWhiteScreen";
 
 // HEADER and FOOTER
 import Header from "./layout/header";
@@ -18,6 +19,7 @@ import ProductCard from "./product/ProductCard";
 import ProductCardSkeleton from "./product/ProductCardSkeleton";
 import StarRate from "./StarRate";
 import Price from "./Price";
+import ProductSelectCount from "./product/ProductSelectCount";
 
 // -------------------------------- FOR PAGES ------------------------------------
 
@@ -35,12 +37,13 @@ import Filters from "./forPages/products/Filters";
 
 // SINGLE PRODUCTS PAGE
 import ProductPageSkeleton from "./forPages/product/ProductPageSkeleton";
-import AddToCart from "./forPages/product/ProductDetail/AddToCart";
-import Colors from "./forPages/product/ProductDetail/Colors";
-import Size from "./forPages/product/ProductDetail/Size";
 import ProductDetail from "./forPages/product/ProductDetail/ProductDetail";
 import ProductImageGallery from "./forPages/product/ProductImageGallery/ProductImageGallery";
 
+// CART PAGE
+import CartItem from "./forPages/cart/cartItems";
+import OrderSummery from "./forPages/cart/orderSummery/OrderSummery";
+import CartIsEmpty from "./forPages/cart/CartIsEmpty";
 // -------------------------------- END FOR PAGES ------------------------------------
 
 // EXPORT
@@ -53,6 +56,7 @@ export {
    BigHeading,
    PageLoadingProgressBar,
    HorizontalLine,
+   PageLoaderWhiteScreen,
    Input,
    Header,
    Footer,
@@ -66,12 +70,13 @@ export {
    ProductCardSkeleton,
    StarRate,
    Price,
+   ProductSelectCount,
    AllProductsList,
    Filters,
    ProductPageSkeleton,
-   AddToCart,
-   Colors,
-   Size,
    ProductDetail,
    ProductImageGallery,
+   CartItem,
+   OrderSummery,
+   CartIsEmpty,
 };

@@ -1,20 +1,31 @@
 "use client";
 
-import { FC, useState } from "react";
+import { FC, useRef, useState } from "react";
 // ICON
-import { searchIcon, basketIcon, accountIcon, hamburgerMenuIcon } from "@/public/img";
+import { searchIcon, hamburgerMenuIcon } from "@/public/img";
 // COMPONENT
 import Image from "next/image";
 import Link from "next/link";
+import Basket from "./Basket";
 import TopNavbar from "./TopNavbar";
+import SearchInput from "./SearchInput";
 import { Logo, Section } from "@/components";
 
 const Header: FC = (): JSX.Element => {
    const [closeTopNavbar, setCloseTopNavbar] = useState<boolean>(false);
-   const [searchInput, setSearchInput] = useState<string>("");
+   const [isShowSearchInput, setIsShowSearchInput] = useState<boolean>(false);
 
+   const searchInputRef = useRef<HTMLInputElement>(null);
+
+   // onClick
    const closeTopNavbarHandler = () => {
       setCloseTopNavbar(true);
+   };
+
+   // onClick
+   const searchIconClickHandler = () => {
+      setIsShowSearchInput((prev) => !prev);
+      searchInputRef.current?.focus();
    };
 
    return (
@@ -55,43 +66,24 @@ const Header: FC = (): JSX.Element => {
                </nav>
 
                {/* SEARCH BAR */}
-               <div className="hidden w-2/5 rounded-full bg-grey-100 p-3 lg:flex">
-                  <Image
-                     onClick={() => {}}
-                     src={searchIcon}
-                     alt="search"
-                     width={20}
-                     height={20}
-                     className="ml-2 size-5 cursor-pointer opacity-40"
-                  />
-                  <input
-                     type="search"
-                     value={searchInput}
-                     onChange={(ev: React.ChangeEvent<HTMLInputElement>) => setSearchInput(ev.target.value)}
-                     className="ml-4 w-full bg-transparent pr-2 outline-none"
-                     maxLength={40}
-                     placeholder="Search for products..."
-                  />
+               <div
+                  className={`${isShowSearchInput ? "show" : "hide"} lg:show left-0 z-40 w-full transition-all max-xl:absolute max-xl:top-[4.5rem] max-lg:px-4 lg:w-2/5`}
+               >
+                  <SearchInput ref={searchInputRef} />
                </div>
 
                {/* RIGHT ICONS */}
-               <div className="flex gap-3">
-                  <Link href="/" className="lg:hidden">
-                     <Image
-                        onClick={() => {}}
-                        src={searchIcon}
-                        alt="search"
-                        width={30}
-                        height={30}
-                        className="size-5 xl:size-6"
-                     />
-                  </Link>
-                  <Link href="/">
-                     <Image src={basketIcon} alt="basket" width={30} height={30} className="size-5 xl:size-6" />
-                  </Link>
-                  <Link href="/">
-                     <Image src={accountIcon} alt="account" width={30} height={30} className="size-5 xl:size-6" />
-                  </Link>
+               <div className="flex items-end gap-4 max-xl:mb-1">
+                  <Image
+                     onClick={searchIconClickHandler}
+                     src={searchIcon}
+                     alt="search"
+                     width={30}
+                     height={30}
+                     className="size-5 lg:hidden xl:size-6"
+                  />
+
+                  <Basket />
                </div>
             </Section>
          </header>

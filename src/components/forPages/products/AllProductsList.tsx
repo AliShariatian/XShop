@@ -30,7 +30,7 @@ const AllProductsList: FC = (): JSX.Element => {
          </div>
 
          {/* List */}
-         <main className="mt-9 grid grid-cols-1 justify-items-center gap-x-3 gap-y-12 md:grid-cols-2 2xl:grid-cols-3">
+         <main className="mt-9 grid grid-cols-1 justify-items-center gap-x-9 gap-y-12 md:grid-cols-2 2xl:grid-cols-3">
             {isLoading || isError
                ? //  Skeleton loading
                  Array(ShowProductsPerPage)

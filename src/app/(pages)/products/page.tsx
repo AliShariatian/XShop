@@ -1,19 +1,13 @@
 import { FC } from "react";
-import { Section, Breadcrumb, AllProductsList, Filters } from "@/components";
+import dynamic from "next/dynamic";
+
+import { PageLoaderWhiteScreen } from "@/components";
+const AllProductComponents = dynamic(() => import("@/components/forPages/products"), {
+   loading: () => <PageLoaderWhiteScreen />,
+});
 
 const AllProductsPage: FC = (): JSX.Element => {
-   return (
-      <Section>
-         <div>
-            <Breadcrumb />
-         </div>
-
-         <div className="flex gap-5">
-            <Filters />
-            <AllProductsList />
-         </div>
-      </Section>
-   );
+   return <AllProductComponents />;
 };
 
 export default AllProductsPage;

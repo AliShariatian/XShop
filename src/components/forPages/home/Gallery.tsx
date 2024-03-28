@@ -26,7 +26,7 @@ const Gallery: FC = (): JSX.Element => {
       <Section>
          <div className="flex flex-col items-center gap-9 rounded-2xl bg-grey-100 px-4 py-6 xl:gap-20 xl:rounded-[2.5rem] xl:p-20">
             <BigHeading tag="h3" title="BROWSE BY DRESS STYLE" />
-            
+
             <div className="grid w-full grid-cols-1 gap-4 *:h-full *:w-full *:overflow-hidden *:rounded-[1.25rem] xl:grid-cols-3">
                {/* Items */}
                {galleryItems.map((item: GalleryItemsType) => (
@@ -43,6 +43,7 @@ const Gallery: FC = (): JSX.Element => {
                         width={500}
                         height={500}
                         alt={item.alt}
+                        draggable={false}
                         className="size-full object-cover transition-transform hover:scale-110"
                      />
                   </Link>

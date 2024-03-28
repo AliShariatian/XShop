@@ -4,7 +4,7 @@ import cn from "@/utils/cn";
 type propsType = {
    title: string;
    className?: string;
-   tag: "h2" | "h3" | "h4";
+   tag: "h1" | "h2" | "h3" | "h4";
 };
 
 const BigHeading: FC<propsType> = ({ title, className, tag: TagType }): JSX.Element => {
