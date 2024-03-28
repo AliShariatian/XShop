@@ -1,6 +1,7 @@
 // TYPE
 import { FC, PropsWithChildren } from "react";
 import type { Metadata } from "next";
+import { staticPageMetadata } from "@/SEO";
 // FONT and STYLE
 import { integralCFFont, satoshiFont } from "@/public/font";
 import "swiper/css";
@@ -15,8 +16,8 @@ import ReduxProvider from "@/components/HOC/ReduxProvider";
 import { Header, Footer, PageLoadingProgressBar } from "@/components";
 
 export const metadata: Metadata = {
-   title: "XShop | Online store",
-   description: "XShop - Coded by Ali Shariatian",
+   title: staticPageMetadata.home.title,
+   description: staticPageMetadata.home.desc,
 };
 
 const RootLayout: FC<PropsWithChildren> = ({ children }): JSX.Element => {
