@@ -1,6 +1,6 @@
 "use client";
 
-import { FC, useState } from "react";
+import { FC, useRef, useState } from "react";
 // ICON
 import { searchIcon, hamburgerMenuIcon } from "@/public/img";
 // COMPONENT
@@ -13,9 +13,19 @@ import { Logo, Section } from "@/components";
 
 const Header: FC = (): JSX.Element => {
    const [closeTopNavbar, setCloseTopNavbar] = useState<boolean>(false);
+   const [isShowSearchInput, setIsShowSearchInput] = useState<boolean>(false);
 
+   const searchInputRef = useRef<HTMLInputElement>(null);
+
+   // onClick
    const closeTopNavbarHandler = () => {
       setCloseTopNavbar(true);
+   };
+
+   // onClick
+   const searchIconClickHandler = () => {
+      setIsShowSearchInput((prev) => !prev);
+      searchInputRef.current?.focus();
    };
 
    return (
@@ -56,20 +66,22 @@ const Header: FC = (): JSX.Element => {
                </nav>
 
                {/* SEARCH BAR */}
-               <SearchInput />
+               <div
+                  className={`${isShowSearchInput ? "show" : "hide"} lg:show left-0 z-40 w-full transition-all max-xl:absolute max-xl:top-[4.5rem] max-lg:px-4 lg:w-2/5`}
+               >
+                  <SearchInput ref={searchInputRef} />
+               </div>
 
                {/* RIGHT ICONS */}
-               <div className="flex gap-3">
-                  <Link href="/" className="lg:hidden">
-                     <Image
-                        onClick={() => {}}
-                        src={searchIcon}
-                        alt="search"
-                        width={30}
-                        height={30}
-                        className="size-5 xl:size-6"
-                     />
-                  </Link>
+               <div className="flex items-end gap-4 max-xl:mb-1">
+                  <Image
+                     onClick={searchIconClickHandler}
+                     src={searchIcon}
+                     alt="search"
+                     width={30}
+                     height={30}
+                     className="size-5 lg:hidden xl:size-6"
+                  />
 
                   <Basket />
                </div>

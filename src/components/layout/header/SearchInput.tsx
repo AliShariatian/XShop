@@ -1,12 +1,14 @@
 import Image from "next/image";
-import { memo, useEffect, useState } from "react";
+import { forwardRef, memo, useState } from "react";
 import { searchIcon, closeIcon } from "@/public/img";
+// FETCH DATA
 import GetSearchProduct from "@/services/reactQuery/searchProduct";
 import useDebounce from "@/hook/useDebounce";
+// COMPONENT
 import SearchResultItem from "./SearchResultItem";
 import { PulseLoader } from "react-spinners";
 
-const SearchInput = () => {
+const SearchInput = forwardRef<HTMLInputElement>((props, ref): JSX.Element => {
    const [isOpenSearch, setIsOpenSearch] = useState<boolean>(false);
    const [searchInputValue, setSearchInputValue] = useState<string>("");
 
@@ -23,7 +25,7 @@ const SearchInput = () => {
    const searchBlurHandler = () => {
       setTimeout(() => {
          setIsOpenSearch(false);
-      }, 200);
+      }, 99);
    };
 
    // onClick
@@ -41,10 +43,11 @@ const SearchInput = () => {
       <div
          onClick={searchClickHandler}
          onBlur={searchBlurHandler}
-         className="relative hidden w-2/5 rounded-full bg-grey-100 p-3 lg:flex"
+         className={"relative flex w-full rounded-full bg-grey-100 p-3 transition-all max-lg:shadow-md"}
       >
-         <Image src={searchIcon} alt="search" width={20} height={20} className="ml-2 size-5 cursor-pointer opacity-40" />
+         <Image src={searchIcon} alt="search" width={20} height={20} className="ml-2 size-5 opacity-40" />
          <input
+            ref={ref}
             type="search"
             value={searchInputValue}
             onChange={searchInputChangeHandler}
@@ -78,6 +81,8 @@ const SearchInput = () => {
          </div>
       </div>
    );
-};
+});
+
+SearchInput.displayName = "SearchInput";
 
 export default memo(SearchInput);

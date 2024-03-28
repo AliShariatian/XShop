@@ -20,6 +20,14 @@
    .vitrineProductsSkeleton {
       @apply flex gap-3 max-md:[&>*:nth-child(1)]:hidden max-xl:[&>*:nth-child(2)]:hidden max-2xl:[&>*:nth-child(3)]:hidden;
    }
+
+   .hide {
+      @apply opacity-0 pointer-events-none duration-100;
+   }
+
+   .show {
+      @apply opacity-100 pointer-events-auto;
+   }
 }
 
 /* For Customers Comment section */
