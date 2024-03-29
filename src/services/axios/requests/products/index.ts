@@ -1,8 +1,14 @@
+import { TFilterState } from "@/components/forPages/products";
 import axios from "../../configs/config";
 import { fetchLimitProductsType } from "./type";
 
-export const fetchAllProducts = () => {
-   return axios.get("/products");
+export const fetchAllProducts = (query: TFilterState) => {
+   const sort = query.sort ? query.sort : "_sort=createdAt&_order=desc";
+   const category = query.category.toLocaleLowerCase();
+
+   const q: string = `${sort}&${category}`;
+
+   return axios.get(`/products?${q}`);
 };
 
 export const fetchLimitProducts = ({ limit, sortBy, order = "ascending" }: fetchLimitProductsType) => {

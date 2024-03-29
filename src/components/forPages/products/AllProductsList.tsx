@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 import { ProductCardType } from "@/components/product/type";
 import { ProductCard, ProductCardSkeleton } from "@/components";
 
@@ -23,4 +23,4 @@ const AllProductsList: FC<TProps> = ({ products, isError, isLoading }): JSX.Elem
    );
 };
 
-export default AllProductsList;
+export default memo(AllProductsList);

@@ -1,14 +1,16 @@
-import { FC } from "react";
+import { ChangeEvent, FC, memo } from "react";
 
 type TProps = {
+   title: string;
    length: number | undefined;
+   onSortChange: (ev: ChangeEvent<HTMLSelectElement>) => void;
 };
 
-const ProductsListHeader: FC<TProps> = ({ length }): JSX.Element => {
+const ProductsListHeader: FC<TProps> = ({ length, onSortChange, title = "" }): JSX.Element => {
    return (
       <div className="mb-9 flex items-end justify-between">
          {/* Title */}
-         <h3 className="text-3xl font-extrabold">Casual</h3>
+         <h3 className="h-8 text-3xl font-extrabold">{title}</h3>
          <div className="flex text-dark/70">
             {/* Length */}
             <span>Showing 1-10 of {length} Products</span>
@@ -16,11 +18,11 @@ const ProductsListHeader: FC<TProps> = ({ length }): JSX.Element => {
             {/* Sort By */}
             <div className="ml-4 max-xl:hidden">
                Sort by:
-               <select className="font-bold outline-none">
-                  <option value="newest">Newest</option>
-                  <option value="mostPopular">Most Popular</option>
-                  <option value="highestPrice">Highest Price</option>
-                  <option value="lowestPrice">Lowest Price</option>
+               <select onChange={onSortChange} className="font-bold outline-none">
+                  <option value={["createdAt", "desc"]}>Newest</option>
+                  <option value={["rate", "desc"]}>Most Popular</option>
+                  <option value={["price", "desc"]}>Highest Price</option>
+                  <option value={["price", "asc"]}>Lowest Price</option>
                </select>
             </div>
          </div>
@@ -28,4 +30,4 @@ const ProductsListHeader: FC<TProps> = ({ length }): JSX.Element => {
    );
 };
 
-export default ProductsListHeader;
+export default memo(ProductsListHeader);

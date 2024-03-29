@@ -1,17 +1,37 @@
 "use client";
 
-import { FC } from "react";
+import { ChangeEvent, FC, useState } from "react";
 import { toast } from "react-toastify";
 import GetAllProducts from "@/services/reactQuery/allProducts";
 // COMPONENT
 import ProductsListHeader from "./ProductsListHeader";
 import { Section, Breadcrumb, AllProductsList, Filters } from "@/components";
 
-const AllProductComponents: FC = (): JSX.Element => {
-   const { data: products, isLoading, isError, error } = GetAllProducts();
+export type TFilterState = {
+   sort: string;
+   category: string;
+};
 
-   // Show toast message when error to fetch data from server
+const AllProductComponents: FC = (): JSX.Element => {
+   const [filter, setFilter] = useState<TFilterState>({ sort: "", category: "" });
+   const { data: products, isLoading, isError, error } = GetAllProducts(filter);
+
    isError && toast.error(error.message);
+
+   // onChange SortBy
+   const sortChangeHandler = (ev: ChangeEvent<HTMLSelectElement>) => {
+      const sortBy = ev.target.value.split(",");
+      setFilter((prev) => ({ ...prev, sort: `_sort=${sortBy[0]}&_order=${sortBy[1]}` }));
+   };
+
+   // onClick Category
+   const categoriesClickHandler = (label: string) => {
+      setFilter((prev) => ({ ...prev, category: `category=${label}` }));
+   };
+
+   const resetFilterHandler = () => {
+      setFilter((prev) => ({ ...prev, category: "" }));
+   };
 
    return (
       <Section>
@@ -20,9 +40,13 @@ const AllProductComponents: FC = (): JSX.Element => {
          </div>
 
          <div className="flex gap-12">
-            <Filters />
+            <Filters categoriesOnClick={categoriesClickHandler} resetFilterOnClick={resetFilterHandler} />
             <div className="h-full w-3/4 max-xl:w-full">
-               <ProductsListHeader length={products?.length} />
+               <ProductsListHeader
+                  title={filter.category.split("=")[1]}
+                  length={products?.length}
+                  onSortChange={sortChangeHandler}
+               />
                <AllProductsList products={products} isError={isError} isLoading={isLoading} />
             </div>
          </div>

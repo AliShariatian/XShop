@@ -1,5 +1,3 @@
-"use client";
-
 import { FC } from "react";
 import { filter } from "@/public/img";
 import Image from "next/image";
@@ -9,10 +7,14 @@ import CategoriesFilter from "./CategoriesFilter";
 import PriceFilter from "./PriceFilter";
 import Title from "./Title";
 import ColorsFilter from "./ColorsFilter";
+import ResetFilters from "./ResetFilters";
 
-const Filters: FC = (): JSX.Element => {
-   // TODO: inset all filter items state in this component
+type TProps = {
+   categoriesOnClick: (label: string) => void;
+   resetFilterOnClick: () => void;
+};
 
+const Filters: FC<TProps> = ({ categoriesOnClick, resetFilterOnClick }): JSX.Element => {
    return (
       <>
          <section className="top-32 h-full w-1/4 rounded-20 border p-5 max-xl:hidden xl:sticky">
@@ -23,15 +25,16 @@ const Filters: FC = (): JSX.Element => {
             </div>
 
             <HorizontalLine className="my-5" />
-            <CategoriesFilter />
+            <CategoriesFilter onClick={categoriesOnClick} />
 
             <HorizontalLine className="my-5" />
             <PriceFilter />
 
-            <HorizontalLine className="mb-5 mt-10" />
+            <HorizontalLine className="mb-5 mt-9" />
             <ColorsFilter />
 
-            <HorizontalLine className="mb-5 mt-10" />
+            <HorizontalLine className="my-5" />
+            <ResetFilters resetFilterOnClick={resetFilterOnClick} />
          </section>
       </>
    );

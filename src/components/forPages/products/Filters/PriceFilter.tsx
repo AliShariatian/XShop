@@ -38,7 +38,6 @@ const PriceFilter: FC = (): JSX.Element => {
                onChange={sliderChangeHandler}
                valueLabelFormat={valueLabelFormat}
                valueLabelDisplay="on"
-               aria-label="price slider"
                defaultValue={60}
             />
          </div>
