@@ -6,9 +6,9 @@ import { removeFromCartAction } from "@/services/redux/slice/cart";
 import Image from "next/image";
 import Link from "next/link";
 import { Price, ProductSelectCount } from "@/components";
-import { cartItemType } from "@/types/cart";
+import { TCartItem } from "@/types/cart";
 
-const CartItem: FC<cartItemType> = ({
+const CartItem: FC<TCartItem> = ({
    id,
    title,
    price,

@@ -1,4 +1,4 @@
-export type StarRatePropsType = {
+export type TStarRateProps = {
    rate: number;
    showRateNumber?: boolean;
    showEmptyStar?: boolean;

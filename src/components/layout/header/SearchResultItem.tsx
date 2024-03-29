@@ -2,14 +2,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { FC } from "react";
 
-type PropsType = {
+type TProps = {
    title: string;
    img: string;
    slug: string;
    category: string;
 };
 
-const SearchResultItem: FC<PropsType> = ({ img, slug, title, category }): JSX.Element => {
+const SearchResultItem: FC<TProps> = ({ img, slug, title, category }): JSX.Element => {
    return (
       <Link href={`/${slug}`} title={title} className="flex w-full items-start gap-4 px-2 py-3">
          <div>

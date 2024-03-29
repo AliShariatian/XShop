@@ -1,11 +1,11 @@
 import cn from "@/utils/cn";
 import { FC } from "react";
 
-type propsType = {
+type TProps = {
    className?: string;
 };
 
-const HorizontalLine: FC<propsType> = ({ className }): JSX.Element => {
+const HorizontalLine: FC<TProps> = ({ className }): JSX.Element => {
    return <hr className={cn("mb-6 mt-16 border-dark/10", className)} />;
 };
 

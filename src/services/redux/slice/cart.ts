@@ -1,7 +1,10 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { cartItemType } from "@/types/cart";
+"use client";
 
-const cartInitialState: cartItemType[] | null = [];
+import { createSlice } from "@reduxjs/toolkit";
+import { TCartItem } from "@/types/cart";
+import { getLocalStorage, setLocalStorage } from "@/utils/localStorage";
+
+const cartInitialState: TCartItem[] | null = getLocalStorage("cart") || [];
 
 // Todo Slice
 const slice = createSlice({
@@ -11,29 +14,39 @@ const slice = createSlice({
    },
    reducers: {
       addToCartAction: (state, action) => {
-         const itemInCart = state.cart.find((item) => item.id === action.payload.id);
-         // BUG: fix separate color or size added to cart.
+         const itemInCart = state.cart?.find((item) => item.id === action.payload.id);
          if (itemInCart) {
             itemInCart.quantity++;
          } else {
-            state.cart.push({ ...action.payload, quantity: 1 });
+            state.cart?.push({ ...action.payload, quantity: 1 });
          }
 
-         // TODO: add to localStorage
-         // localStorage.setItem("cartItems", JSON.stringify(state.cart));
+         // Set to localStorage
+         setLocalStorage("cart", state.cart);
       },
+
       incrementQuantityAction: (state, action) => {
-         const item = state.cart.find((item) => item.id === action.payload)!;
+         const item = state.cart?.find((item) => item.id === action.payload)!;
          item.quantity++;
+
+         // Update localStorage
+         setLocalStorage("cart", state.cart);
       },
+
       decrementQuantityAction: (state, action) => {
-         const item = state.cart.find((item) => item.id === action.payload)!;
+         const item = state.cart?.find((item) => item.id === action.payload)!;
          item?.quantity === 1 ? (item.quantity = 1) : item.quantity--;
+
+         // Update localStorage
+         setLocalStorage("cart", state.cart);
       },
 
       removeFromCartAction: (state, action) => {
-         const removeItem = state.cart.filter((item) => item.id !== action.payload);
+         const removeItem = state.cart?.filter((item) => item.id !== action.payload)!;
          state.cart = removeItem;
+
+         // Remove from localStorage
+         setLocalStorage("cart", state.cart);
       },
    },
 });

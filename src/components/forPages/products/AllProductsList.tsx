@@ -1,11 +1,11 @@
 import { FC, memo } from "react";
-import { ProductCardType } from "@/components/product/type";
+import { IProductCard } from "@/components/product/type";
 import { ProductCard, ProductCardSkeleton } from "@/components";
 
 const ShowProductsPerPage = 9;
 
 type TProps = {
-   products: ProductCardType[] | undefined;
+   products: IProductCard[] | undefined;
    isLoading: boolean;
    isError: boolean;
 };

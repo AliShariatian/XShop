@@ -8,12 +8,12 @@ import Link from "next/link";
 import Image from "next/image";
 import { Section } from "@/components";
 
-type TopNavbarPropsType = {
+type TTopNavbarProps = {
    close: boolean;
    onClick: () => void;
 };
 
-const TopNavbar: FC<TopNavbarPropsType> = ({ onClick, close }): JSX.Element | false => {
+const TopNavbar: FC<TTopNavbarProps> = ({ onClick, close }): JSX.Element | false => {
    return (
       <Section
          parentClassName={`${!close ? "mt-0" : "-mt-9"} flex h-9 w-full items-center justify-between bg-dark transition-[margin] z-40`}

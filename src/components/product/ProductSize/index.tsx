@@ -1,12 +1,12 @@
 import { FC } from "react";
 
-type PropsType = {
+type TProps = {
    size: string[];
    state: string;
    setState: (item: string) => void;
 };
 
-const ProductSize: FC<PropsType> = ({ setState, size, state }): JSX.Element => {
+const ProductSize: FC<TProps> = ({ setState, size, state }): JSX.Element => {
    return (
       <div className="mt-2 flex flex-wrap gap-3">
          {size.map((item) => (

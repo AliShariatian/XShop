@@ -1,4 +1,4 @@
-export interface ProductCardType {
+export interface IProductCard {
    id: number;
    rate: number;
    slug: string;
@@ -8,11 +8,11 @@ export interface ProductCardType {
    discount: number;
 }
 
-export interface ProductsType extends ProductCardType {
+export interface IProducts extends IProductCard {
    saleCount: number;
 }
 
-export interface ProductsPropsType extends ProductsType {
+export interface IProductsProps extends IProducts {
    createdAt: string;
    count: number;
    colors: string[];

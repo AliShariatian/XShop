@@ -3,7 +3,7 @@ import cn from "@/utils/cn";
 import { singleVerified } from "@/public/img";
 import Image from "next/image";
 
-type PropsType = {
+type TProps = {
    colors: string[];
    state: string;
    setState: (item: string) => void;
@@ -11,7 +11,7 @@ type PropsType = {
    sizeMini?: boolean;
 };
 
-const Colors: FC<PropsType> = ({ colors, className, sizeMini, state, setState }): JSX.Element => {
+const Colors: FC<TProps> = ({ colors, className, sizeMini, state, setState }): JSX.Element => {
    return (
       <div className={cn("mt-2 flex flex-wrap gap-3", className)}>
          {colors.map((item) => (

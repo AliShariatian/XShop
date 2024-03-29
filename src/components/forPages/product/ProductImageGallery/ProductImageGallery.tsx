@@ -7,7 +7,7 @@ import { Navigation, Thumbs } from "swiper/modules";
 import Image from "next/image";
 import "swiper/css/navigation";
 
-type PropsType = {
+type TProps = {
    images: string[];
    alt: string;
 };
@@ -17,7 +17,7 @@ const navigationStyle = {
    "--swiper-navigation-size": "25px",
 } as CSSProperties;
 
-const ProductImageGallery: FC<PropsType> = ({ images, alt }): JSX.Element => {
+const ProductImageGallery: FC<TProps> = ({ images, alt }): JSX.Element => {
    const [thumbsSwiper, setThumbsSwiper] = useState<SwiperType | null>(null);
    const [activeImageIndex, setActiveImageIndex] = useState<number>(0);
 

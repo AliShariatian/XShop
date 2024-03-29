@@ -1,10 +1,10 @@
 import { FC } from "react";
 
-type PropsType = {
+type TProps = {
    title: string;
 };
 
-const Title: FC<PropsType> = ({ title }): JSX.Element => {
+const Title: FC<TProps> = ({ title }): JSX.Element => {
    return <h4 className="text-xl font-bold">{title}</h4>;
 };
 

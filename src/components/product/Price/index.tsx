@@ -1,14 +1,14 @@
 import { FC } from "react";
 import calculatePriceAfterDiscount from "@/utils/calculatePriceAfterDiscount";
 
-type PropsType = {
+type TProps = {
    discount: number;
    price: number;
    textSize?: "text-2xl" | "text-3xl";
    smallSize?: boolean;
 };
 
-const Price: FC<PropsType> = ({ discount, price, textSize = "text-2xl", smallSize = false }): JSX.Element => {
+const Price: FC<TProps> = ({ discount, price, textSize = "text-2xl", smallSize = false }): JSX.Element => {
    const { finalPrice } = calculatePriceAfterDiscount(price, discount);
 
    return (

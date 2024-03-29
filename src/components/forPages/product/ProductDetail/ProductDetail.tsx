@@ -1,16 +1,16 @@
 "use client";
 
 import { FC, memo, useEffect, useState } from "react";
-import { ProductsPropsType } from "@/components/product/type";
+import { IProductsProps } from "@/components/product/type";
 // COMPONENT
 import { StarRate, Price, HorizontalLine, Button, Colors, ProductSize } from "@/components";
 // Redux
 import { useDispatch } from "react-redux";
 import { addToCartAction } from "@/services/redux/slice/cart";
-import { cartItemType } from "@/types/cart";
+import { TCartItem } from "@/types/cart";
 import { toast } from "react-toastify";
 
-const ProductDetail: FC<ProductsPropsType> = ({
+const ProductDetail: FC<IProductsProps> = ({
    id,
    imgs,
    title,
@@ -31,7 +31,7 @@ const ProductDetail: FC<ProductsPropsType> = ({
    const addToCartButtonHandler = () => {
       const mainImage: string = imgs[0];
 
-      const item: Omit<cartItemType, "quantity"> = { id, title, mainImage, price, selectedColor, selectedSize, discount, slug };
+      const item: Omit<TCartItem, "quantity"> = { id, title, mainImage, price, selectedColor, selectedSize, discount, slug };
 
       if (selectedColor && selectedSize) {
          dispatch(addToCartAction(item));

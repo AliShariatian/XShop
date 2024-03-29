@@ -1,12 +1,12 @@
 import { FC } from "react";
 
-type PropsType = {
+type TProps = {
    children: React.ReactNode;
    parentClassName?: string;
    sectionClassName?: string;
 };
 
-const Section: FC<PropsType> = ({ children, parentClassName, sectionClassName }): JSX.Element => {
+const Section: FC<TProps> = ({ children, parentClassName, sectionClassName }): JSX.Element => {
    return (
       <div className={parentClassName}>
          <section className={`${sectionClassName} container`}>{children}</section>

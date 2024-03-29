@@ -1,9 +1,9 @@
 import { FC } from "react";
 import { HorizontalLine } from "@/components";
-import { cartItemType } from "@/types/cart";
+import { TCartItem } from "@/types/cart";
 import calculateCartSummary from "@/utils/calculateCartSummary";
 
-const OrderSummery: FC<cartItemType[]> = (prop): JSX.Element => {
+const OrderSummery: FC<TCartItem[]> = (prop): JSX.Element => {
    const { subtotal, totalDiscount, totalQuantity, total } = calculateCartSummary(prop);
 
    return (

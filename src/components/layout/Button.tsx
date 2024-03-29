@@ -3,7 +3,7 @@
 import { FC, memo } from "react";
 import cn from "@/utils/cn";
 
-type PropsType = {
+type TProps = {
    children: React.ReactNode;
    className?: string;
    borderColor?: "border-grey-50" | "border-grey-100";
@@ -14,7 +14,7 @@ type PropsType = {
    onClick?: (ev: React.MouseEvent<HTMLElement>) => void;
 };
 
-const Button: FC<PropsType> = ({
+const Button: FC<TProps> = ({
    children,
    className,
    borderColor,

@@ -6,11 +6,11 @@ import { toast } from "react-toastify";
 // COMPONENT
 import { Section, Button, Input } from "@/components";
 
-type PropsType = {
+type TProps = {
    className?: string;
 };
 
-const Subscribe: FC<PropsType> = ({ className }): JSX.Element => {
+const Subscribe: FC<TProps> = ({ className }): JSX.Element => {
    const [inputValue, setInputValue] = useState<string>("");
    const [isButtonDisable, setIsButtonDisable] = useState<boolean>(true);
 

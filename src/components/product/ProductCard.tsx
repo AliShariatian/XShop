@@ -1,11 +1,11 @@
 import { FC } from "react";
-import { ProductCardType } from "./type";
+import { IProductCard } from "./type";
 // COMPONENT
 import Image from "next/image";
 import Link from "next/link";
 import { Price, StarRate } from "@/components";
 
-const ProductCard: FC<ProductCardType> = ({ rate, slug, price, title, imgs, discount }): JSX.Element => {
+const ProductCard: FC<IProductCard> = ({ rate, slug, price, title, imgs, discount }): JSX.Element => {
    return (
       <div className="productCard group/productCard ">
          {/* IMAGE */}

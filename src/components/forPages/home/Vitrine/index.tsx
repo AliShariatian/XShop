@@ -3,8 +3,8 @@
 import { FC, memo } from "react";
 import { toast } from "react-toastify";
 // TYPE
-import { VitrinePropsType } from "./type";
-import { ProductsType } from "@/components/product/type";
+import { TVitrineProps } from "./type";
+import { IProducts } from "@/components/product/type";
 // COMPONENT
 import Link from "next/link";
 import { Section, ProductCard, Button, ProductCardSkeleton, ScrollById, BigHeading } from "@/components";
@@ -13,7 +13,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // GET DATA FROM SERVER
 import GetVitrineProducts from "@/services/reactQuery/vitrineProducts";
 
-const Vitrine: FC<VitrinePropsType> = ({ title, sortBy, order, buttonHref, productShowCount, id }): JSX.Element => {
+const Vitrine: FC<TVitrineProps> = ({ title, sortBy, order, buttonHref, productShowCount, id }): JSX.Element => {
    const {
       data: products,
       isLoading,
@@ -41,7 +41,7 @@ const Vitrine: FC<VitrinePropsType> = ({ title, sortBy, order, buttonHref, produ
             </div>
          ) : (
             <Swiper spaceBetween={15} slidesPerView={"auto"} className="w-full">
-               {products?.map((item: ProductsType) => (
+               {products?.map((item: IProducts) => (
                   <SwiperSlide key={item.id} className="w-fit">
                      <ProductCard {...item} />
                   </SwiperSlide>

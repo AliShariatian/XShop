@@ -1,11 +1,11 @@
 import { AxiosError } from "axios";
 import { useQuery } from "react-query";
-import { ProductsPropsType } from "@/components/product/type";
+import { IProductsProps } from "@/components/product/type";
 import { fetchLimitProducts } from "@/services/axios/requests/products";
 import { fetchLimitProductsType } from "@/services/axios/requests/products/type";
 
 const GetVitrineProducts = ({ limit, sortBy, order }: fetchLimitProductsType) => {
-   return useQuery<ProductsPropsType[], AxiosError>(sortBy, async () => {
+   return useQuery<IProductsProps[], AxiosError>(sortBy, async () => {
       try {
          const response = await fetchLimitProducts({ limit, sortBy, order });
          return response.data;

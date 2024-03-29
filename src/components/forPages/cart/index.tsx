@@ -3,10 +3,10 @@
 import { FC } from "react";
 import { Section, Breadcrumb, BigHeading, CartItem, OrderSummery, CartIsEmpty } from "@/components";
 import { useSelector } from "react-redux";
-import { cartItemType } from "@/types/cart";
+import { TCartItem } from "@/types/cart";
 
 const CartComponents: FC = (): JSX.Element => {
-   const cart = useSelector((state: { cart: cartItemType[] }) => state.cart);
+   const cart = useSelector((state: { cart: TCartItem[] }) => state.cart);
 
    return (
       <Section>
