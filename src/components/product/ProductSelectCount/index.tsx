@@ -21,14 +21,16 @@ const ProductSelectCount: FC<TProps> = ({ className, id }): JSX.Element | false 
    return (
       <div
          className={cn(
-            "flex w-1/3 items-center justify-between overflow-hidden rounded-full bg-grey-100 *:flex *:size-full *:items-center *:justify-center *:py-2",
+            "flex w-1/3 items-stretch justify-between overflow-hidden rounded-full bg-grey-100 *:flex *:w-full *:items-center *:justify-center *:py-2",
             className,
          )}
       >
          <button onClick={() => dispatch(decrementQuantityAction(id))} className="transition-colors active:bg-gray-300">
             <Image src={minus} alt="decrement" width={10} height={10} className="size-3" />
          </button>
+
          <span>{quantity}</span>
+
          <button onClick={() => dispatch(incrementQuantityAction(id))} className="transition-colors active:bg-gray-300">
             <Image src={plus} alt="increment" width={10} height={10} className="size-3" />
          </button>

@@ -12,7 +12,7 @@ const Price: FC<TProps> = ({ discount, price, textSize = "text-2xl", smallSize =
    const { finalPrice } = calculatePriceAfterDiscount(price, discount);
 
    return (
-      <div className="flex items-end gap-3">
+      <div className="flex flex-wrap items-end gap-x-3">
          {/* Price */}
          {price === 0 ? (
             <span className={`${textSize} font-bold`}>Free</span>
