@@ -76,11 +76,15 @@ const ProductDetail: FC<IProductsProps> = ({
 
             {/* Add to cart */}
             <HorizontalLine className="my-5" />
-            <div className="flex gap-3" onClick={addToCartButtonHandler}>
-               <Button disable={disableAddToCartButton} bgColor="dark" py="py-2" className="w-2/3">
-                  Add to Cart
-               </Button>
-            </div>
+            <Button
+               onClick={addToCartButtonHandler}
+               disable={disableAddToCartButton}
+               bgColor="dark"
+               py="py-2"
+               className="w-full lg:w-2/3"
+            >
+               Add to Cart
+            </Button>
          </div>
       </section>
    );
