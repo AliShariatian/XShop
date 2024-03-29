@@ -13,6 +13,7 @@ export type TFilterState = {
 };
 
 const AllProductComponents: FC = (): JSX.Element => {
+   const [isClose, setIsClose] = useState<boolean>(false);
    const [filter, setFilter] = useState<TFilterState>({ sort: "", category: "" });
    const { data: products, isLoading, isError, error } = GetAllProducts(filter);
 
@@ -29,8 +30,14 @@ const AllProductComponents: FC = (): JSX.Element => {
       setFilter((prev) => ({ ...prev, category: `category=${label}` }));
    };
 
+   // onClick Reset
    const resetFilterHandler = () => {
       setFilter((prev) => ({ ...prev, category: "" }));
+   };
+
+   // onClick Toggle in mobile
+   const toggleFilterOnMobileHandler = () => {
+      setIsClose((prev) => !prev);
    };
 
    return (
@@ -40,12 +47,18 @@ const AllProductComponents: FC = (): JSX.Element => {
          </div>
 
          <div className="flex gap-12">
-            <Filters categoriesOnClick={categoriesClickHandler} resetFilterOnClick={resetFilterHandler} />
-            <div className="h-full w-3/4 max-xl:w-full">
+            <Filters
+               categoriesOnClick={categoriesClickHandler}
+               resetFilterOnClick={resetFilterHandler}
+               onFilterClose={toggleFilterOnMobileHandler}
+               isCloseFilter={isClose}
+            />
+            <div className="h-full w-full lg:w-3/4">
                <ProductsListHeader
                   title={filter.category.split("=")[1]}
                   length={products?.length}
                   onSortChange={sortChangeHandler}
+                  onFilterOpen={toggleFilterOnMobileHandler}
                />
                <AllProductsList products={products} isError={isError} isLoading={isLoading} />
             </div>

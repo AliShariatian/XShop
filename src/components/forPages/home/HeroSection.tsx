@@ -16,8 +16,8 @@ const HeroSection = () => {
                Browse through our diverse range of meticulously crafted garments, designed to bring out your individuality and
                cater to your sense of style.
             </p>
-            <Link href="products">
-               <Button bgColor="dark" className="max-xl:w-full">
+            <Link href="products" className="max-xl:w-full">
+               <Button bgColor="dark" className="w-full">
                   Shop New
                </Button>
             </Link>

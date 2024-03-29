@@ -1,22 +1,27 @@
 import { ChangeEvent, FC, memo } from "react";
+import { filter } from "@/public/img";
+import Image from "next/image";
 
 type TProps = {
    title: string;
    length: number | undefined;
    onSortChange: (ev: ChangeEvent<HTMLSelectElement>) => void;
+   onFilterOpen: () => void;
 };
 
-const ProductsListHeader: FC<TProps> = ({ length, onSortChange, title = "" }): JSX.Element => {
+const ProductsListHeader: FC<TProps> = ({ length, onSortChange, title = "", onFilterOpen }): JSX.Element => {
    return (
-      <div className="mb-9 flex items-end justify-between">
+      <div className="mb-9 flex items-end justify-between max-xl:px-2">
          {/* Title */}
-         <h3 className="h-8 text-3xl font-extrabold">{title}</h3>
+         <h3 className="h-8 text-3xl font-extrabold max-xl:hidden">{title}</h3>
+         <Image onClick={onFilterOpen} src={filter} alt="filter" width={20} height={20} className="size-5 xl:hidden" />
+
          <div className="flex text-dark/70">
             {/* Length */}
-            <span>Showing 1-10 of {length} Products</span>
+            <span className="max-xl:hidden">Showing 1-10 of {length} Products</span>
 
             {/* Sort By */}
-            <div className="ml-4 max-xl:hidden">
+            <div className="lg:ml-4">
                Sort by:
                <select onChange={onSortChange} className="font-bold outline-none">
                   <option value={["createdAt", "desc"]}>Newest</option>
