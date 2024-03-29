@@ -67,20 +67,20 @@ const Header: FC = (): JSX.Element => {
 
                {/* SEARCH BAR */}
                <div
-                  className={`${isShowSearchInput ? "show" : "hide"} lg:show left-0 z-40 w-full transition-all max-xl:absolute max-xl:top-[4.5rem] max-lg:px-4 lg:w-2/5`}
+                  className={`${isShowSearchInput ? "show" : "hide"} lg:show left-0 z-40 w-full transition-all max-lg:absolute max-lg:top-[4.5rem] max-lg:px-4 lg:w-2/5`}
                >
                   <SearchInput ref={searchInputRef} />
                </div>
 
                {/* RIGHT ICONS */}
-               <div className="flex items-end gap-4 max-xl:mb-1">
+               <div className="flex items-end gap-4 max-lg:mb-1">
                   <Image
                      onClick={searchIconClickHandler}
                      src={searchIcon}
                      alt="search"
                      width={30}
                      height={30}
-                     className="size-5 lg:hidden xl:size-6"
+                     className="size-5 lg:hidden lg:size-6"
                   />
 
                   <Basket />

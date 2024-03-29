@@ -18,4 +18,5 @@ export interface ProductsPropsType extends ProductsType {
    colors: string[];
    size: string[];
    description: string;
+   category: string;
 }

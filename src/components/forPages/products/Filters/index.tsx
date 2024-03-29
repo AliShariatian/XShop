@@ -33,6 +33,8 @@ const Filters: FC<TProps> = ({ categoriesOnClick, resetFilterOnClick }): JSX.Ele
             <HorizontalLine className="mb-5 mt-9" />
             <ColorsFilter />
 
+
+
             <HorizontalLine className="my-5" />
             <ResetFilters resetFilterOnClick={resetFilterOnClick} />
          </section>

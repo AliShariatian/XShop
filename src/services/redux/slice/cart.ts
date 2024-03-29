@@ -18,6 +18,9 @@ const slice = createSlice({
          } else {
             state.cart.push({ ...action.payload, quantity: 1 });
          }
+
+         // TODO: add to localStorage
+         // localStorage.setItem("cartItems", JSON.stringify(state.cart));
       },
       incrementQuantityAction: (state, action) => {
          const item = state.cart.find((item) => item.id === action.payload)!;
