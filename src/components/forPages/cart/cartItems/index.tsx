@@ -13,10 +13,10 @@ const CartItem: FC<TCartItem> = ({ id, title, price, discount, mainImage, slug, 
 
    return (
       <div>
-         <div className="group/img flex flex-col justify-between lg:flex-row">
+         <div className="group/img flex flex-col justify-between xl:flex-row">
             {/* Right items */}
-            <div className="flex gap-4 lg:w-4/5">
-               <Link href={slug} className="size-[4.5rem] overflow-hidden rounded-lg shadow lg:size-36">
+            <div className="flex gap-4 xl:w-4/5">
+               <Link href={slug} className="size-[4.5rem] overflow-hidden rounded-lg shadow xl:size-36">
                   <Image
                      src={mainImage}
                      width={100}
@@ -29,7 +29,7 @@ const CartItem: FC<TCartItem> = ({ id, title, price, discount, mainImage, slug, 
                <div className="flex flex-col justify-between">
                   <div className="flex flex-col gap-1 text-base">
                      <Link href={slug}>
-                        <h3 className="text-lg font-bold capitalize lg:text-xl">{title}</h3>
+                        <h3 className="text-lg font-bold capitalize xl:text-xl">{title}</h3>
                      </Link>
 
                      <div className="font-medium">
@@ -53,11 +53,11 @@ const CartItem: FC<TCartItem> = ({ id, title, price, discount, mainImage, slug, 
             </div>
 
             {/* Left Items */}
-            <div className="flex flex-row-reverse items-center justify-between max-lg:mt-6 lg:w-1/5 lg:flex-col lg:items-end">
+            <div className="flex flex-row-reverse items-center justify-between max-xl:mt-6 xl:w-1/5 xl:flex-col xl:items-end">
                <button onClick={() => dispatch(removeFromCartAction(id))} title="Remove From Cart">
                   <Image src={trash} width={20} height={20} alt="Remove From Cart" className="size-5" />
                </button>
-               <ProductSelectCount id={id} className="w-2/3 lg:w-full" />
+               <ProductSelectCount id={id} className="w-2/3 xl:w-full" />
             </div>
          </div>
       </div>

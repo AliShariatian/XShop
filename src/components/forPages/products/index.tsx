@@ -53,7 +53,7 @@ const AllProductComponents: FC = (): JSX.Element => {
                onFilterClose={toggleFilterOnMobileHandler}
                isCloseFilter={isClose}
             />
-            <div className="h-full w-full lg:w-3/4">
+            <div className="h-full w-full xl:w-3/4">
                <ProductsListHeader
                   title={filter.category.split("=")[1]}
                   length={products?.length}

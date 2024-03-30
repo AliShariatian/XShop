@@ -43,7 +43,7 @@ const SearchInput = forwardRef<HTMLInputElement>((props, ref): JSX.Element => {
       <div
          onClick={searchClickHandler}
          onBlur={searchBlurHandler}
-         className={"relative flex w-full rounded-full bg-grey-100 p-3 transition-all max-lg:shadow-md"}
+         className={"relative flex w-full rounded-full bg-grey-100 p-3 transition-all max-xl:shadow-md"}
       >
          <Image src={searchIcon} alt="search" width={20} height={20} className="ml-2 size-5 opacity-40" />
          <input

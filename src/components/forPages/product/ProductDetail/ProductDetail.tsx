@@ -81,7 +81,7 @@ const ProductDetail: FC<IProductsProps> = ({
                disable={disableAddToCartButton}
                bgColor="dark"
                py="py-2"
-               className="w-full lg:w-2/3"
+               className="w-full xl:w-2/3"
             >
                Add to Cart
             </Button>
