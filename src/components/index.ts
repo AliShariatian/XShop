@@ -9,6 +9,8 @@ import BigHeading from "./layout/BigHeading";
 import PageLoadingProgressBar from "./layout/PageLoadingProgressBar";
 import HorizontalLine from "./layout/HorizontalLine";
 import PageLoaderWhiteScreen from "./layout/PageLoaderWhiteScreen";
+import Social from "./layout/Social";
+import CloseButton from "./layout/CloseButton";
 
 // HEADER and FOOTER
 import Header from "./layout/header";
@@ -59,6 +61,8 @@ export {
    PageLoadingProgressBar,
    HorizontalLine,
    PageLoaderWhiteScreen,
+   Social,
+   CloseButton,
    Input,
    Colors,
    ProductSize,

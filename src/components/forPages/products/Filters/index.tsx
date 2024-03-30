@@ -9,6 +9,7 @@ import Title from "./Title";
 import ColorsFilter from "./ColorsFilter";
 import ResetFilters from "./ResetFilters";
 import Button from "@/components/layout/Button";
+import { CloseButton } from "@/components";
 
 type TProps = {
    categoriesOnClick: (label: string) => void;
@@ -26,9 +27,7 @@ const Filters: FC<TProps> = ({ categoriesOnClick, resetFilterOnClick, onFilterCl
          <div className="flex items-center justify-between">
             <Title title="Filters" />
             <Image src={filter} alt="filter" width={20} height={20} className="size-5 max-xl:hidden" />
-            <Button onClick={onFilterClose} bgColor="white" className="!p-0 xl:hidden">
-               <Image src={closeIcon} alt="close" width={20} height={20} className="size-3 invert" />
-            </Button>
+            <CloseButton onClick={onFilterClose} />
          </div>
 
          <HorizontalLine className="my-5" />
