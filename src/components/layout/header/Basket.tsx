@@ -7,9 +7,11 @@ import Link from "next/link";
 import Image from "next/image";
 import Badge from "@mui/material/Badge";
 import { TCartItem } from "@/types/cart";
+import { TRootState } from "@/services/redux/store";
 
 const Basket: FC = (): JSX.Element => {
-   const cart = useSelector((state: { cart: TCartItem[] }) => state.cart);
+   const cart = useSelector((state: TRootState) => state.cart);
+
    const totalQuantity = (): number => {
       let total: number = 0;
 

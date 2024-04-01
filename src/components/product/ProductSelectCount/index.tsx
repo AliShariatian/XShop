@@ -5,6 +5,7 @@ import { minus, plus } from "@/public/img";
 import { useDispatch, useSelector } from "react-redux";
 import { incrementQuantityAction, decrementQuantityAction } from "@/services/redux/slice/cart";
 import { TCartItem } from "@/types/cart";
+import { TRootState } from "@/services/redux/store";
 
 type TProps = {
    id: number;
@@ -13,7 +14,7 @@ type TProps = {
 
 const ProductSelectCount: FC<TProps> = ({ className, id }): JSX.Element | false => {
    const dispatch = useDispatch();
-   const cart = useSelector((state: { cart: TCartItem[] }) => state.cart);
+   const cart = useSelector((state: TRootState) => state.cart);
 
    const currentProduct = cart.find((item: TCartItem) => item.id === id);
    const quantity = currentProduct?.quantity;
