@@ -2,10 +2,10 @@ import { FC } from "react";
 import cn from "@/utils/cn";
 import Image from "next/image";
 import { minus, plus } from "@/public/img";
-import { useDispatch, useSelector } from "react-redux";
-import { incrementQuantityAction, decrementQuantityAction } from "@/services/redux/slice/cart";
 import { TCartItem } from "@/types/cart";
 import { TRootState } from "@/services/redux/store";
+import { useDispatch, useSelector } from "react-redux";
+import { incrementQuantityAction, decrementQuantityAction } from "@/services/redux/slice/cart";
 
 type TProps = {
    id: number;
@@ -14,7 +14,7 @@ type TProps = {
 
 const ProductSelectCount: FC<TProps> = ({ className, id }): JSX.Element | false => {
    const dispatch = useDispatch();
-   const cart = useSelector((state: TRootState) => state.cart);
+   const { cart } = useSelector((state: TRootState) => state);
 
    const currentProduct = cart.find((item: TCartItem) => item.id === id);
    const quantity = currentProduct?.quantity;
