@@ -5,6 +5,8 @@ import Slider from "@mui/material/Slider";
 import { styled } from "@mui/material/styles";
 import Title from "./Title";
 
+const SLIDER_BOUND = [0, 500] as [number, number];
+
 // Custom slider tooltip style
 const PriceSlider = styled(Slider)(({ theme }) => ({
    "& .MuiSlider-valueLabel": {
@@ -21,20 +23,20 @@ const valueLabelFormat = (value: number): string => {
 
 const PriceFilter: FC = (): JSX.Element => {
    // Slider initial values
-   const [value, setValue] = useState<number[]>([100, 350]);
+   const [value, setValue] = useState<number[]>(SLIDER_BOUND);
 
-   const sliderChangeHandler = (ev: Event, newValue: number | number[]) => {
+   const sliderChangeHandler = (_: Event, newValue: number | number[]) => {
       setValue(newValue as number[]);
    };
-   
+
    return (
       <div>
          <Title title="Price" />
-         <div className="mt-4">
+         <div className="mx-auto mt-4 w-11/12">
             <PriceSlider
                value={value}
-               min={0}
-               max={500}
+               min={Math.min(...SLIDER_BOUND)}
+               max={Math.max(...SLIDER_BOUND)}
                onChange={sliderChangeHandler}
                valueLabelFormat={valueLabelFormat}
                valueLabelDisplay="on"

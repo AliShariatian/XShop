@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import { TRootState } from "@/services/redux/store";
 
 const CartComponents: FC = (): JSX.Element => {
-   const { cart } = useSelector((state: TRootState) => state);
+   const cart = useSelector((state: TRootState) => state.cart);
 
    return (
       <Section>

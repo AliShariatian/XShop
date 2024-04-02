@@ -14,7 +14,7 @@ type TProps = {
 
 const ProductSelectCount: FC<TProps> = ({ className, id }): JSX.Element | false => {
    const dispatch = useDispatch();
-   const { cart } = useSelector((state: TRootState) => state);
+   const cart = useSelector((state: TRootState) => state.cart);
 
    const currentProduct = cart.find((item: TCartItem) => item.id === id);
    const quantity = currentProduct?.quantity;

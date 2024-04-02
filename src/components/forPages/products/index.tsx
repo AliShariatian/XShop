@@ -5,29 +5,35 @@ import { toast } from "react-toastify";
 import GetAllProducts from "@/services/reactQuery/allProducts";
 // COMPONENT
 import ProductsListHeader from "./ProductsListHeader";
-import { Section, Breadcrumb, AllProductsList, Filters } from "@/components";
+import { Section, Breadcrumb, AllProductsList, Filters, HorizontalLine } from "@/components";
+import ProductsPagination from "./Pagination";
 
 export type TFilterState = {
-   sort: string;
+   sort: { sortBy: string; orderBy: string };
    category: string;
+   pageNumber: number;
 };
 
 const AllProductComponents: FC = (): JSX.Element => {
-   const [isClose, setIsClose] = useState<boolean>(false);
-   const [filter, setFilter] = useState<TFilterState>({ sort: "", category: "" });
-   const { data: products, isLoading, isError, error } = GetAllProducts(filter);
+   const [isCloseFilterOnMobile, setIsCloseFilterOnMobile] = useState<boolean>(false);
+   const [filter, setFilter] = useState<TFilterState>({ sort: { orderBy: "", sortBy: "" }, category: "", pageNumber: 1 });
+
+   const { data, isLoading, isError, error } = GetAllProducts(filter);
+
+   const allProductsCount = data?.allProductsCount;
+   const products = data?.products;
 
    isError && toast.error(error.message);
 
    // onChange SortBy
    const sortChangeHandler = (ev: ChangeEvent<HTMLSelectElement>) => {
-      const sortBy = ev.target.value.split(",");
-      setFilter((prev) => ({ ...prev, sort: `_sort=${sortBy[0]}&_order=${sortBy[1]}` }));
+      const [sortBy, orderBy] = ev.target.value.split(",");
+      setFilter((prev) => ({ ...prev, sort: { sortBy, orderBy } }));
    };
 
    // onClick Category
-   const categoriesClickHandler = (label: string) => {
-      setFilter((prev) => ({ ...prev, category: `category=${label}` }));
+   const categoriesClickHandler = (category: string) => {
+      setFilter((prev) => ({ ...prev, category }));
    };
 
    // onClick Reset
@@ -37,7 +43,17 @@ const AllProductComponents: FC = (): JSX.Element => {
 
    // onClick Toggle in mobile
    const toggleFilterOnMobileHandler = () => {
-      setIsClose((prev) => !prev);
+      setIsCloseFilterOnMobile((prev) => !prev);
+   };
+
+   // onClick Next page
+   const nextPageHandler = () => {
+      setFilter((prev) => ({ ...prev, pageNumber: prev.pageNumber + 1 }));
+   };
+
+   // onClick Previous page
+   const prevPageHandler = () => {
+      setFilter((prev) => ({ ...prev, pageNumber: prev.pageNumber === 1 ? prev.pageNumber : prev.pageNumber - 1 }));
    };
 
    return (
@@ -51,16 +67,20 @@ const AllProductComponents: FC = (): JSX.Element => {
                categoriesOnClick={categoriesClickHandler}
                resetFilterOnClick={resetFilterHandler}
                onFilterClose={toggleFilterOnMobileHandler}
-               isCloseFilter={isClose}
+               isCloseFilter={isCloseFilterOnMobile}
             />
             <div className="h-full w-full xl:w-3/4">
                <ProductsListHeader
                   title={filter.category.split("=")[1]}
-                  length={products?.length}
+                  allProductsCount={allProductsCount}
                   onSortChange={sortChangeHandler}
                   onFilterOpen={toggleFilterOnMobileHandler}
                />
                <AllProductsList products={products} isError={isError} isLoading={isLoading} />
+
+               <HorizontalLine className="my-6" />
+
+               <ProductsPagination currentPageNumber={filter.pageNumber} nextPage={nextPageHandler} prevPage={prevPageHandler} />
             </div>
          </div>
       </Section>

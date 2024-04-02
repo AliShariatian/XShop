@@ -11,7 +11,7 @@ import Image from "next/image";
 import Badge from "@mui/material/Badge";
 
 const Basket: FC = (): JSX.Element => {
-   const { cart } = useSelector((state: TRootState) => state);
+   const cart = useSelector((state: TRootState) => state.cart);
    const { totalQuantity } = calculateCartSummary(cart);
 
    return (
