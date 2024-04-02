@@ -15,11 +15,7 @@ const slice = createSlice({
    reducers: {
       addToCartAction: (state, action: PayloadAction<TCartItem>) => {
          const itemInCart = state.cart.find((item) => item.id === action.payload.id);
-         if (itemInCart) {
-            itemInCart.quantity++;
-         } else {
-            state.cart?.push({ ...action.payload, quantity: 1 });
-         }
+         itemInCart ? itemInCart.quantity++ : state.cart.push({ ...action.payload, quantity: 1 });
 
          // Set to localStorage
          setLocalStorage("cart", state.cart);
@@ -42,8 +38,7 @@ const slice = createSlice({
       },
 
       removeFromCartAction: (state, action: PayloadAction<number>) => {
-         const removeItem = state.cart.filter((item) => item.id !== action.payload);
-         state.cart = removeItem;
+         state.cart = state.cart.filter((item) => item.id !== action.payload);
 
          // Remove from localStorage
          setLocalStorage("cart", state.cart);

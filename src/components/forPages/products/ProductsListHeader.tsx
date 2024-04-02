@@ -9,11 +9,18 @@ type TProps = {
    onFilterOpen: () => void;
 
    // TODO: add products per page number in below
-   // startProductCountInCurrentPage: number;
-   // endProductCountInCurrentPage: number;
+   startProductCountInCurrentPage: number | undefined;
+   endProductCountInCurrentPage: number | undefined;
 };
 
-const ProductsListHeader: FC<TProps> = ({ allProductsCount, onSortChange, title = "", onFilterOpen }): JSX.Element => {
+const ProductsListHeader: FC<TProps> = ({
+   allProductsCount,
+   onSortChange,
+   title = "",
+   onFilterOpen,
+   endProductCountInCurrentPage,
+   startProductCountInCurrentPage,
+}): JSX.Element => {
    return (
       <div className="mb-9 flex items-end justify-between max-xl:px-2">
          {/* Title */}
@@ -23,7 +30,9 @@ const ProductsListHeader: FC<TProps> = ({ allProductsCount, onSortChange, title 
          <div className="flex text-dark/70">
             {/* Length */}
             {/* TODO: add products per page number in below */}
-            <span className="max-xl:hidden">Showing 1-10 of {allProductsCount} Products</span>
+            <span className="max-xl:hidden">
+               Showing {startProductCountInCurrentPage}-{endProductCountInCurrentPage} of {allProductsCount} Products
+            </span>
 
             {/* Sort By */}
             <div className="xl:ml-4">
