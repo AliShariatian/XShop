@@ -1,19 +1,30 @@
-"use client";
-
-import { FC, useState } from "react";
+import { FC } from "react";
 import Title from "./Title";
 import { Colors } from "@/components";
 
-const colors: string[] = ["#000", "#314F4A", "#31344F"];
+const colors: string[] = [
+   "Dark Olive Green",
+   "Alice Blue",
+   "White",
+   "Black",
+   "Cornsilk",
+   "Ghost White",
+   "Floral White",
+   "Dim Grey",
+   "Multi Color",
+];
 
-const ColorsFilter: FC = (): JSX.Element => {
-   const [selectedColor, setSelectedColor] = useState<string>("");
+type TProps = {
+   selectedColor: string;
+   setSelectedColor: (color: string) => void;
+};
 
+const ColorsFilter: FC<TProps> = ({ setSelectedColor, selectedColor }): JSX.Element => {
    return (
       <div>
          <Title title="Colors" />
 
-         <Colors colors={colors} state={selectedColor} setState={setSelectedColor} className="mt-4" sizeMini />
+         <Colors colors={colors} selectedColor={selectedColor} setSelectedColor={setSelectedColor} className="mt-4" sizeMini />
       </div>
    );
 };

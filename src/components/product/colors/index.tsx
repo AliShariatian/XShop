@@ -5,23 +5,27 @@ import Image from "next/image";
 
 type TProps = {
    colors: string[];
-   state: string;
-   setState: (item: string) => void;
+   selectedColor: string;
+   setSelectedColor: (item: string) => void;
    className?: string;
    sizeMini?: boolean;
 };
 
-const Colors: FC<TProps> = ({ colors, className, sizeMini, state, setState }): JSX.Element => {
+const Colors: FC<TProps> = ({ colors, className, sizeMini, selectedColor, setSelectedColor }): JSX.Element => {
    return (
       <div className={cn("mt-2 flex flex-wrap gap-3", className)}>
          {colors.map((item) => (
             <button
                key={item}
-               onClick={() => setState(item)}
-               style={{ backgroundColor: item }}
+               title={item}
+               onClick={() => setSelectedColor(item)}
+               style={{
+                  background:
+                     item === "Multi Color" ? "-webkit-linear-gradient(left,  #ff00ff, #00ff00)" : item.replaceAll(" ", ""),
+               }}
                className={`${sizeMini ? "size-8" : "size-10"} flex items-center justify-center rounded-full border border-dark/50`}
             >
-               {state === item && (
+               {selectedColor === item && (
                   <Image
                      src={singleVerified}
                      alt="Selected"

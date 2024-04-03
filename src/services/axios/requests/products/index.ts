@@ -6,12 +6,13 @@ export const fetchAllProducts = (query: TFilterState) => {
    const category = query.category ? `&category=${query.category.toLocaleLowerCase()}` : "";
    const pageNumber = `&_page=${query.pageNumber}`;
    const pageLimit = `&_limit=${query.limitPerPage}`;
+   const color = query.color ? `&colors_like=${query.color}` : "";
    const sort =
       query.sort.orderBy && query.sort.sortBy
          ? `_sort=${query.sort.sortBy}&_order=${query.sort.orderBy}`
          : "_sort=createdAt&_order=desc";
 
-   const q: string = `${sort}${category}${pageLimit}${pageNumber}`;
+   const q: string = `${sort}${category}${color}${pageLimit}${pageNumber}`;
 
    return axios.get(`/products?${q}`);
 };

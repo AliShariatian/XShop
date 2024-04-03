@@ -11,6 +11,7 @@ import ProductsPagination from "./ProductsPagination";
 export type TFilterState = {
    sort: { sortBy: string; orderBy: string };
    category: string;
+   color: string;
    pageNumber: number;
    limitPerPage: number;
 };
@@ -23,6 +24,7 @@ const AllProductComponents: FC = (): JSX.Element => {
    const [filter, setFilter] = useState<TFilterState>({
       sort: { orderBy: "", sortBy: "" },
       category: "",
+      color: "",
       pageNumber: 1,
       limitPerPage: COUNT_OF_PRODUCT_PER_PAGE,
    });
@@ -49,9 +51,14 @@ const AllProductComponents: FC = (): JSX.Element => {
       setFilter((prev) => ({ ...prev, category }));
    };
 
+   // onClick Category
+   const colorsClickHandler = (color: string) => {
+      setFilter((prev) => ({ ...prev, color }));
+   };
+
    // onClick Reset
    const resetFilterHandler = () => {
-      setFilter((prev) => ({ ...prev, category: "" }));
+      setFilter((prev) => ({ ...prev, category: "", color: "" }));
    };
 
    // onClick Toggle in mobile
@@ -80,11 +87,14 @@ const AllProductComponents: FC = (): JSX.Element => {
 
          <div className="flex gap-12">
             <Filters
-               categoriesOnClick={categoriesClickHandler}
+               onSelectCategory={categoriesClickHandler}
                resetFilterOnClick={resetFilterHandler}
                onFilterClose={toggleFilterOnMobileHandler}
+               onSelectColor={colorsClickHandler}
+               selectedColor={filter.color}
                isCloseFilter={isCloseFilterOnMobile}
             />
+
             <div className="h-full w-full xl:w-3/4">
                <ProductsListHeader
                   title={filter.category || "All Products"}
@@ -94,7 +104,7 @@ const AllProductComponents: FC = (): JSX.Element => {
                   endProductCountInCurrentPage={endProductCountInCurrentPage}
                   startProductCountInCurrentPage={startProductCountInCurrentPage}
                />
-               
+
                <AllProductsList products={products} isError={isError} isLoading={isLoading} />
 
                <HorizontalLine className="my-6" />

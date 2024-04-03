@@ -40,6 +40,7 @@ const CartItem: FC<TCartItem> = ({ id, title, price, discount, mainImage, slug, 
                         <div className="flex items-center gap-2">
                            Color:
                            <span
+                              title={selectedColor}
                               style={{ backgroundColor: selectedColor }}
                               className="size-4 rounded-full border border-dark/50"
                            />

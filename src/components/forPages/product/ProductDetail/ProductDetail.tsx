@@ -64,7 +64,7 @@ const ProductDetail: FC<IProductsProps> = ({
             <HorizontalLine className="my-5" />
             <div>
                <span>Select Color</span>
-               <Colors colors={colors} state={selectedColor} setState={setSelectedColor} />
+               <Colors colors={colors} selectedColor={selectedColor} setSelectedColor={setSelectedColor} />
             </div>
 
             {/* Size */}
