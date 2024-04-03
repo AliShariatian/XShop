@@ -11,7 +11,7 @@ const GetAllProducts = (query: TFilterState) => {
          try {
             const response = await fetchAllProducts(query);
             // Return data and Length of all data without page limit
-            return { products: response.data, allProductsCount: response.headers["x-total-count"] };
+            return { products: response.data, allProductsCount: Number(response.headers["x-total-count"]) };
          } catch (error: any) {
             throw new Error(error.message);
          }

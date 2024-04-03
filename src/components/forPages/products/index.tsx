@@ -6,17 +6,26 @@ import GetAllProducts from "@/services/reactQuery/allProducts";
 // COMPONENT
 import ProductsListHeader from "./ProductsListHeader";
 import { Section, Breadcrumb, AllProductsList, Filters, HorizontalLine } from "@/components";
-import ProductsPagination from "./Pagination";
+import ProductsPagination from "./ProductsPagination";
 
 export type TFilterState = {
    sort: { sortBy: string; orderBy: string };
    category: string;
    pageNumber: number;
+   limitPerPage: number;
 };
+
+const COUNT_OF_PRODUCT_PER_PAGE: number = 3 as const;
 
 const AllProductComponents: FC = (): JSX.Element => {
    const [isCloseFilterOnMobile, setIsCloseFilterOnMobile] = useState<boolean>(false);
-   const [filter, setFilter] = useState<TFilterState>({ sort: { orderBy: "", sortBy: "" }, category: "", pageNumber: 1 });
+
+   const [filter, setFilter] = useState<TFilterState>({
+      sort: { orderBy: "", sortBy: "" },
+      category: "",
+      pageNumber: 1,
+      limitPerPage: COUNT_OF_PRODUCT_PER_PAGE,
+   });
 
    const { data, isLoading, isError, error } = GetAllProducts(filter);
 
@@ -54,7 +63,7 @@ const AllProductComponents: FC = (): JSX.Element => {
    const nextPageHandler = () => {
       setFilter((prev) => ({
          ...prev,
-         pageNumber: endProductCountInCurrentPage === Number(allProductsCount) ? prev.pageNumber : prev.pageNumber + 1,
+         pageNumber: endProductCountInCurrentPage === allProductsCount ? prev.pageNumber : prev.pageNumber + 1,
       }));
    };
 
@@ -78,18 +87,24 @@ const AllProductComponents: FC = (): JSX.Element => {
             />
             <div className="h-full w-full xl:w-3/4">
                <ProductsListHeader
-                  title={filter.category.split("=")[1]}
+                  title={filter.category || "All Products"}
                   allProductsCount={allProductsCount}
                   onSortChange={sortChangeHandler}
                   onFilterOpen={toggleFilterOnMobileHandler}
                   endProductCountInCurrentPage={endProductCountInCurrentPage}
                   startProductCountInCurrentPage={startProductCountInCurrentPage}
                />
+               
                <AllProductsList products={products} isError={isError} isLoading={isLoading} />
 
                <HorizontalLine className="my-6" />
 
-               <ProductsPagination currentPageNumber={filter.pageNumber} nextPage={nextPageHandler} prevPage={prevPageHandler} />
+               <ProductsPagination
+                  currentPageNumber={filter.pageNumber}
+                  endPageNumber={allProductsCount! / COUNT_OF_PRODUCT_PER_PAGE}
+                  nextPage={nextPageHandler}
+                  prevPage={prevPageHandler}
+               />
             </div>
          </div>
       </Section>

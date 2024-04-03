@@ -5,19 +5,17 @@ import Image from "next/image";
 type TProps = {
    title: string;
    allProductsCount: number | undefined;
+   endProductCountInCurrentPage: number | undefined;
+   startProductCountInCurrentPage: number | undefined;
    onSortChange: (ev: ChangeEvent<HTMLSelectElement>) => void;
    onFilterOpen: () => void;
-
-   // TODO: add products per page number in below
-   startProductCountInCurrentPage: number | undefined;
-   endProductCountInCurrentPage: number | undefined;
 };
 
 const ProductsListHeader: FC<TProps> = ({
-   allProductsCount,
+   title,
    onSortChange,
-   title = "",
    onFilterOpen,
+   allProductsCount,
    endProductCountInCurrentPage,
    startProductCountInCurrentPage,
 }): JSX.Element => {
@@ -29,7 +27,6 @@ const ProductsListHeader: FC<TProps> = ({
 
          <div className="flex text-dark/70">
             {/* Length */}
-            {/* TODO: add products per page number in below */}
             <span className="max-xl:hidden">
                Showing {startProductCountInCurrentPage}-{endProductCountInCurrentPage} of {allProductsCount} Products
             </span>

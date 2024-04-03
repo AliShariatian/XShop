@@ -3,14 +3,15 @@ import axios from "../../configs/config";
 import { fetchLimitProductsType } from "./type";
 
 export const fetchAllProducts = (query: TFilterState) => {
+   const category = query.category ? `&category=${query.category.toLocaleLowerCase()}` : "";
+   const pageNumber = `&_page=${query.pageNumber}`;
+   const pageLimit = `&_limit=${query.limitPerPage}`;
    const sort =
       query.sort.orderBy && query.sort.sortBy
          ? `_sort=${query.sort.sortBy}&_order=${query.sort.orderBy}`
          : "_sort=createdAt&_order=desc";
-   const category = query.category ? `&category=${query.category.toLocaleLowerCase()}` : "";
-   const pageNumber = `&_limit=3&_page=${query.pageNumber}`;
 
-   const q: string = `${sort}${category}${pageNumber}`;
+   const q: string = `${sort}${category}${pageLimit}${pageNumber}`;
 
    return axios.get(`/products?${q}`);
 };
