@@ -1,6 +1,6 @@
 "use client";
 
-import { FC } from "react";
+import { FC, memo } from "react";
 import { data, dataType } from "./data";
 import { arrow } from "@/public/img";
 // Swiper
@@ -67,4 +67,4 @@ const CustomersComment: FC = (): JSX.Element => {
    );
 };
 
-export default CustomersComment;
+export default memo(CustomersComment);

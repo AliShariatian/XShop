@@ -1,11 +1,11 @@
 "use client";
 
-import { FC, useRef } from "react";
+import { FC, memo, useRef } from "react";
 import { mail } from "@/public/img";
 import cn from "@/utils/cn";
 import Image from "next/image";
 
-type PropsType = {
+type TProps = {
    value: string;
    placeholder: string;
    type: "email" | "text";
@@ -15,7 +15,7 @@ type PropsType = {
    className?: string;
 };
 
-const Input: FC<PropsType> = ({ icon, placeholder, onChange, value, type, maxLength = 20, className }): JSX.Element => {
+const Input: FC<TProps> = ({ icon, placeholder, onChange, value, type, maxLength = 20, className }): JSX.Element => {
    const inputRef = useRef<HTMLInputElement>(null);
 
    return (
@@ -38,4 +38,4 @@ const Input: FC<PropsType> = ({ icon, placeholder, onChange, value, type, maxLen
    );
 };
 
-export default Input;
+export default memo(Input);

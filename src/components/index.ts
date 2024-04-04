@@ -9,6 +9,8 @@ import BigHeading from "./layout/BigHeading";
 import PageLoadingProgressBar from "./layout/PageLoadingProgressBar";
 import HorizontalLine from "./layout/HorizontalLine";
 import PageLoaderWhiteScreen from "./layout/PageLoaderWhiteScreen";
+import Social from "./layout/Social";
+import CloseButton from "./layout/CloseButton";
 
 // HEADER and FOOTER
 import Header from "./layout/header";
@@ -17,9 +19,11 @@ import Footer from "./layout/footer";
 // PRODUCT
 import ProductCard from "./product/ProductCard";
 import ProductCardSkeleton from "./product/ProductCardSkeleton";
-import StarRate from "./StarRate";
-import Price from "./Price";
+import StarRate from "./product/StarRate";
+import Price from "./product/Price";
 import ProductSelectCount from "./product/ProductSelectCount";
+import Colors from "./product/colors";
+import ProductSize from "./product/ProductSize";
 
 // -------------------------------- FOR PAGES ------------------------------------
 
@@ -57,7 +61,11 @@ export {
    PageLoadingProgressBar,
    HorizontalLine,
    PageLoaderWhiteScreen,
+   Social,
+   CloseButton,
    Input,
+   Colors,
+   ProductSize,
    Header,
    Footer,
    HeroSection,

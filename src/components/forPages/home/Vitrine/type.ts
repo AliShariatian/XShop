@@ -1,4 +1,4 @@
-export type VitrinePropsType = {
+export type TVitrineProps = {
    id: string;
    title: string;
    buttonHref: string;

@@ -1,15 +1,15 @@
 import { FC } from "react";
 import { HorizontalLine } from "@/components";
-import { cartItemType } from "@/types/cart";
+import { TCartItem } from "@/types/cart";
 import calculateCartSummary from "@/utils/calculateCartSummary";
 
-const OrderSummery: FC<cartItemType[]> = (prop): JSX.Element => {
+const OrderSummery: FC<TCartItem[]> = (prop): JSX.Element => {
    const { subtotal, totalDiscount, totalQuantity, total } = calculateCartSummary(prop);
 
    return (
-      <section className="top-32 flex h-fit w-1/3 flex-col gap-5 rounded-20 border p-6 text-2xl xl:sticky">
-         <div className="flex items-center justify-between">
-            <h3 className="font-bold">OrderSummery</h3>
+      <section className="top-32 flex h-fit flex-col gap-5 rounded-20 border p-6 text-2xl xl:sticky xl:w-1/3">
+         <div className="flex items-end justify-between">
+            <h3 className="font-bold">Order Summery</h3>
             <span className="text-xl text-dark/70">
                {totalQuantity} {totalQuantity > 1 ? "Items" : "Item"}
             </span>

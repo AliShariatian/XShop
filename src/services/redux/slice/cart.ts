@@ -1,36 +1,47 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { cartItemType } from "@/types/cart";
+"use client";
 
-const cartInitialState: cartItemType[] | null = [];
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { TCartItem } from "@/types/cart";
+import { getLocalStorage, setLocalStorage } from "@/utils/localStorage";
 
-// Todo Slice
+const cartInitialState: TCartItem[] | null = getLocalStorage("cart") || [];
+
+// Cart Slice
 const slice = createSlice({
    name: "Cart",
    initialState: {
       cart: cartInitialState,
    },
    reducers: {
-      addToCartAction: (state, action) => {
+      addToCartAction: (state, action: PayloadAction<TCartItem>) => {
          const itemInCart = state.cart.find((item) => item.id === action.payload.id);
-         // BUG: fix separate color or size added to cart.
-         if (itemInCart) {
-            itemInCart.quantity++;
-         } else {
-            state.cart.push({ ...action.payload, quantity: 1 });
-         }
-      },
-      incrementQuantityAction: (state, action) => {
-         const item = state.cart.find((item) => item.id === action.payload)!;
-         item.quantity++;
-      },
-      decrementQuantityAction: (state, action) => {
-         const item = state.cart.find((item) => item.id === action.payload)!;
-         item?.quantity === 1 ? (item.quantity = 1) : item.quantity--;
+         itemInCart ? itemInCart.quantity++ : state.cart.push({ ...action.payload, quantity: 1 });
+
+         // Set to localStorage
+         setLocalStorage("cart", state.cart);
       },
 
-      removeFromCartAction: (state, action) => {
-         const removeItem = state.cart.filter((item) => item.id !== action.payload);
-         state.cart = removeItem;
+      incrementQuantityAction: (state, action: PayloadAction<number>) => {
+         const item = state.cart.find((item) => item.id === action.payload) as TCartItem;
+         item.quantity++;
+
+         // Update localStorage
+         setLocalStorage("cart", state.cart);
+      },
+
+      decrementQuantityAction: (state, action: PayloadAction<number>) => {
+         const item = state.cart.find((item) => item.id === action.payload) as TCartItem;
+         item.quantity === 1 ? (item.quantity = 1) : item.quantity--;
+
+         // Update localStorage
+         setLocalStorage("cart", state.cart);
+      },
+
+      removeFromCartAction: (state, action: PayloadAction<number>) => {
+         state.cart = state.cart.filter((item) => item.id !== action.payload);
+
+         // Remove from localStorage
+         setLocalStorage("cart", state.cart);
       },
    },
 });

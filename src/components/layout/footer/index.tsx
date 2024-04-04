@@ -2,7 +2,7 @@ import { FC } from "react";
 import { company, faq, help, resources, social } from "./items";
 
 // COMPONENT
-import { HorizontalLine, Logo, Section } from "@/components";
+import { HorizontalLine, Logo, Section, Social } from "@/components";
 import BelowFooter from "./BelowFooter";
 import Subscribe from "./Subscribe";
 import Image from "next/image";
@@ -22,26 +22,7 @@ const Footer: FC = (): JSX.Element => {
                         We have clothes that suits your style and which you’re proud to wear. From women to men.
                      </p>
 
-                     {/* Socials */}
-                     <div className="flex gap-2 xl:mt-4">
-                        {social.map((item) => (
-                           <Link
-                              href={item.href}
-                              key={item.title}
-                              target="_blank"
-                              className="rounded-full border-2 bg-light p-2 transition-[filter] hover:invert"
-                           >
-                              <Image
-                                 src={item.src}
-                                 width={20}
-                                 height={20}
-                                 alt={item.title}
-                                 title={item.title}
-                                 className="size-4"
-                              />
-                           </Link>
-                        ))}
-                     </div>
+                     <Social />
                   </div>
                </div>
 

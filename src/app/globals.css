@@ -22,11 +22,11 @@
    }
 
    .hide {
-      @apply opacity-0 pointer-events-none duration-100;
+      @apply pointer-events-none opacity-0 duration-100;
    }
 
    .show {
-      @apply opacity-100 pointer-events-auto;
+      @apply pointer-events-auto opacity-100;
    }
 }
 
@@ -46,3 +46,5 @@ input[type="search"]::-webkit-search-results-button,
 input[type="search"]::-webkit-search-results-decoration {
    display: none;
 }
+
+/*  */

@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 import PulseLoader from "react-spinners/PulseLoader";
 
 const PageLoaderWhiteScreen: FC = (): JSX.Element => {
@@ -9,4 +9,4 @@ const PageLoaderWhiteScreen: FC = (): JSX.Element => {
    );
 };
 
-export default PageLoaderWhiteScreen;
+export default memo(PageLoaderWhiteScreen);

@@ -1,3 +1,3 @@
-const baseURL: string = "http://localhost:8080/";
+const baseURL: string = "http://localhost:8080/" as const;
 
 export default baseURL;

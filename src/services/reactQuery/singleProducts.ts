@@ -1,12 +1,12 @@
 import { useQuery, useQueryClient } from "react-query";
 import { fetchSingleProduct } from "@/services/axios/requests/products";
-import { ProductsPropsType } from "@/components/product/type";
+import { IProductsProps } from "@/components/product/type";
 import { AxiosError } from "axios";
 
 const GetSingleProducts = (slug: string) => {
    const queryClient = useQueryClient();
 
-   return useQuery<ProductsPropsType[], AxiosError>(
+   return useQuery<IProductsProps[], AxiosError>(
       ["SingleProduct", slug],
       async () => {
          try {

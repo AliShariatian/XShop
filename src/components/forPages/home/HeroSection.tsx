@@ -3,6 +3,7 @@ import { bannerImg, starIcon } from "@/public/img";
 // COMPONENT
 import Image from "next/image";
 import { Section, Button, BigHeading } from "@/components";
+import Link from "next/link";
 
 const HeroSection = () => {
    return (
@@ -15,9 +16,11 @@ const HeroSection = () => {
                Browse through our diverse range of meticulously crafted garments, designed to bring out your individuality and
                cater to your sense of style.
             </p>
-            <Button bgColor="dark" className="max-xl:w-full">
-               Shop New
-            </Button>
+            <Link href="products" className="max-xl:w-full">
+               <Button bgColor="dark" className="w-full">
+                  Shop New
+               </Button>
+            </Link>
 
             <div className="mb-16 mt-9 grid grid-cols-2 gap-3 *:grid *:gap-1 max-xl:mx-auto max-xl:text-center xl:flex xl:grid-cols-3 xl:gap-5 xl:*:px-6">
                <div className="max-xl:border-r max-xl:pr-5 xl:!pl-0">

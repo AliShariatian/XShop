@@ -1,13 +1,13 @@
 "use client";
 
-import { CSSProperties, FC, useState } from "react";
+import { CSSProperties, FC, memo, useState } from "react";
 import type { Swiper as SwiperType } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Thumbs } from "swiper/modules";
 import Image from "next/image";
 import "swiper/css/navigation";
 
-type PropsType = {
+type TProps = {
    images: string[];
    alt: string;
 };
@@ -17,7 +17,7 @@ const navigationStyle = {
    "--swiper-navigation-size": "25px",
 } as CSSProperties;
 
-const ProductImageGallery: FC<PropsType> = ({ images, alt }): JSX.Element => {
+const ProductImageGallery: FC<TProps> = ({ images, alt }): JSX.Element => {
    const [thumbsSwiper, setThumbsSwiper] = useState<SwiperType | null>(null);
    const [activeImageIndex, setActiveImageIndex] = useState<number>(0);
 
@@ -65,4 +65,4 @@ const ProductImageGallery: FC<PropsType> = ({ images, alt }): JSX.Element => {
    );
 };
 
-export default ProductImageGallery;
+export default memo(ProductImageGallery);

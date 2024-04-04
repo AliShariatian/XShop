@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { StarRatePropsType } from "./type";
+import { TStarRateProps } from "./type";
 import cn from "@/utils/cn";
 import Image from "next/image";
 import { starFullRate, starEmptyRate, starHalfRate } from "@/public/img";
@@ -10,7 +10,7 @@ const starImage = (index: number, type: string): JSX.Element => {
    return <Image key={index} src={type} width={50} height={50} alt="star" className="size-5" />;
 };
 
-const StarRate: FC<StarRatePropsType> = ({ rate, showEmptyStar = true, showRateNumber = true, className }): JSX.Element => {
+const StarRate: FC<TStarRateProps> = ({ rate, showEmptyStar = true, showRateNumber = true, className }): JSX.Element => {
    // Star filling config
    const Star = Array.from({ length: ALL_STAR_COUNT }, (_, index) => {
       const number = index + 0.5;

@@ -1,11 +1,11 @@
 import { FC } from "react";
-import { ProductCardType } from "./type";
+import { IProductCard } from "./type";
 // COMPONENT
 import Image from "next/image";
 import Link from "next/link";
 import { Price, StarRate } from "@/components";
 
-const ProductCard: FC<ProductCardType> = ({ rate, slug, price, title, imgs, discount }): JSX.Element => {
+const ProductCard: FC<IProductCard> = ({ rate, slug, price, title, imgs, discount }): JSX.Element => {
    return (
       <div className="productCard group/productCard ">
          {/* IMAGE */}
@@ -22,15 +22,11 @@ const ProductCard: FC<ProductCardType> = ({ rate, slug, price, title, imgs, disc
             </div>
          </Link>
 
-         {/* TITLE */}
-         <Link href={slug} title={title}>
+         <Link href={slug} title={title} className="mt-2">
             <h2 className="line-clamp-1 w-fit text-xl font-bold capitalize">{title}</h2>
          </Link>
 
-         {/* STAR */}
          <StarRate rate={rate} />
-
-         {/* Price */}
          <Price price={price} discount={discount} />
       </div>
    );

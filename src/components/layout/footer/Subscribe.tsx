@@ -1,16 +1,16 @@
 "use client";
 
-import { FC, useState } from "react";
+import { FC, useCallback, useState } from "react";
 import { email } from "@/utils/yup/email";
 import { toast } from "react-toastify";
 // COMPONENT
 import { Section, Button, Input } from "@/components";
 
-type PropsType = {
+type TProps = {
    className?: string;
 };
 
-const Subscribe: FC<PropsType> = ({ className }): JSX.Element => {
+const Subscribe: FC<TProps> = ({ className }): JSX.Element => {
    const [inputValue, setInputValue] = useState<string>("");
    const [isButtonDisable, setIsButtonDisable] = useState<boolean>(true);
 
@@ -24,24 +24,27 @@ const Subscribe: FC<PropsType> = ({ className }): JSX.Element => {
    };
 
    // onChange for input
-   const inputOnChangeHandler = async (ev: React.ChangeEvent<HTMLInputElement>) => {
-      setInputValue(ev.target.value);
+   const inputOnChangeHandler = useCallback(
+      async (ev: React.ChangeEvent<HTMLInputElement>) => {
+         setInputValue(ev.target.value);
 
-      let isValid: { email: string } | null = null;
+         let isValid: { email: string } | null = null;
 
-      try {
-         isValid = await email.validate(
-            {
-               email: inputValue,
-            },
-            { abortEarly: false },
-         );
-      } catch (err: any) {
-         setIsButtonDisable(true);
-      }
+         try {
+            isValid = await email.validate(
+               {
+                  email: inputValue,
+               },
+               { abortEarly: false },
+            );
+         } catch (err: any) {
+            setIsButtonDisable(true);
+         }
 
-      isValid && setIsButtonDisable(false);
-   };
+         isValid && setIsButtonDisable(false);
+      },
+      [inputValue],
+   );
 
    return (
       <Section parentClassName={className}>
