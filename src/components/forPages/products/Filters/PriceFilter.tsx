@@ -1,11 +1,9 @@
 "use client";
 
-import { FC, useState } from "react";
+import { FC } from "react";
 import Slider from "@mui/material/Slider";
 import { styled } from "@mui/material/styles";
 import Title from "./Title";
-
-const SLIDER_BOUND = [0, 500] as [number, number];
 
 // Custom slider tooltip style
 const PriceSlider = styled(Slider)(({ theme }) => ({
@@ -21,23 +19,22 @@ const valueLabelFormat = (value: number): string => {
    return `$${value}`;
 };
 
-const PriceFilter: FC = (): JSX.Element => {
-   // Slider initial values
-   const [value, setValue] = useState<number[]>(SLIDER_BOUND);
+type TProps = {
+   sliderBound: [number, number];
+   prices: number | number[];
+   onPriceChange: (_: Event, prices: number | number[]) => void;
+};
 
-   const sliderChangeHandler = (_: Event, newValue: number | number[]) => {
-      setValue(newValue as number[]);
-   };
-
+const PriceFilter: FC<TProps> = ({ onPriceChange, prices, sliderBound }): JSX.Element => {
    return (
       <div>
          <Title title="Price" />
          <div className="mx-auto mt-4 w-11/12">
             <PriceSlider
-               value={value}
-               min={Math.min(...SLIDER_BOUND)}
-               max={Math.max(...SLIDER_BOUND)}
-               onChange={sliderChangeHandler}
+               value={prices}
+               min={Math.min(...sliderBound)}
+               max={Math.max(...sliderBound)}
+               onChange={onPriceChange}
                valueLabelFormat={valueLabelFormat}
                valueLabelDisplay="on"
                defaultValue={60}

@@ -7,12 +7,15 @@ export const fetchAllProducts = (query: TFilterState) => {
    const pageNumber = `&_page=${query.pageNumber}`;
    const pageLimit = `&_limit=${query.limitPerPage}`;
    const color = query.color ? `&colors_like=${query.color}` : "";
+   const minPrice = query.prices[0] ? `&price_gte=${query.prices[0]}` : "";
+   const maxPrice = query.prices[1] ? `&price_lte=${query.prices[1]}` : "";
+
    const sort =
       query.sort.orderBy && query.sort.sortBy
          ? `_sort=${query.sort.sortBy}&_order=${query.sort.orderBy}`
          : "_sort=createdAt&_order=desc";
 
-   const q: string = `${sort}${category}${color}${pageLimit}${pageNumber}`;
+   const q: string = `${sort}${category}${color}${minPrice}${maxPrice}${pageLimit}${pageNumber}`;
 
    return axios.get(`/products?${q}`);
 };

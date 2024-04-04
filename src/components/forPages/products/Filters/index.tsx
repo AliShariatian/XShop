@@ -13,16 +13,22 @@ import { CloseButton } from "@/components";
 type TProps = {
    onSelectCategory: (label: string) => void;
    onSelectColor: (color: string) => void;
+   onPriceChange: (_: Event, prices: number | number[]) => void;
+   prices: number | number[];
    selectedColor: string;
    resetFilterOnClick: () => void;
    onFilterClose: () => void;
    isCloseFilter: boolean;
+   sliderBound: [number, number];
 };
 
 const Filters: FC<TProps> = ({
    onSelectCategory,
    resetFilterOnClick,
    onFilterClose,
+   onPriceChange,
+   prices,
+   sliderBound,
    isCloseFilter,
    onSelectColor,
    selectedColor,
@@ -42,7 +48,7 @@ const Filters: FC<TProps> = ({
          <CategoriesFilter onClick={onSelectCategory} />
 
          <HorizontalLine className="my-5" />
-         <PriceFilter />
+         <PriceFilter onPriceChange={onPriceChange} prices={prices} sliderBound={sliderBound} />
 
          <HorizontalLine className="mb-5 mt-9" />
          <ColorsFilter setSelectedColor={onSelectColor} selectedColor={selectedColor} />

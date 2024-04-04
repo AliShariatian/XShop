@@ -10,6 +10,7 @@ import ProductsPagination from "./ProductsPagination";
 
 export type TFilterState = {
    sort: { sortBy: string; orderBy: string };
+   prices: number[];
    category: string;
    color: string;
    pageNumber: number;
@@ -17,18 +18,21 @@ export type TFilterState = {
 };
 
 const COUNT_OF_PRODUCT_PER_PAGE: number = 3 as const;
+const PRICE_SLIDER_BOUND = [0, 500] as [number, number];
 
 const AllProductComponents: FC = (): JSX.Element => {
    const [isCloseFilterOnMobile, setIsCloseFilterOnMobile] = useState<boolean>(false);
 
    const [filter, setFilter] = useState<TFilterState>({
       sort: { orderBy: "", sortBy: "" },
+      prices: PRICE_SLIDER_BOUND,
       category: "",
       color: "",
       pageNumber: 1,
       limitPerPage: COUNT_OF_PRODUCT_PER_PAGE,
    });
 
+   // fetch Data
    const { data, isLoading, isError, error } = GetAllProducts(filter);
 
    const allProductsCount = data?.allProductsCount;
@@ -56,9 +60,15 @@ const AllProductComponents: FC = (): JSX.Element => {
       setFilter((prev) => ({ ...prev, color }));
    };
 
+   // onChange Price
+   const priceChangeSliderHandler = (_: Event, prices: number | number[]) => {
+      const arrayPrices = prices as number[];
+      setFilter((prev) => ({ ...prev, prices: arrayPrices }));
+   };
+
    // onClick Reset
    const resetFilterHandler = () => {
-      setFilter((prev) => ({ ...prev, category: "", color: "" }));
+      setFilter((prev) => ({ ...prev, category: "", color: "", prices: PRICE_SLIDER_BOUND }));
    };
 
    // onClick Toggle in mobile
@@ -90,6 +100,9 @@ const AllProductComponents: FC = (): JSX.Element => {
                onSelectCategory={categoriesClickHandler}
                resetFilterOnClick={resetFilterHandler}
                onFilterClose={toggleFilterOnMobileHandler}
+               onPriceChange={priceChangeSliderHandler}
+               prices={filter.prices}
+               sliderBound={PRICE_SLIDER_BOUND}
                onSelectColor={colorsClickHandler}
                selectedColor={filter.color}
                isCloseFilter={isCloseFilterOnMobile}
