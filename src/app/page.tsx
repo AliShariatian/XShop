@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 import { PageLoaderWhiteScreen } from "@/components";
 const HomeComponents = dynamic(() => import("@/components/forPages/home"), {
    loading: () => <PageLoaderWhiteScreen />,
+   ssr: false,
 });
 
 const HomePage: FC = (): JSX.Element => {
