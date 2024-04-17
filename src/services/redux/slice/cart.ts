@@ -13,7 +13,7 @@ const slice = createSlice({
       cart: cartInitialState,
    },
    reducers: {
-      addToCartAction: (state, action: PayloadAction<TCartItem>) => {
+      addToCartAction: (state, action: PayloadAction<Omit<TCartItem, "quantity">>) => {
          const itemInCart = state.cart.find((item) => item.id === action.payload.id);
          itemInCart ? itemInCart.quantity++ : state.cart.push({ ...action.payload, quantity: 1 });
 
