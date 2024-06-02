@@ -12,7 +12,7 @@ const SearchInput = forwardRef<HTMLInputElement>((props, ref): JSX.Element => {
    const [isOpenSearch, setIsOpenSearch] = useState<boolean>(false);
    const [searchInputValue, setSearchInputValue] = useState<string>("");
 
-   const debouncedSearch = useDebounce(searchInputValue, 500, 1);
+   const debouncedSearch = useDebounce(searchInputValue, 500, 1) as string;
    const { data, isLoading, isError } = GetSearchProduct(debouncedSearch);
 
    // onChange

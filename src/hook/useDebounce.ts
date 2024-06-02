@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 
-const useDebounce = (value: string, delay: number, minValueLimit: number = 4) => {
-   const [debouncedValue, setDebouncedValue] = useState<string>(value);
+const useDebounce = (value: string | number[], delay: number, minValueLimit: number | false = 4) => {
+   const [debouncedValue, setDebouncedValue] = useState<string | number[]>(value);
 
    useEffect(() => {
       const handler = setTimeout(() => {
-         if (value.length > minValueLimit) setDebouncedValue(value);
+         minValueLimit === false ? setDebouncedValue(value) : value.length > minValueLimit ? setDebouncedValue(value) : null;
       }, delay);
 
       return () => {

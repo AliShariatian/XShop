@@ -19,10 +19,10 @@ const ProductsListHeader: FC<TProps> = ({ title, onSortChange, onFilterOpen, all
 
          <div className="flex text-dark/70">
             {/* Length */}
-            <span className="max-xl:hidden">{allProductsCount} Products</span>
+            <span>{allProductsCount} Products</span>
 
             {/* Sort By */}
-            <div className="xl:ml-4">
+            <div className="ml-4">
                Sort by:
                <select onChange={onSortChange} className="font-bold outline-none">
                   <option value={["createdAt", "desc"]}>Newest</option>

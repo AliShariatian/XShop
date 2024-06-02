@@ -7,6 +7,7 @@ import GetAllProducts from "@/services/reactQuery/allProducts";
 import ProductsListHeader from "./ProductsListHeader";
 import { Section, Breadcrumb, AllProductsList, Filters, HorizontalLine } from "@/components";
 import ProductsPagination from "./ProductsPagination";
+import useDebounce from "@/hook/useDebounce";
 
 export type TFilterState = {
    sort: { sortBy: string; orderBy: string };
@@ -32,12 +33,14 @@ const AllProductComponents: FC = (): JSX.Element => {
       limitPerPage: COUNT_OF_PRODUCT_PER_PAGE,
    });
 
+   const debouncedPrices = useDebounce(filter.prices, 500, false);
    // fetch Data
-   const { data, isLoading, isError, error } = GetAllProducts(filter);
+   const { data, isLoading, isError, error } = GetAllProducts({ ...filter, prices: debouncedPrices as number[] });
 
    const allProductsCount = data?.allProductsCount;
    const products = data?.products;
 
+   // For pagination
    const endProductCountInCurrentPage = products?.length ? products.length * filter.pageNumber : 0;
 
    isError && toast.error(error.message);
@@ -131,7 +134,7 @@ const AllProductComponents: FC = (): JSX.Element => {
                      />
                   </>
                ) : (
-                  <div className="flex h-72 flex-col items-center justify-center gap-3">
+                  <div className="flex h-72 flex-col text-center items-center justify-center gap-3">
                      <p className="text-xl font-bold">Products with this filter does&apos;t exist!</p>
                      <p>Select another filter options</p>
                   </div>
