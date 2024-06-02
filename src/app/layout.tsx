@@ -15,6 +15,8 @@ import HOCProvider from "@/components/HOC";
 import { Header, Footer, PageLoadingProgressBar } from "@/components";
 
 export const metadata: Metadata = {
+   manifest: "/manifest.json",
+
    title: staticPageMetadata.home.title,
    description: staticPageMetadata.home.desc,
 };

@@ -2,7 +2,7 @@
 
 import { FC, PropsWithChildren } from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
-import { ReactQueryDevtools } from "react-query/devtools";
+// import { ReactQueryDevtools } from "react-query/devtools";
 
 const ReactQueryProvider: FC<PropsWithChildren> = ({ children }): JSX.Element => {
    const client = new QueryClient();
@@ -10,7 +10,7 @@ const ReactQueryProvider: FC<PropsWithChildren> = ({ children }): JSX.Element =>
    return (
       <QueryClientProvider client={client}>
          {children}
-         <ReactQueryDevtools />
+         {/* <ReactQueryDevtools /> */}
       </QueryClientProvider>
    );
 };
