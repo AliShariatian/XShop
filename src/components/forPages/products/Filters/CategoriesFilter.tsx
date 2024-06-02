@@ -1,4 +1,6 @@
-import { FC } from "react";
+"use client";
+
+import { FC, memo, useState } from "react";
 import Image from "next/image";
 import { downArrowIcon } from "@/public/img";
 
@@ -11,16 +13,23 @@ type TProps = {
 };
 
 const CategoriesFilter: FC<TProps> = ({ onClick }): JSX.Element => {
+   const [currentLabelSelected, setCurrentLabelSelected] = useState("");
+
+   const labelClickHandler = (label: string): void => {
+      label === currentLabelSelected ? setCurrentLabelSelected("") : setCurrentLabelSelected(label);
+      onClick(label);
+   };
+
    return (
       <div className="flex flex-col gap-3">
          {categories.map(({ label }) => (
             <div
                key={label}
                title={label}
-               onClick={() => onClick(label)}
-               className="group/filterCategoriesHover flex cursor-pointer items-center justify-between"
+               onClick={() => labelClickHandler(label)}
+               className="group/filterCategoriesHover flex cursor-pointer select-none items-center justify-between"
             >
-               <span className="capitalize">{label}</span>
+               <span className={`${currentLabelSelected === label ? "font-bold" : "font-normal"} capitalize`}>{label}</span>
                <Image
                   src={downArrowIcon}
                   alt={label}
@@ -34,4 +43,4 @@ const CategoriesFilter: FC<TProps> = ({ onClick }): JSX.Element => {
    );
 };
 
-export default CategoriesFilter;
+export default memo(CategoriesFilter);

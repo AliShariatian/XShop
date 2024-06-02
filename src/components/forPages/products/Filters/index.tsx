@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 import { filter } from "@/public/img";
 import Image from "next/image";
 import HorizontalLine from "@/components/layout/HorizontalLine";
@@ -59,4 +59,4 @@ const Filters: FC<TProps> = ({
    );
 };
 
-export default Filters;
+export default memo(Filters);

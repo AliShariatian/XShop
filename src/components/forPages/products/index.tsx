@@ -1,6 +1,6 @@
 "use client";
 
-import { ChangeEvent, FC, useState } from "react";
+import { ChangeEvent, FC, useCallback, useState } from "react";
 import { toast } from "react-toastify";
 import GetAllProducts from "@/services/reactQuery/allProducts";
 // COMPONENT
@@ -38,46 +38,46 @@ const AllProductComponents: FC = (): JSX.Element => {
    const allProductsCount = data?.allProductsCount;
    const products = data?.products;
 
-   // BUG: Product Count In Current Page is invalid number for products category or other filters
    const endProductCountInCurrentPage = products?.length ? products.length * filter.pageNumber : 0;
-   const startProductCountInCurrentPage = endProductCountInCurrentPage ? endProductCountInCurrentPage - 2 : 0;
 
    isError && toast.error(error.message);
 
    // onChange SortBy
-   const sortChangeHandler = (ev: ChangeEvent<HTMLSelectElement>) => {
+   const sortChangeHandler = (ev: ChangeEvent<HTMLSelectElement>): void => {
       const [sortBy, orderBy] = ev.target.value.split(",");
       setFilter((prev) => ({ ...prev, sort: { sortBy, orderBy } }));
    };
 
    // onClick Category
-   const categoriesClickHandler = (category: string) => {
-      setFilter((prev) => ({ ...prev, category }));
+   const categoriesClickHandler = (category: string): void => {
+      category === filter.category
+         ? setFilter((prev) => ({ ...prev, category: "" }))
+         : setFilter((prev) => ({ ...prev, category }));
    };
 
    // onClick Category
-   const colorsClickHandler = (color: string) => {
-      setFilter((prev) => ({ ...prev, color }));
+   const colorsClickHandler = (color: string): void => {
+      color === filter.color ? setFilter((prev) => ({ ...prev, color: "" })) : setFilter((prev) => ({ ...prev, color }));
    };
 
    // onChange Price
-   const priceChangeSliderHandler = (_: Event, prices: number | number[]) => {
+   const priceChangeSliderHandler = (_: Event, prices: number | number[]): void => {
       const arrayPrices = prices as number[];
       setFilter((prev) => ({ ...prev, prices: arrayPrices }));
    };
 
    // onClick Reset
-   const resetFilterHandler = () => {
+   const resetFilterHandler = (): void => {
       setFilter((prev) => ({ ...prev, category: "", color: "", prices: PRICE_SLIDER_BOUND }));
    };
 
    // onClick Toggle in mobile
-   const toggleFilterOnMobileHandler = () => {
+   const toggleFilterOnMobileHandler = (): void => {
       setIsCloseFilterOnMobile((prev) => !prev);
    };
 
    // onClick Next page
-   const nextPageHandler = () => {
+   const nextPageHandler = (): void => {
       setFilter((prev) => ({
          ...prev,
          pageNumber: endProductCountInCurrentPage === allProductsCount ? prev.pageNumber : prev.pageNumber + 1,
@@ -85,7 +85,7 @@ const AllProductComponents: FC = (): JSX.Element => {
    };
 
    // onClick Previous page
-   const prevPageHandler = () => {
+   const prevPageHandler = (): void => {
       setFilter((prev) => ({ ...prev, pageNumber: prev.pageNumber === 1 ? prev.pageNumber : prev.pageNumber - 1 }));
    };
 
@@ -95,7 +95,7 @@ const AllProductComponents: FC = (): JSX.Element => {
             <Breadcrumb />
          </div>
 
-         <div className="flex gap-12">
+         <div className="flex h-full gap-12">
             <Filters
                onSelectCategory={categoriesClickHandler}
                resetFilterOnClick={resetFilterHandler}
@@ -108,26 +108,34 @@ const AllProductComponents: FC = (): JSX.Element => {
                isCloseFilter={isCloseFilterOnMobile}
             />
 
-            <div className="h-full w-full xl:w-3/4">
+            <div className="size-full xl:w-3/4">
                <ProductsListHeader
                   title={filter.category || "All Products"}
                   allProductsCount={allProductsCount}
                   onSortChange={sortChangeHandler}
                   onFilterOpen={toggleFilterOnMobileHandler}
-                  endProductCountInCurrentPage={endProductCountInCurrentPage}
-                  startProductCountInCurrentPage={startProductCountInCurrentPage}
                />
 
-               <AllProductsList products={products} isError={isError} isLoading={isLoading} />
+               {/* Show products list */}
+               {products?.length !== 0 ? (
+                  <>
+                     <AllProductsList products={products} isError={isError} isLoading={isLoading} />
 
-               <HorizontalLine className="my-6" />
+                     <HorizontalLine className="my-6" />
 
-               <ProductsPagination
-                  currentPageNumber={filter.pageNumber}
-                  endPageNumber={allProductsCount! / COUNT_OF_PRODUCT_PER_PAGE}
-                  nextPage={nextPageHandler}
-                  prevPage={prevPageHandler}
-               />
+                     <ProductsPagination
+                        currentPageNumber={filter.pageNumber}
+                        endPageNumber={allProductsCount! / COUNT_OF_PRODUCT_PER_PAGE}
+                        nextPage={nextPageHandler}
+                        prevPage={prevPageHandler}
+                     />
+                  </>
+               ) : (
+                  <div className="flex h-72 flex-col items-center justify-center gap-3">
+                     <p className="text-xl font-bold">Products with this filter does&apos;t exist!</p>
+                     <p>Select another filter options</p>
+                  </div>
+               )}
             </div>
          </div>
       </Section>

@@ -5,20 +5,12 @@ import Image from "next/image";
 type TProps = {
    title: string;
    allProductsCount: number | undefined;
-   endProductCountInCurrentPage: number | undefined;
-   startProductCountInCurrentPage: number | undefined;
+
    onSortChange: (ev: ChangeEvent<HTMLSelectElement>) => void;
    onFilterOpen: () => void;
 };
 
-const ProductsListHeader: FC<TProps> = ({
-   title,
-   onSortChange,
-   onFilterOpen,
-   allProductsCount,
-   endProductCountInCurrentPage,
-   startProductCountInCurrentPage,
-}): JSX.Element => {
+const ProductsListHeader: FC<TProps> = ({ title, onSortChange, onFilterOpen, allProductsCount }): JSX.Element => {
    return (
       <div className="mb-9 flex items-end justify-between max-xl:px-2">
          {/* Title */}
@@ -27,9 +19,7 @@ const ProductsListHeader: FC<TProps> = ({
 
          <div className="flex text-dark/70">
             {/* Length */}
-            <span className="max-xl:hidden">
-               Showing {startProductCountInCurrentPage}-{endProductCountInCurrentPage} of {allProductsCount} Products
-            </span>
+            <span className="max-xl:hidden">{allProductsCount} Products</span>
 
             {/* Sort By */}
             <div className="xl:ml-4">
