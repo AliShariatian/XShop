@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const BelowFooter: FC = (): JSX.Element => {
    return (
-      <section className="flex items-center justify-between pb-20 max-xl:flex-col">
+      <section className="flex items-center justify-between pb-20 pt-5 max-xl:flex-col">
          <div>
             <p className="cursor-default text-base text-dark/60 transition-[color] hover:text-dark">
                XShop © 1997 - 2024, All Rights Reserved
@@ -27,7 +27,7 @@ const BelowFooter: FC = (): JSX.Element => {
          </div>
 
          {/* Cards */}
-         <div className="mt-5 flex items-center gap-3">
+         <div className="flex items-center gap-3 max-xl:mt-5">
             {cards.map((item) => (
                <span key={item.title} title={item.title} className="rounded-md bg-light px-3 py-1 shadow">
                   <Image src={item.src} alt={item.title} width={50} height={50} className="size-6 object-scale-down xl:size-7" />

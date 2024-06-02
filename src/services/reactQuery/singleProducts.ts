@@ -19,9 +19,11 @@ const GetSingleProducts = (slug: string) => {
       },
       {
          // initialData: () => {
-            // const products = queryClient.getQueryData("AllProducts");
-            // const product = products.find((item) => item.slug === slug);
-            // return product;
+         //    const products = queryClient.getQueryData("AllProducts");
+         //    console.log(products);
+            
+         //    const product = products.find((item) => item.slug === slug);
+         //    return product;
          // },
       },
    );
