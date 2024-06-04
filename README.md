@@ -1,10 +1,10 @@
 # پروژه فروشگاهی XShop
 
-### آدرس وبسایت: [XShop.Shariatian.ir](xshop.shariatian.ir)
+### آدرس وبسایت: [XShop.Shariatian.ir](https://xshop.shariatian.ir)
 
 ---
 
-### درباره پروژه:
+### مشخصات فنی پروژه:
 
 پروژه فرانت‌اند یک فروشگاه اینترنتی پوشاک.
 
@@ -15,6 +15,8 @@
 آدرس بک‌اند پروژه: [XShop Backend](https://github.com/AliShariatian/xshop-backend)
 
 پروژه کاملا ریسپانسیو بوده و از قابلیت PWA نیز پشتیبانی می‌کند.
+
+برای مدیریت stateها از پکیج `Redux Toolkit` استفاده شده است.
 
 ---
 
