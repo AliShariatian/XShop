@@ -9,27 +9,21 @@ const categories: {
 }[] = [{ label: "T-Shirt" }, { label: "Shoe" }, { label: "Trousers" }];
 
 type TProps = {
+   selectedCategory: string;
    onClick: (label: string) => void;
 };
 
-const CategoriesFilter: FC<TProps> = ({ onClick }): JSX.Element => {
-   const [currentLabelSelected, setCurrentLabelSelected] = useState("");
-
-   const labelClickHandler = (label: string): void => {
-      label === currentLabelSelected ? setCurrentLabelSelected("") : setCurrentLabelSelected(label);
-      onClick(label);
-   };
-
+const CategoriesFilter: FC<TProps> = ({ onClick, selectedCategory }): JSX.Element => {
    return (
       <div className="flex flex-col gap-3">
          {categories.map(({ label }) => (
             <div
                key={label}
                title={label}
-               onClick={() => labelClickHandler(label)}
+               onClick={() => onClick(label)}
                className="group/filterCategoriesHover flex cursor-pointer select-none items-center justify-between"
             >
-               <span className={`${currentLabelSelected === label ? "font-bold" : "font-normal"} capitalize`}>{label}</span>
+               <span className={`${selectedCategory === label ? "font-bold" : "font-normal"} capitalize`}>{label}</span>
                <Image
                   src={downArrowIcon}
                   alt={label}

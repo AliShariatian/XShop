@@ -101,6 +101,7 @@ const AllProductComponents: FC = (): JSX.Element => {
          <div className="flex h-full gap-12">
             <Filters
                onSelectCategory={categoriesClickHandler}
+               selectedCategory={filter.category}
                resetFilterOnClick={resetFilterHandler}
                onFilterClose={toggleFilterOnMobileHandler}
                onPriceChange={priceChangeSliderHandler}
@@ -134,7 +135,7 @@ const AllProductComponents: FC = (): JSX.Element => {
                      />
                   </>
                ) : (
-                  <div className="flex h-72 flex-col text-center items-center justify-center gap-3">
+                  <div className="flex h-72 flex-col items-center justify-center gap-3 text-center">
                      <p className="text-xl font-bold">Products with this filter does&apos;t exist!</p>
                      <p>Select another filter options</p>
                   </div>

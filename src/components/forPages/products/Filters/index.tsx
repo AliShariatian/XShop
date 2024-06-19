@@ -12,10 +12,11 @@ import { CloseButton } from "@/components";
 
 type TProps = {
    onSelectCategory: (label: string) => void;
+   selectedCategory: string;
    onSelectColor: (color: string) => void;
+   selectedColor: string;
    onPriceChange: (_: Event, prices: number | number[]) => void;
    prices: number | number[];
-   selectedColor: string;
    resetFilterOnClick: () => void;
    onFilterClose: () => void;
    isCloseFilter: boolean;
@@ -24,6 +25,7 @@ type TProps = {
 
 const Filters: FC<TProps> = ({
    onSelectCategory,
+   selectedCategory,
    resetFilterOnClick,
    onFilterClose,
    onPriceChange,
@@ -45,7 +47,7 @@ const Filters: FC<TProps> = ({
          </div>
 
          <HorizontalLine className="my-5" />
-         <CategoriesFilter onClick={onSelectCategory} />
+         <CategoriesFilter onClick={onSelectCategory} selectedCategory={selectedCategory} />
 
          <HorizontalLine className="my-5" />
          <PriceFilter onPriceChange={onPriceChange} prices={prices} sliderBound={sliderBound} />
