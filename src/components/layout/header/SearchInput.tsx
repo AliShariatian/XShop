@@ -8,7 +8,7 @@ import useDebounce from "@/hook/useDebounce";
 import SearchResultItem from "./SearchResultItem";
 import { PulseLoader } from "react-spinners";
 
-const SearchInput = forwardRef<HTMLInputElement>((props, ref): JSX.Element => {
+const SearchInput = (): JSX.Element => {
    const [isOpenSearch, setIsOpenSearch] = useState<boolean>(false);
    const [searchInputValue, setSearchInputValue] = useState<string>("");
 
@@ -40,14 +40,15 @@ const SearchInput = forwardRef<HTMLInputElement>((props, ref): JSX.Element => {
    };
 
    return (
-      <div
+      <label
+         htmlFor="searchInput"
          onClick={searchClickHandler}
          onBlur={searchBlurHandler}
          className={"relative flex w-full rounded-full bg-grey-100 p-3 transition-all max-xl:shadow-md"}
       >
-         <Image src={searchIcon} alt="search" width={20} height={20} className="ml-2 size-5 opacity-40" />
+         <Image src={searchIcon} alt="search" width={20} height={20} className="ml-2 size-5 cursor-pointer opacity-40" />
          <input
-            ref={ref}
+            id="searchInput"
             type="search"
             value={searchInputValue}
             onChange={searchInputChangeHandler}
@@ -90,10 +91,8 @@ const SearchInput = forwardRef<HTMLInputElement>((props, ref): JSX.Element => {
                </div>
             )}
          </div>
-      </div>
+      </label>
    );
-});
-
-SearchInput.displayName = "SearchInput";
+};
 
 export default memo(SearchInput);

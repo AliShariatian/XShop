@@ -28,7 +28,6 @@ const Header: FC = (): JSX.Element => {
    // onClick
    const searchIconClickHandler = useCallback(() => {
       setIsShowSearchInput((prev) => !prev);
-      searchInputRef.current?.focus();
    }, []);
 
    const toggleMobileNavMenuHandler = useCallback(() => {
@@ -78,19 +77,21 @@ const Header: FC = (): JSX.Element => {
                <div
                   className={`${isShowSearchInput ? "show" : "hide"} xl:show left-0 z-40 w-full transition-all max-xl:absolute max-xl:top-[4.5rem] max-xl:px-4 xl:w-2/5`}
                >
-                  <SearchInput ref={searchInputRef} />
+                  <SearchInput />
                </div>
 
                {/* RIGHT ICONS */}
                <div className="flex items-end gap-4 max-xl:mb-1">
-                  <Image
-                     onClick={searchIconClickHandler}
-                     src={searchIcon}
-                     alt="search"
-                     width={30}
-                     height={30}
-                     className="size-5 xl:hidden xl:size-6"
-                  />
+                  <label htmlFor="searchInput">
+                     <Image
+                        onClick={searchIconClickHandler}
+                        src={searchIcon}
+                        alt="search"
+                        width={30}
+                        height={30}
+                        className="size-5 xl:hidden xl:size-6"
+                     />
+                  </label>
 
                   <Basket />
                </div>
