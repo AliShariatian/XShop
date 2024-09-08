@@ -1,7 +1,7 @@
 "use client";
 
 import { FC, memo, useEffect, useState } from "react";
-import { IProductsProps } from "@/components/product/type";
+import { IProductsProps } from "@/components/common/product/type";
 // COMPONENT
 import { StarRate, Price, HorizontalLine, Button, Colors, ProductSize } from "@/components";
 // Redux

@@ -1,4 +1,4 @@
-import { FC, memo } from "react";
+import { FC } from "react";
 import { navMenuItems } from "./navMenuItems";
 import { CloseButton, Social } from "@/components";
 import Link from "next/link";
@@ -34,4 +34,4 @@ const MobileNavMenu: FC<TProps> = ({ onClose, isClose }): JSX.Element => {
    );
 };
 
-export default memo(MobileNavMenu);
+export default MobileNavMenu;

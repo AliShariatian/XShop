@@ -1,6 +1,6 @@
 import { AxiosError } from "axios";
 import { useQuery } from "react-query";
-import { IProductsProps } from "@/components/product/type";
+import { IProductsProps } from "@/components/common/product/type";
 import { fetchSearchProduct } from "@/services/axios/requests/products";
 
 const GetSearchProduct = (query: string) => {

@@ -1,12 +1,7 @@
 import { FC } from "react";
 import type { Metadata } from "next";
 import { staticPageMetadata } from "@/SEO";
-
-import dynamic from "next/dynamic";
-import { PageLoaderWhiteScreen } from "@/components";
-const AllProductComponents = dynamic(() => import("@/components/forPages/products"), {
-   loading: () => <PageLoaderWhiteScreen />,
-});
+import AllProductComponents from "@/components/forPages/products";
 
 export const metadata: Metadata = {
    title: staticPageMetadata.products.title,

@@ -1,8 +1,8 @@
-import { FC, memo } from "react";
+import { FC } from "react";
 import NextTopLoader from "nextjs-toploader";
 
 const PageLoadingProgressBar: FC = (): JSX.Element => {
-   return <NextTopLoader color="#fff" shadow={false} height={2} showSpinner={false} />;
+   return <NextTopLoader color="#4b5563" shadow={false} height={3} showSpinner={false} />;
 };
 
-export default memo(PageLoadingProgressBar);
+export default PageLoadingProgressBar;

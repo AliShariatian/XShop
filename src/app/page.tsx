@@ -1,10 +1,5 @@
 import { FC } from "react";
-import dynamic from "next/dynamic";
-
-import { PageLoaderWhiteScreen } from "@/components";
-const HomeComponents = dynamic(() => import("@/components/forPages/home"), {
-   loading: () => <PageLoaderWhiteScreen />,
-});
+import HomeComponents from "@/components/forPages/home";
 
 const HomePage: FC = (): JSX.Element => {
    return <HomeComponents />;

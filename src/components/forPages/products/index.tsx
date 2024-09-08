@@ -1,6 +1,6 @@
 "use client";
 
-import { ChangeEvent, FC, useCallback, useState } from "react";
+import { ChangeEvent, FC, useState } from "react";
 import { toast } from "react-toastify";
 import GetAllProducts from "@/services/reactQuery/allProducts";
 // COMPONENT

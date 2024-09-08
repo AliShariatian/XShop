@@ -1,13 +1,9 @@
 import { FC } from "react";
 import type { Metadata } from "next";
-import dynamic from "next/dynamic";
 import { staticPageMetadata, PageTitlePrefix } from "@/SEO";
 
-import { PageLoaderWhiteScreen } from "@/components";
 import { fetchSingleProduct } from "@/services/axios/requests/products";
-const SingleProductComponents = dynamic(() => import("@/components/forPages/product"), {
-   loading: () => <PageLoaderWhiteScreen />,
-});
+import SingleProductComponents from "@/components/forPages/product";
 
 // Get dynamic browser title and description for SEO
 export const generateMetadata = async ({ params }: { params: { product: string } }): Promise<Metadata> => {

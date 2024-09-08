@@ -4,7 +4,7 @@ import { FC, memo } from "react";
 import { toast } from "react-toastify";
 // TYPE
 import { TVitrineProps } from "./type";
-import { IProducts } from "@/components/product/type";
+import { IProducts } from "@/components/common/product/type";
 // COMPONENT
 import Link from "next/link";
 import { Section, ProductCard, Button, ProductCardSkeleton, ScrollById, BigHeading } from "@/components";

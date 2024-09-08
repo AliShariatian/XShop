@@ -1,6 +1,6 @@
 "use client";
 
-import { FC, memo, useCallback, useRef, useState } from "react";
+import { FC, memo, useCallback, useState } from "react";
 import { navMenuItems } from "./navMenuItems";
 // ICON
 import { searchIcon, hamburgerMenuIcon } from "@/public/img";
@@ -17,8 +17,6 @@ const Header: FC = (): JSX.Element => {
    const [closeTopNavbar, setCloseTopNavbar] = useState<boolean>(false);
    const [isMobileNavMenuClose, setIsMobileNavMenuClose] = useState<boolean>(true);
    const [isShowSearchInput, setIsShowSearchInput] = useState<boolean>(false);
-
-   const searchInputRef = useRef<HTMLInputElement>(null);
 
    // onClick
    const closeTopNavbarHandler = () => {

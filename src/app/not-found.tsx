@@ -1,10 +1,5 @@
 import { FC } from "react";
-import dynamic from "next/dynamic";
-
-import { PageLoaderWhiteScreen } from "@/components";
-const NotFound404Components = dynamic(() => import("@/components/forPages/not-found"), {
-   loading: () => <PageLoaderWhiteScreen />,
-});
+import NotFound404Components from "@/components/forPages/not-found";
 
 const NotFound404Page: FC = (): JSX.Element => {
    return <NotFound404Components />;

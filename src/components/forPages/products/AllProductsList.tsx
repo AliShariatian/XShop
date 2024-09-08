@@ -1,5 +1,5 @@
 import { FC, memo } from "react";
-import { IProductCard } from "@/components/product/type";
+import { IProductCard } from "@/components/common/product/type";
 import { ProductCard, ProductCardSkeleton } from "@/components";
 
 const SHOW_PRODUCTS_PER_PAGE = 3;

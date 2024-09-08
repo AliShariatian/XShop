@@ -1,10 +1,10 @@
 import { FC, PropsWithChildren } from "react";
-// HOC
-import ReactQueryProvider from "@/components/HOC/ReactQueryProvider";
-import ReduxProvider from "@/components/HOC/ReduxProvider";
+
+import ReactQueryProvider from "@/providers/ReactQueryProvider";
+import ReduxProvider from "@/providers/ReduxProvider";
 import MaterialUIThemeProvider from "./MaterialUIThemeProvider";
 
-const HOCProvider: FC<PropsWithChildren> = ({ children }): JSX.Element => {
+const Providers: FC<PropsWithChildren> = ({ children }): JSX.Element => {
    return (
       <ReduxProvider>
          <ReactQueryProvider>
@@ -14,4 +14,4 @@ const HOCProvider: FC<PropsWithChildren> = ({ children }): JSX.Element => {
    );
 };
 
-export default HOCProvider;
+export default Providers;
