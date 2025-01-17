@@ -1,5 +1,5 @@
 import axios, { AxiosInstance } from "axios";
-import baseURL from "./baseURL";
+import { baseURL } from "./baseURL";
 import requestInterceptor from "../interceptors/request";
 import responseInterceptor from "../interceptors/response";
 

@@ -1,4 +1,1 @@
-const baseURL: string =
-   process.env.NODE_ENV === "development" ? ("http://localhost:8080/" as const) : ("https://api.xshop.shariatian.ir/" as const);
-
-export default baseURL;
+export const baseURL: string = "https://xshop-backend.vercel.app/" as const;

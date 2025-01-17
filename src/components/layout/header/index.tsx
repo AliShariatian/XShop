@@ -63,7 +63,10 @@ const Header: FC = (): JSX.Element => {
                   <ul className="flex gap-5">
                      {navMenuItems.map(({ href, label }) => (
                         <li key={label}>
-                           <Link href={href} className="font-medium text-dark/60 transition-colors hover:text-dark">
+                           <Link
+                              href={href}
+                              className={`${href === "/products" ? "animate-pulse font-bold" : "font-medium"} text-dark/60 transition-colors hover:text-dark`}
+                           >
                               {label}
                            </Link>
                         </li>
