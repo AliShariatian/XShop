@@ -12,7 +12,7 @@ const HomeComponents: FC = (): JSX.Element => {
             productShowCount={4}
             sortBy="createdAt"
             order="descending"
-            buttonHref="/"
+            buttonHref="/products"
          />
          <hr className="container opacity-70" />
          <Vitrine
@@ -21,7 +21,7 @@ const HomeComponents: FC = (): JSX.Element => {
             productShowCount={4}
             sortBy="saleCount"
             order="descending"
-            buttonHref="/"
+            buttonHref="/products"
          />
          <Gallery />
          <CustomersComment />
